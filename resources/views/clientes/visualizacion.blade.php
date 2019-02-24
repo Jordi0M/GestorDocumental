@@ -6,14 +6,15 @@
 <body>
 
 
-	@extends('links')
+	@extends('layouts.master')
 
 	@section('content')
 
+	<p id="datos" hidden>{{$arrayClientes}}</p> 
 		<table class="table">
 			<thead class="thead-dark">
 				<tr>
-					<th>prueba</th>
+					<th colspan="4" style="text-align: center">Clientes</th>
 				</tr>
 				<tr>
 					<th>Nombre</th>
@@ -26,7 +27,7 @@
 	@foreach( $arrayClientes as $clientes)
 				<tr>
 					<td>
-						<a href="">{{$clientes->nombre}}</a>
+						<a href="" class="nombre_cliente">{{$clientes->nombre}}</a>
 					</td>
 					<td>
 						{{$clientes->documento}}
@@ -46,7 +47,24 @@
 	@endforeach
 			</tbody>
 		</table>
+		<table class="table">
+			<thead class="thead-dark">
+				<tr>
+					<th colspan="4" style="text-align: center">Clientes</th>
+				</tr>
+				<tr>
+					<th>Nombre</th>
+					<th>CIF/NIF</th>
+					<th>Telefono</th>
+					<th>Botones</th>
+				</tr>
+			</thead>
+			<tbody class="tbody">
+				
+			</tbody>
+		</table>
 	@stop
+	<button onclick="datos()">dale</button>
 
 </body>
 </html>
