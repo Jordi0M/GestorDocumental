@@ -11,6 +11,6 @@ class ControladorClientes extends Controller
 	{
 		$clientes = DB::table('clientes')->get();
 
-	    return view('clientes.ViewClients', ['ListClients' => $clientes]);
+	    return view('clientes.VistaClientes', ['ListaClientes' => $clientes]);
 	}
 }

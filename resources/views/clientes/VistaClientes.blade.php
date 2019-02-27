@@ -27,14 +27,14 @@
 		  </thead>
 		  <tbody>
 
-		  	@foreach ($ListClients as $user)
+		  	@foreach ($ListaClientes as $cliente)
 	    	
 		
 		    <tr>
-		      <th scope="row">{{ $user->nombre}}</th>
-		      <td>{{$user->telefono}}</td>
-		      <td>{{ $user->direccion }}</td>
-		      <td>{{ $user->provincia}}</td>
+		      <th scope="row">{{ $cliente->nombre}}</th>
+		      <td>{{$cliente->telefono}}</td>
+		      <td>{{ $cliente->direccion }}</td>
+		      <td>{{ $cliente->provincia}}</td>
 		      <td>
 		      	<div style="width: 40%;">
 		      		<button type="button" class="btn btn-success">Detalle</button>
