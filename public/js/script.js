@@ -26,7 +26,9 @@ function listadoClientes(datosJSON){
 				$("<td>").append(//en este "td" meteremos un div con todos los botones
 					$("<div style='width: 40%;'>").append(
 						$(boton_detalle_cliente).append(//dentro del boton meteremos un icono y texto
-						$(icono_detalle_cliente).text("Detalles"))
+						$(icono_detalle_cliente).text("Detalle")).on(
+						//añadimos la ruta de redirigir
+						"click",redirigir_a_DetalleClientes)
 					).append(//y aqui el siguiente boton en el mismo "td"
 						$(boton_eliminar_cliente).append(
 						$(icono_papelera).text("Eliminar"))
@@ -35,4 +37,8 @@ function listadoClientes(datosJSON){
 				)
 		);
 	}
+}
+
+function redirigir_a_DetalleClientes(){
+	window.location='/detalle';
 }
