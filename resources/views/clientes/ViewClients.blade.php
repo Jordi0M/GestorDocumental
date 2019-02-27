@@ -2,13 +2,25 @@
 
 @section('content')
 	<div class="row mt-5">
-		<div class="col-6 mb-5" style="display: flex;">
-			
-		    <input type="text" class="form-control" placeholder="First name">
-		    
-		    <button type="button" class="btn btn-primary ml-1">Search</button>
-	    </div>
+	<div class="d-inline p-2 "style="width:100%;">
+		<div style="display:flex;">	
+			<div>
+				<h3>Listado de Clientes</h3>
+			</div>
+				<div>
+					<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
 
+					<button type="button" class="btn btn-primary">Nuevo</button>
+					<button type="button" class="btn btn-warning">Warning</button>
+				</div>
+	</div>
+			<div class="col-6 mb-5" style="display: flex;">
+				
+					<input type="text" class="form-control" placeholder="First name">
+					
+					<button type="button" class="btn btn-primary ml-1">Search</button>
+				</div>
+</div>
  
 		<table class="table">
 		  <thead class="thead-light">
@@ -45,6 +57,9 @@
 		</table>
 		
 	</div>
+
+@include('../modal')
+
     
 @endsection
 
