@@ -2,6 +2,12 @@
 <html>
 <head>
 	<meta charset="utf-8">
+
+	<!--JS propio-->
+	<script type="text/javascript" src="/js/script.js"></script>
+	<!--Font Awesome (iconos)-->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>ADVentas | www.incanatoit.com</title>
     <!-- Tell the browser to be responsive to screen width -->
@@ -188,6 +194,20 @@
 
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
+
+    <!--Este script de aqui, recogera los datos que le diga el controlador,
+		luego, será llamado por la vista, y la vista sabra a que componente llamar
+		para generar los datos correspondientes-->
+	<script type="text/javascript">
+		function recoger_Datos(){
+			var datos = '{{$ListaClientes}}';
+			//lo transformamos en JSON para poder trabajar con ellos
+			//tambien remplazaremos el "&quot que aparece"
+			datos_JSON = JSON.parse(datos.replace(/&quot;/g,'"'));
+			return datos_JSON;
+		}
+	</script>
+
       <!--Fin-Contenido-->
       <footer class="main-footer">
        

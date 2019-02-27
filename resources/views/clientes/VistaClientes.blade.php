@@ -25,7 +25,7 @@
 		      <th scope="col">Opciones</th>
 		    </tr>
 		  </thead>
-		  <tbody>
+		  <tbody class="tbody">
 
 		  	@foreach ($ListaClientes as $cliente)
 	    	
@@ -51,6 +51,18 @@
 		
 	</div>
 
+	<button onclick="llamar_Datos()">pruebas</button>
+
+	<script type="text/javascript">
+		/*
+		con este script, llamaremos a la funcion que recoge datos (que esta en master),
+		y los usaremos para crear la vista correspondiente (listado clientes)
+		*/
+		function llamar_Datos(){
+			recoger_Datos();
+			listadoClientes(datos_JSON);
+		}
+	</script>
 
 
 			
