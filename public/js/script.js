@@ -23,12 +23,14 @@ function listadoClientes(datosJSON){
 				).append(
 				$("<td>").text(datos[i]["provincia"])
 				).append(
-				$("<td>").append(//en este "td" meteremos todos los botones
-					$(boton_detalle_cliente).append(//dentro del boton meteremos un icono y texto
-					$(icono_detalle_cliente).text("Detalles"))
-				).append(//y aqui el siguiente boton en el mismo "td"
-					$(boton_eliminar_cliente).append(
-					$(icono_papelera).text("Eliminar"))
+				$("<td>").append(//en este "td" meteremos un div con todos los botones
+					$("<div style='width: 40%;'>").append(
+						$(boton_detalle_cliente).append(//dentro del boton meteremos un icono y texto
+						$(icono_detalle_cliente).text("Detalles"))
+					).append(//y aqui el siguiente boton en el mismo "td"
+						$(boton_eliminar_cliente).append(
+						$(icono_papelera).text("Eliminar"))
+						)
 					)
 				)
 		);
