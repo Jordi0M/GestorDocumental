@@ -1,26 +1,19 @@
 @extends('layouts.master')
 
-@section('content')
-	<div class="row mt-5">
-	<div class="d-inline p-2 "style="width:100%;">
-		<div style="display:flex;">	
-			<div>
-				<h3>Listado de Clientes</h3>
-			</div>
-				<div>
-					<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
-
-					<button type="button" class="btn btn-primary">Nuevo</button>
-					<button type="button" class="btn btn-warning">Warning</button>
-				</div>
+@section('contenido')
+	<div class="row">
+		<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+			<h3>Listado de Clientes <button class="btn btn-success" data-toggle="modal" data-target="#myModal">Nuevo</button></h3>
+			@include('../modal')
+		</div>
 	</div>
-			<div class="col-6 mb-5" style="display: flex;">
-				
-					<input type="text" class="form-control" placeholder="First name">
-					
-					<button type="button" class="btn btn-primary ml-1">Search</button>
-				</div>
-</div>
+	<div class="col-6 mb-5 " style="display: flex; width: 30%;">
+		
+			<input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
+			
+			<button type="button" class="btn btn-primary ml-1">Search</button>
+		
+	</div>
  
 		<table class="table">
 		  <thead class="thead-light">
@@ -44,9 +37,9 @@
 		      <td>{{ $user->provincia}}</td>
 		      <td>
 		      	<div style="width: 40%;">
-		      		<button type="button" class="btn btn-success">Success</button>
+		      		<button type="button" class="btn btn-success">Detalle</button>
 
-		      		<button type="button" class="btn btn-danger">Danger</button>
+		      		<button type="button" class="btn btn-danger">Eliminar</button>
 
 		      	</div>
 		      </td>
@@ -58,9 +51,9 @@
 		
 	</div>
 
-@include('../modal')
 
-    
+
+			
 @endsection
 
 
