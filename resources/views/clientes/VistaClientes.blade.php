@@ -51,9 +51,12 @@
 		
 	</div>
 
-	<button onclick="llamar_Datos()">pruebas</button>
-
 	<script type="text/javascript">
+		//una vez este todo cargado, llamara a los datos
+		document.addEventListener('DOMContentLoaded', function(){
+		    llamar_Datos();
+		});
+
 		/*
 		con este script, llamaremos a la funcion que recoge datos (que esta en master),
 		y los usaremos para crear la vista correspondiente (listado clientes)
