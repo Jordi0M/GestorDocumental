@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>ADVentas | www.incanatoit.com</title>
+    
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
@@ -17,7 +17,66 @@
     <link rel="stylesheet" href="{{'css/_all-skins.min.css'}}">
     <link rel="apple-touch-icon" href="{{'img/apple-touch-icon.png'}}">
     <link rel="shortcut icon" href="{{'img/favicon.ico'}}">
+		<link rel="stylesheet" href="{{'https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css'}}">
+  	<script src="{{'https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'}}"></script>
+  	<script src="{{'https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js'}}"></script>
+		<link href="{{'//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'}}" rel="stylesheet">
 
+	<style>
+		.text {
+  font-size:28px;
+  font-family:helvetica;
+  font-weight:bold;
+  color:#71d90b;
+  text-transform:uppercase;
+}
+.parpadea {
+  
+  animation-name: parpadeo;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+
+  -webkit-animation-name:parpadeo;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+}
+
+@-moz-keyframes parpadeo{  
+  0% { opacity: 1.0; }
+  50% { opacity: 0.0; }
+  100% { opacity: 1.0; }
+}
+
+@-webkit-keyframes parpadeo {  
+  0% { opacity: 1.0; }
+  50% { opacity: 0.0; }
+   100% { opacity: 1.0; }
+}
+
+@keyframes parpadeo {  
+  0% { opacity: 1.0; }
+   50% { opacity: 0.0; }
+  100% { opacity: 1.0; }
+}
+
+.alert.alert-danger {
+    border-color: #df5138;
+    background: #e46f61;
+}
+
+.alert {
+    margin-bottom: 20px;
+    margin-top: 0;
+    color: #fff;
+    border-width: 0;
+    border-left-width: 5px;
+    padding: 10px;
+    border-radius: 0;
+}
+
+	</style>
   </head>
   <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
@@ -157,7 +216,7 @@
         
         <!-- Main content -->
         <section class="content">
-          
+										
           <div class="row">
             <div class="col-md-12">
               <div class="box">
@@ -167,6 +226,14 @@
                     <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                     
                     <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+										<div class="container bootstrap snippet">
+								<div class="col-md-6">
+									<div class="alert alert-danger fade in radius-bordered alert-shadowed alert-dismissible">
+										
+										<span class="parpadea text"><strong>Error!</strong> Update has failed.</span>
+									</div>
+								</div>
+					</div>    
                   </div>
                 </div>
                 <!-- /.box-header -->
@@ -185,6 +252,7 @@
               </div><!-- /.box -->
             </div><!-- /.col -->
           </div><!-- /.row -->
+					                
 
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
