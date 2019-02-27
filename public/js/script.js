@@ -1,34 +1,44 @@
-
-function datos(){
+function listadoClientes(datosJSON){
 	
 	//php recoge los datos, y los guardamos en una variable de javascript
-	var datos = $("#datos")[0].innerHTML;
-	//lo transformamos en JSON para poder trabajar con ellos
-	var datos = JSON.parse(datos);
+	//var datos = $("#datos")[0].innerHTML;
+	var datos = datosJSON;
 	//console.log(datos);
+	var enlace_nombre_cliente = "<a href='#' class='nombre_cliente'>";
+	var boton_detalle_cliente = "<button type='button' class='btn btn-success'>";
+	var icono_detalle_cliente = "<i class='fas fa-search-plus'>";
+	var boton_eliminar_cliente = "<button type='button' class='btn btn-danger'>";
+	var icono_papelera = "<i class='fas fa-trash'>";
+
 
 	for (var i = 0; i<datos.length; i++) {
-		$(".tbody").append(
-			$("<tr>").append(
-				$("<td>").append(
-				$("<a href='#' class='nombre_cliente'>").text(datos[i]["nombre"])
+		$(".tbody").append(//todo esto se añadira al tbody
+			$("<tr>").append(//creamos un tr y añadiremos el contenido
+				$("<th scope=row>").append(//comenzamos a añadir a los "td" tanto texto como botones
+				$(enlace_nombre_cliente).text(datos[i]["nombre"])
 				)).append(
-				$("<td>").text(datos[i]["documento"])
-				).append(
 				$("<td>").text(datos[i]["telefono"])
 				).append(
-				$("<td>").append(
-					$("<button type='button' class='btn btn-info'>")
-				.append(
-					$("<i class='fas fa-search-plus'>").text("Detalles"))
-				).append($("<button type='button' class='btn btn-danger'>")
-				.append(
-					$("<i class='fas fa-trash'>").text("Eliminar"))
+				$("<td>").text(datos[i]["direccion"])
+				).append(
+				$("<td>").text(datos[i]["provincia"])
+				).append(
+				$("<td>").append(//en este "td" meteremos un div con todos los botones
+					$("<div style='width: 40%;'>").append(
+						$(boton_detalle_cliente).append(//dentro del boton meteremos un icono y texto
+						$(icono_detalle_cliente).text("Detalle")).on(
+						//añadimos la ruta de redirigir
+						"click",redirigir_a_DetalleClientes)
+					).append(//y aqui el siguiente boton en el mismo "td"
+						$(boton_eliminar_cliente).append(
+						$(icono_papelera).text("Eliminar"))
+						)
+					)
 				)
-				)
-			);
-
+		);
 	}
+}
 
-	
+function redirigir_a_DetalleClientes(){
+	window.location='/detalle';
 }

@@ -18,3 +18,4 @@ Route::get('/', function () {
 //Route::get('/visualizacionclientes', 'ControladorClientes@getListadoClientes');
 
 Route::get('/', 'ControladorClientes@getListadoClientes');
+Route::get('/detalle', 'ControladorClientes@getDetalleClientes');

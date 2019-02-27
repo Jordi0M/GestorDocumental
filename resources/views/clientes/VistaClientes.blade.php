@@ -25,16 +25,16 @@
 		      <th scope="col">Opciones</th>
 		    </tr>
 		  </thead>
-		  <tbody>
+		  <tbody class="tbody">
 
-		  	@foreach ($ListClients as $user)
+		  	@foreach ($ListaClientes as $cliente)
 	    	
 		
 		    <tr>
-		      <th scope="row">{{ $user->nombre}}</th>
-		      <td>{{$user->telefono}}</td>
-		      <td>{{ $user->direccion }}</td>
-		      <td>{{ $user->provincia}}</td>
+		      <th scope="row">{{ $cliente->nombre}}</th>
+		      <td>{{$cliente->telefono}}</td>
+		      <td>{{ $cliente->direccion }}</td>
+		      <td>{{ $cliente->provincia}}</td>
 		      <td>
 		      	<div style="width: 40%;">
 		      		<button type="button" class="btn btn-success">Detalle</button>
@@ -51,6 +51,18 @@
 		
 	</div>
 
+	<button onclick="llamar_Datos()">pruebas</button>
+
+	<script type="text/javascript">
+		/*
+		con este script, llamaremos a la funcion que recoge datos (que esta en master),
+		y los usaremos para crear la vista correspondiente (listado clientes)
+		*/
+		function llamar_Datos(){
+			recoger_Datos();
+			listadoClientes(datos_JSON);
+		}
+	</script>
 
 
 			
