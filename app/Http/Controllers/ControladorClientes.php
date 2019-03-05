@@ -15,11 +15,14 @@ class ControladorClientes extends Controller
 	    return view('clientes.VistaClientes', ['ListaClientes' => $clientes]);
 	}
 
-	public function getDetalleClientes()
+	public function getDetalleClientes($id)
 	{
 		$clientes = DB::table('clientes')->get();
 
-	    return view('clientes.DetalleClientes', ['ListaClientes' => $clientes]);
+		dd($clientes[0]);
+		//return $clientes[$id];
+
+	    //return view('clientes.DetalleClientes', ['ListaClientes' => $clientes[$id]]);
 	}
 
 	public function guardarCliente(Request $request)
