@@ -18,12 +18,10 @@ class ControladorClientes extends Controller
 	public function getDetalleClientes($id)
 	{
 		$clientes = DB::table('clientes')->where('id', $id)->get();
-		
-		var_dump(json_decode($clientes, true));
-		//var_dump($clientes[0]);
-		//return $clientes[$id];
 
-	    //return view('clientes.DetalleClientes', ['ListaClientes' => $clientes[$id]]);
+		return $clientes;
+
+	    //return view('clientes.DetalleClientes', ['ListaClientes' => $clientes]);
 	}
 
 	public function guardarCliente(Request $request)
