@@ -13,7 +13,7 @@
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
-    <link rel="stylesheet" href="{{'css/bootstrap.min.css'}}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css')}}">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{'css/font-awesome.css'}}">
     <!-- Theme style -->
@@ -285,7 +285,7 @@
     <!-- jQuery 2.1.4 -->
     <script src="{{'js/jQuery-2.1.4.min.js'}}"></script>
     <!-- Bootstrap 3.3.5 -->
-    <script src="{{'js/bootstrap.min.js'}}"></script>
+    <script src="{{asset('js/bootstrap.min.js')}}"></script>
     <!-- AdminLTE App -->
     <script src="{{'js/app.min.js'}}"></script>
     
