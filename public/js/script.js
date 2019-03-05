@@ -29,14 +29,11 @@ function listadoClientes(datosJSON){
 						$(icono_detalle_cliente).text("Detalle")).on(
 						//añadimos la ruta de redirigir
 						"click",redirigir_a_DetalleClientes)
-					).append(//y aqui el siguiente boton en el mismo "td"
-						$(boton_eliminar_cliente).append(
-						$(icono_papelera).text("Eliminar"))
-						)
-					)
-				)
-		);
-	}
+					)//cerramos el div
+					)//cerramos el td
+				)//cerramos el tr
+		);//cerramos el tbody
+	}//cerramos el for
 }
 
 function redirigir_a_DetalleClientes(){
