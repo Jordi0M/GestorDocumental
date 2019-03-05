@@ -18,4 +18,5 @@ Route::get('/', function () {
 //Route::get('/visualizacionclientes', 'ControladorClientes@getListadoClientes');
 
 Route::get('/', 'ControladorClientes@getListadoClientes');
+Route::post('/','ControladorClientes@guardarCliente');
 Route::get('/detalle', 'ControladorClientes@getDetalleClientes');

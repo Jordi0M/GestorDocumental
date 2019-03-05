@@ -3,7 +3,7 @@
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
     	<div class="alert alert-danger" style="display:none"></div>
-      <div class="modal-header">
+    <div class="modal-header">
       	
         <h5 class="modal-title">Nuevo Cliente</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -11,6 +11,8 @@
         </button>
       </div>
       <div class="modal-body">
+        <form action="/" method="POST">
+            {{ csrf_field() }}
             <div style="display:flex;">   
                 <div class="form-group">
                         <label for="nombre">Nombre</label>
@@ -18,45 +20,45 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="descripcion">Documento</label>
-                    <input type="text" name="dereccion" class="form-control" placeholder="Documento...">
+                    <label for="documento">DNI/NIF</label>
+                    <input type="text" name="documento" class="form-control" placeholder="DNI/NIF...">
                 </div>
             </div>
                 <!--------->
             <div>
                 <div class="form-group">
-                    <label for="descripcion">Direccion</label>
-                    <input type="text" name="dereccion" class="form-control" placeholder="Direccion...">
+                    <label for="direccion">Direccion</label>
+                    <input type="text" name="direccion" class="form-control" placeholder="Direccion...">
                 </div>
             </div>
                 <!--------->
             <div style="display:flex;">
                 <div class="form-group">
-                    <label for="descripcion">Provincia</label>
-                    <input type="text" name="dereccion" class="form-control" placeholder="Provincia...">
+                    <label for="provincia">Provincia</label>
+                    <input type="text" name="provincia" class="form-control" placeholder="Provincia...">
                 </div>
         
         
                 <div class="form-group">
-                        <label for="nombre">Localidad</label>
-                        <input type="text" name="nombre" class="form-control"placeholder="Documento...">
+                        <label for="localidad">Localidad</label>
+                        <input type="text" name="localidad" class="form-control"placeholder="Documento...">
                 </div>
 
                 <div class="form-group">
-                    <label for="descripcion">Codigo Postal</label>
-                    <input type="text" name="dereccion" class="form-control" placeholder="C.P...">
+                    <label for="cp">Codigo Postal</label>
+                    <input type="text" name="cp" class="form-control" placeholder="C.P...">
                 </div>
             </div>
             <!--------->
             <div style="display:flex;">
                 <div class="form-group">
-                    <label for="descripcion">Telefono</label>
-                    <input type="text" name="dereccion" class="form-control" placeholder="Telefono...">
+                    <label for="telefono">Telefono</label>
+                    <input type="text" name="telefono" class="form-control" placeholder="Telefono...">
                 </div>
 
                 <div class="form-group">
-                    <label for="descripcion">Mail</label>
-                    <input type="text" name="dereccion" class="form-control" placeholder="Mail...">
+                    <label for="mail">Mail</label>
+                    <input type="text" name="mail" class="form-control" placeholder="Mail...">
                 </div>
             </div>
             <!--------->
@@ -64,9 +66,9 @@
 
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button  class="btn btn-success" id="ajaxSubmit">Save changes</button>
+                <button type="submit" class="btn btn-success" id="ajaxSubmit">Save changes</button>
             </div>
-         
+        </form>
     </div>
   </div>
 </div>
