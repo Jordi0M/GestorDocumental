@@ -23,7 +23,7 @@ class CreateClientesTable extends Migration
             $table->integer('cp');
             $table->integer('telefono')->unsigned();
             $table->string('mail');
-            $table->date('fecha_modificacion');
+            $table->date('fecha_modificacion')->nullable();
             $table->timestamps();
         });
 
@@ -56,6 +56,8 @@ class CreateClientesTable extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('documentos');
+        Schema::dropIfExists('ventas');
         Schema::dropIfExists('clientes');
     }
 }

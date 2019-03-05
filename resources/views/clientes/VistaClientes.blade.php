@@ -26,7 +26,7 @@
 		    </tr>
 		  </thead>
 		  <tbody class="tbody">
-
+		<!--
 		  	@foreach ($ListaClientes as $cliente)
 	    	
 		
@@ -46,6 +46,7 @@
 		    </tr>
 		    
 		    @endforeach
+		-->
 		  </tbody>
 		</table>
 		
