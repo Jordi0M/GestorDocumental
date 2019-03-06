@@ -43,6 +43,7 @@
 		//una vez este todo cargado, llamara a los datos
 		document.addEventListener('DOMContentLoaded', function(){
 		    llamar_Datos();
+		    $( "#boton_editar_cliente" ).on( "click", editarDatosCliente );
 		});
 
 		/*

@@ -80,3 +80,14 @@ function detalleCliente(datosJSON){
 			)//cerramos el td
 	);//cerramos el tbody 2
 }
+
+function editarDatosCliente (){
+	$(".datos_cliente").attr("readonly",false);
+	$(".datos_cliente").hover(function(){
+		$(this).css("background-color","rgba(0,255,0,0.3)");//con esto se volvera verde al pasar por encima
+		},
+		function() {
+	    	$(this).css('background-color', 'rgba(128, 255, 255, 0)');//con esto cuando quites el raton, estara blanco otra vez el fondo
+	  	}
+	)
+}
