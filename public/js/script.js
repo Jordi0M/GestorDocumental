@@ -1,9 +1,7 @@
 function listadoClientes(datosJSON){
 	
 	//php recoge los datos, y los guardamos en una variable de javascript
-	//var datos = $("#datos")[0].innerHTML;
 	var datos = datosJSON;
-	//console.log(datos);
 	var enlace_nombre_cliente = "<a href='#' class='nombre_cliente'>";
 	var icono_detalle_cliente = "<i class='fas fa-search-plus'>";
 
@@ -38,4 +36,28 @@ function listadoClientes(datosJSON){
 function redirigir_a_DetalleClientes(id){
 
 	window.location='/detalle/'+id;
+}
+
+function detalleCliente(datosJSON){
+	//como en el array que recibe, solo es de un cliente propio, le daremos la primera posicon (0)
+	var datos = datosJSON[0];
+
+	//datos del cliente
+	var nombre = $("<input type=text value="+datos["nombre"]+" class=datos_cliente readonly/>");
+	var documento = $("<input type=text value="+datos["documento"]+" class=datos_cliente readonly/>");
+	var telefono = $("<input type=text value="+datos["telefono"]+" class=datos_cliente readonly/>");
+	var mail = $("<input type=label value="+datos["mail"]+" class=datos_cliente readonly/>");
+	var direccion = $("<input type=label value="+datos["direccion"]+" class=datos_cliente readonly/>");
+	var provincia = $("<input type=label value="+datos["provincia"]+" class=datos_cliente readonly/>");
+	var localidad = $("<input type=label value="+datos["localidad"]+" class=datos_cliente readonly/>");
+	var cp = $("<input type=label value="+datos["cp"]+" class=datos_cliente readonly/>");
+
+	$("#nombre_cliente").text(datos["nombre"]);
+
+	$(".tbody").append(//le añadiremos un tr al tbody:
+		$("<tr>").append(//al tr le iremos añadiendo varios td
+			$("<td>").append(nombre//añadiremos el nombre al td
+				)//cerramos el td
+			)//cerramos el tr
+	);//cerramos el tbody
 }
