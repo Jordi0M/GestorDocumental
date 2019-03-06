@@ -233,12 +233,7 @@
                 <div class="box-header with-border">
                   <h3 class="box-title">Sistema de Ventas</h3>
                   <div class="box-tools pull-right">
-                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                    
-                    <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-										<div class="container bootstrap snippet">
-								    <div class="col-md-6">
-									  <div id="Error" class="alert alert-danger fade in radius-bordered alert-shadowed alert-dismissible">
+                   
 										
 										  
 									</div>
