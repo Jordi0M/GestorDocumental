@@ -17,9 +17,7 @@ class ControladorClientes extends Controller
 
 	public function getDetalleClientes($id)
 	{
-		$clientes = DB::table('clientes')->where('id', $id)->get(['id']);
-
-		//return $clientes;
+		$clientes = DB::table('clientes')->where('id', $id)->get();
 
 	    return view('clientes.DetalleClientes', ['ListaClientes' => $clientes]);
 	}
