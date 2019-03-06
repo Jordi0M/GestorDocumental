@@ -82,7 +82,7 @@ function detalleCliente(datosJSON){
 }
 
 function editarDatosCliente (){
-	$(".datos_cliente").attr("readonly",false);
+	$(".datos_cliente").attr("readonly",false);//se quitara el readonly
 	$(".datos_cliente").hover(function(){
 		$(this).css("background-color","rgba(0,255,0,0.3)");//con esto se volvera verde al pasar por encima
 		},
@@ -90,4 +90,14 @@ function editarDatosCliente (){
 	    	$(this).css('background-color', 'rgba(128, 255, 255, 0)');//con esto cuando quites el raton, estara blanco otra vez el fondo
 	  	}
 	)
+	reemplazarBotonEditarCliente();
+}
+
+function reemplazarBotonEditarCliente (){
+	$("#boton_editar_cliente").text("Guardar")
+	$( "#boton_editar_cliente" ).on( "click",  guardarDatosEditados );
+}
+
+function guardarDatosEditados(){
+	$("#formulario_detalle_clientes").submit();
 }

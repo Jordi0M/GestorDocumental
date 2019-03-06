@@ -1,18 +1,21 @@
 @extends('layouts.master')
 
 @section('contenido')
-	<div class="row">
-		<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-			<h3 id="nombre_cliente"><button class="btn btn-success" id="boton_editar_cliente">Editar</button></h3>
+	
+		<div class="row">
+			<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+				<h3 id="nombre_cliente"><button class="btn btn-success" id="boton_editar_cliente">Editar</button></h3>
+			</div>
 		</div>
-	</div>
-	<div class="col-6 mb-5 " style="display: flex; width: 30%;">
-		
-			<input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
+		<div class="col-6 mb-5 " style="display: flex; width: 30%;">
 			
-			<button type="button" class="btn btn-primary ml-1">Search</button>
-		
-	</div>
+				<input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
+				
+				<button type="button" class="btn btn-primary ml-1">Search</button>
+			
+		</div>
+	<form method="POST" id="formulario_detalle_clientes">
+            {{ csrf_field() }}
 		<table class="table">
 		  <thead class="thead-light">
 		    <tr>
@@ -38,12 +41,15 @@
 		  <tbody class="tbody2">
 		  </tbody>
 		</table>
+	</form>
 
 <script type="text/javascript">
 		//una vez este todo cargado, llamara a los datos
 		document.addEventListener('DOMContentLoaded', function(){
 		    llamar_Datos();
-		    $( "#boton_editar_cliente" ).on( "click", editarDatosCliente );
+		    $( "#boton_editar_cliente" ).on( "click", editarDatosCliente ); //le asignamos el onclick de editar datos
+		    $("#formulario_detalle_clientes").attr("action","/detalle/"+datos_JSON[0]["id"]);
+		    //ponemos bien el ID del formulario para el action
 		});
 
 		/*
