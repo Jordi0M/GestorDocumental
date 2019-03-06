@@ -49,7 +49,7 @@
         
                 <div class="form-group">
                         <label for="localidad">Localidad</label>
-                        <input type="text" name="localidad" class="form-control"placeholder="Documento...">
+                        <input type="text" name="localidad" class="form-control"placeholder="Localidad...">
                 </div>
 
                 <div class="form-group">
