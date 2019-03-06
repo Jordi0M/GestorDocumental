@@ -5,6 +5,8 @@
 
 	<!--JS propio-->
 	<script type="text/javascript" src="/js/script.js"></script>
+  <!--CSS propio-->
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
 	<!--Font Awesome (iconos)-->
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
@@ -15,12 +17,12 @@
     <!-- Bootstrap 3.3.5 -->
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css')}}">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="{{'css/font-awesome.css'}}">
+    <link rel="stylesheet" href="{{asset('css/font-awesome.css')}}">
     <!-- Theme style -->
-    <link rel="stylesheet" href="{{'css/AdminLTE.min.css'}}">
+    <link rel="stylesheet" href="{{asset('css/AdminLTE.min.css')}}">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
-    <link rel="stylesheet" href="{{'css/_all-skins.min.css'}}">
+    <link rel="stylesheet" href="{{asset('css/_all-skins.min.css')}}">
     <link rel="apple-touch-icon" href="{{'img/apple-touch-icon.png'}}">
     <link rel="shortcut icon" href="{{'img/favicon.ico'}}">
 		<link rel="stylesheet" href="{{'https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css'}}">
@@ -285,11 +287,11 @@
 
       
     <!-- jQuery 2.1.4 -->
-    <script src="{{'js/jQuery-2.1.4.min.js'}}"></script>
+    <script src="{{asset('js/jQuery-2.1.4.min.js')}}"></script>
     <!-- Bootstrap 3.3.5 -->
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
     <!-- AdminLTE App -->
-    <script src="{{'js/app.min.js'}}"></script>
+    <script src="{{asset('js/app.min.js')}}"></script>
     
 </body>
 </html>
