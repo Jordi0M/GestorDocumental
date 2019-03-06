@@ -2,7 +2,7 @@ function listadoClientes(datosJSON){
 	
 	//php recoge los datos, y los guardamos en una variable de javascript
 	var datos = datosJSON;
-	var enlace_nombre_cliente = "<a href='#' class='nombre_cliente'>";
+	var enlace_nombre_cliente = "<a class='nombre_cliente'>";
 	var icono_detalle_cliente = "<i class='fas fa-search-plus'>";
 
 	for (var i = 0; i<datos.length; i++) {
