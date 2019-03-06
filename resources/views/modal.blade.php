@@ -1,4 +1,8 @@
-
+<style>
+#errores{
+    color:green;
+}
+</style>
 <!-- Modal -->
 <div class="modal" tabindex="-1" role="dialog" id="myModal">
   <div class="modal-dialog modal-lg" role="document">
