@@ -1,3 +1,19 @@
+@section('script')
+<script>
+    function Comprobar(){
+        var name = document.getElementById('name').value;
+
+        if(name.lenght <= 0){
+            document.getElementById('Error').innerHTML = "No cumple con la validacion";
+        }
+
+        alert();
+    }
+    
+
+</script>
+@endsection
+
 <!-- Modal -->
 <div class="modal" tabindex="-1" role="dialog" id="myModal">
   <div class="modal-dialog modal-lg" role="document">
@@ -16,12 +32,12 @@
             <div style="display:flex;">   
                 <div class="form-group">
                         <label for="nombre">Nombre</label>
-                        <input type="text" name="nombre" class="form-control"placeholder="Nombre...">
+                        <input type="text" name="nombre" id="name" class="form-control"placeholder="Nombre...">
                 </div>
 
                 <div class="form-group">
                     <label for="documento">DNI/NIF</label>
-                    <input type="text" name="documento" class="form-control" placeholder="DNI/NIF...">
+                    <input type="text" name="documento" id="dni" class="form-control" placeholder="DNI/NIF...">
                 </div>
             </div>
                 <!--------->
@@ -66,7 +82,7 @@
 
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-success" id="ajaxSubmit">Save changes</button>
+                <button type="submit" class="btn btn-success" id="ajaxSubmit" onclick="Comprobar()">Save changes</button>
             </div>
         </form>
     </div>

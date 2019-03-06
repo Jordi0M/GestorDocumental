@@ -27,6 +27,7 @@
   	<script src="{{'https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'}}"></script>
   	<script src="{{'https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js'}}"></script>
 		<link href="{{'//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'}}" rel="stylesheet">
+    @yield('script')
 
 	<style>
 		.text {
@@ -234,15 +235,15 @@
                     
                     <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
 										<div class="container bootstrap snippet">
-								<div class="col-md-6">
-									<div class="alert alert-danger fade in radius-bordered alert-shadowed alert-dismissible">
+								    <div class="col-md-6">
+									  <div id="Error" class="alert alert-danger fade in radius-bordered alert-shadowed alert-dismissible">
 										
-										<span class="parpadea text"><strong>Error!</strong> Update has failed.</span>
+										  
 									</div>
 								</div>
-					</div>    
-                  </div>
-                </div>
+					    </div>    
+            </div>
+          </div>
                 <!-- /.box-header -->
                 <div class="box-body">
                   	<div class="row">
