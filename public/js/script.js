@@ -43,21 +43,40 @@ function detalleCliente(datosJSON){
 	var datos = datosJSON[0];
 
 	//datos del cliente
-	var nombre = $("<input type=text value="+datos["nombre"]+" class=datos_cliente readonly/>");
-	var documento = $("<input type=text value="+datos["documento"]+" class=datos_cliente readonly/>");
-	var telefono = $("<input type=text value="+datos["telefono"]+" class=datos_cliente readonly/>");
-	var mail = $("<input type=label value="+datos["mail"]+" class=datos_cliente readonly/>");
-	var direccion = $("<input type=label value="+datos["direccion"]+" class=datos_cliente readonly/>");
-	var provincia = $("<input type=label value="+datos["provincia"]+" class=datos_cliente readonly/>");
-	var localidad = $("<input type=label value="+datos["localidad"]+" class=datos_cliente readonly/>");
-	var cp = $("<input type=label value="+datos["cp"]+" class=datos_cliente readonly/>");
+	var nombre = $("<input type=text value="+datos["nombre"]+" class=datos_cliente name=nombre readonly/>");
+	var documento = $("<input type=text value="+datos["documento"]+" class=datos_cliente name=documento readonly/>");
+	var telefono = $("<input type=text value="+datos["telefono"]+" class=datos_cliente name=telefono readonly/>");
+	var mail = $("<input type=label value="+datos["mail"]+" class=datos_cliente name=mail readonly/>");
+	var direccion = $("<input type=label value="+datos["direccion"]+" class=datos_cliente name=direccion readonly/>");
+	var provincia = $("<input type=label value="+datos["provincia"]+" class=datos_cliente name=provincia readonly/>");
+	var localidad = $("<input type=label value="+datos["localidad"]+" class=datos_cliente name=localidad readonly/>");
+	var cp = $("<input type=label value="+datos["cp"]+" class=datos_cliente name=cp readonly/>");
 
-	$("#nombre_cliente").text(datos["nombre"]);
+	$("#nombre_cliente").prepend("Cliente: "+datos["nombre"]+"\t");
 
 	$(".tbody").append(//le añadiremos un tr al tbody:
 		$("<tr>").append(//al tr le iremos añadiendo varios td
 			$("<td>").append(nombre//añadiremos el nombre al td
 				)//cerramos el td
-			)//cerramos el tr
-	);//cerramos el tbody
+			).append(
+			$("<td>").append(documento)
+			).append(
+			$("<td>").append(telefono)
+			).append(
+			$("<td>").append(mail)
+			)//cerramos el td
+	);//cerramos el tbody 1
+
+	$(".tbody2").append(//este es el segundo tbody:
+		$("<tr>").append(//como en el anterior ejemplo, seguimos añadiendo td al tr
+			$("<td>").append(direccion//añadiremos el nombre al td
+				)//cerramos el td
+			).append(
+			$("<td>").append(provincia)
+			).append(
+			$("<td>").append(localidad)
+			).append(
+			$("<td>").append(cp)
+			)//cerramos el td
+	);//cerramos el tbody 2
 }
