@@ -7,6 +7,8 @@
 				<h3 id="nombre_cliente"><button class="btn btn-success" id="boton_editar_cliente">Editar</button></h3>
 			</div>
 		</div>
+		<br>
+		<!--
 		<div class="col-6 mb-5 " style="display: flex; width: 30%;">
 			
 				<input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
@@ -14,6 +16,7 @@
 				<button type="button" class="btn btn-primary ml-1">Search</button>
 			
 		</div>
+		-->
 	<form method="POST" id="formulario_detalle_clientes">
             {{ csrf_field() }}
 		<table class="table">

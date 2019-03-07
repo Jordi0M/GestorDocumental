@@ -1,7 +1,5 @@
 @extends('layouts.master')
 
-
-
 @section('contenido')
 	<div class="row">
 		<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
@@ -9,6 +7,8 @@
 			@include('../modal')
 		</div>
 	</div>
+	<br>
+	<!--
 	<div class="col-6 mb-5 " style="display: flex; width: 30%;">
 		
 			<input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
@@ -16,7 +16,7 @@
 			<button type="button" class="btn btn-primary ml-1">Search</button>
 		
 	</div>
- 
+ 	-->
 		<table class="table">
 		  <thead class="thead-light">
 		    <tr>

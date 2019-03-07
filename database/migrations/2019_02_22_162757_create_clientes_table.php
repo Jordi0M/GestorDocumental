@@ -14,22 +14,21 @@ class CreateClientesTable extends Migration
     public function up()
     {
         Schema::create('clientes', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id')->unique();
             $table->string('nombre');
-            $table->string('documento');
+            $table->string('documento',9);
             $table->string('direccion');
-            $table->string('provincia')->nullable();
-            $table->string('localidad')->nullable();
-            $table->integer('cp');
-            $table->integer('telefono')->unsigned();
+            $table->string('provincia');
+            $table->string('localidad');
+            $table->string('cp',5);
+            $table->integer('telefono',9)->unsigned();
             $table->string('mail');
-            $table->date('fecha_modificacion')->nullable();
             $table->timestamps();
         });
 
         Schema::create('ventas', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('id_cliente')->unsigned();
+            $table->increments('id')->unique();
+            $table->integer('id_cliente')->unsigned()->unsigned();
             $table->date('fecha_venta');
             $table->timestamps();
 
@@ -38,8 +37,8 @@ class CreateClientesTable extends Migration
         });
 
         Schema::create('documentos', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('id_venta')->unsigned();
+            $table->increments('id')->unique();
+            $table->integer('id_venta')->unsigned()->unsigned();
             $table->string('tipo_documento');
             $table->string('archivo');
             $table->timestamps();
