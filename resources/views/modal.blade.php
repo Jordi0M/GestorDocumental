@@ -8,16 +8,13 @@
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
     	<div class="alert alert-danger" style="display:none"></div>
-    <div class="modal-header">
+            <div class="modal-header">
       	
-        <h5 class="modal-title">Nuevo Cliente</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <div id="errores" class="alert alert-danger fade in radius-bordered alert-shadowed alert-dismissible" style="display:none">
-			
+                <h5 class="modal-title">Nuevo Cliente</h5>
+                <div class="alert alert-danger" id="errores" role="alert" style="display:none;">
+                    
                 </div>
-          
-        </button>
-      </div>
+            </div>
       <div class="modal-body">
         <form action="/" method="POST" id="form_modal">
             {{ csrf_field() }}
