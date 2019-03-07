@@ -12,7 +12,9 @@
       	
                 <h5 class="modal-title">Nuevo Cliente</h5>
                 <div class="alert alert-danger" id="errores" role="alert" style="display:none;">
-                    
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
                 </div>
             </div>
       <div class="modal-body">
