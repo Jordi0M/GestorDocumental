@@ -21,7 +21,7 @@ class CreateClientesTable extends Migration
             $table->string('provincia');
             $table->string('localidad');
             $table->string('cp',5);
-            $table->integer('telefono',9)->unsigned();
+            $table->integer('telefono')->unsigned();
             $table->string('mail');
             $table->timestamps();
         });
