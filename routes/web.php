@@ -19,9 +19,10 @@ Route::get('/', function () {
 
 Route::get('/', 'ControladorClientes@getListadoClientes');
 Route::post('/','ControladorClientes@guardarCliente');
-//Route::get('/detalle', 'ControladorClientes@getDetalleClientes');
+
 Route::get('/cliente/{id}', 'ControladorClientes@getDetalleClientes');
-Route::post('/cliente/{id}', 'ControladorClientes@guardarDatosEditadosCliente');
+Route::put('/cliente/{id}', 'ControladorClientes@guardarDatosEditadosCliente');
+Route::post('/cliente/{id}', 'ControladorVentas@nuevaVenta');
 
 Route::get('/cliente/venta/{id}', 'ControladorVentas@getDetalleVenta');
-Route::post('/cliente/venta/{id}', 'ControladorVentas@nuevaVenta');
+Route::put('/cliente/venta/{id}', 'ControladorVentas@guardarDatosEditadosVenta');

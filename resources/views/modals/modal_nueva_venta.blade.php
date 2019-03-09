@@ -19,7 +19,7 @@
                             <div class="form-group">
                                     <label for="descripcion">Inserta una pequeña descripción</label>
                                     <br><br>
-                                    <textarea name="descripcion" class="form-control"placeholder="Descripcion..." style="height: 10em"></textarea>
+                                    <input name="descripcion" class="form-control" placeholder="Descripcion..." style="height: 5em">
                                     <br>
                             </div>
                             <div class="form-group">
@@ -33,7 +33,7 @@
 
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button class="btn btn-success" id="ajaxSubmit">Save changes</button>
+                                <button class="btn btn-success" id="ajaxSubmit">Guardar Cambios</button>
                             </div>
                         </div>
                     </form>

@@ -43,14 +43,14 @@ function detalleCliente(datosJSON){
 	var datos = datosJSON[0];
 
 	//datos del cliente
-	var nombre = $("<input type=text value="+datos["nombre"]+" class=datos_cliente name=nombre readonly/>");
-	var documento = $("<input type=text value="+datos["documento"]+" class=datos_cliente name=documento readonly/>");
-	var telefono = $("<input type=text value="+datos["telefono"]+" class=datos_cliente name=telefono readonly/>");
-	var mail = $("<input type=label value="+datos["mail"]+" class=datos_cliente name=mail readonly/>");
-	var direccion = $("<input type=label value="+datos["direccion"]+" class=datos_cliente name=direccion readonly/>");
-	var provincia = $("<input type=label value="+datos["provincia"]+" class=datos_cliente name=provincia readonly/>");
-	var localidad = $("<input type=label value="+datos["localidad"]+" class=datos_cliente name=localidad readonly/>");
-	var cp = $("<input type=label value="+datos["cp"]+" class=datos_cliente name=cp readonly/>");
+	var nombre = $("<input type=text value="+datos["nombre"]+" class=datos_detalle name=nombre disabled/>");
+	var documento = $("<input type=text value="+datos["documento"]+" class=datos_detalle name=documento disabled/>");
+	var telefono = $("<input type=text value="+datos["telefono"]+" class=datos_detalle name=telefono disabled/>");
+	var mail = $("<input type=label value="+datos["mail"]+" class=datos_detalle name=mail disabled/>");
+	var direccion = $("<input type=label value="+datos["direccion"]+" class=datos_detalle name=direccion disabled/>");
+	var provincia = $("<input type=label value="+datos["provincia"]+" class=datos_detalle name=provincia disabled/>");
+	var localidad = $("<input type=label value="+datos["localidad"]+" class=datos_detalle name=localidad disabled/>");
+	var cp = $("<input type=label value="+datos["cp"]+" class=datos_detalle name=cp disabled/>");
 
 	$("#nombre_cliente").prepend("Cliente: "+datos["nombre"]+"\t");
 
@@ -81,36 +81,46 @@ function detalleCliente(datosJSON){
 	);//cerramos el tbody 2
 }
 
-function editarDatosCliente (){
-	$(".datos_cliente").attr("readonly",false);//se quitara el readonly
-	$(".datos_cliente").hover(function(){
+function editarDatos (){
+	$(".datos_detalle").attr("disabled",false);//se quitara el disabled
+	$(".datos_detalle").hover(function(){
 		$(this).css("background-color","rgba(0,255,0,0.3)");//con esto se volvera verde al pasar por encima
 		},
 		function() {
 	    	$(this).css('background-color', 'rgba(128, 255, 255, 0)');//con esto cuando quites el raton, estara blanco otra vez el fondo
 	  	}
 	)
-	reemplazarBotonEditarCliente();
+	reemplazarBotonEditar();
 }
 
-function reemplazarBotonEditarCliente (){
-	$("#boton_editar_cliente").text("Guardar")
-	$( "#boton_editar_cliente" ).on( "click",  guardarDatosEditados );
+function reemplazarBotonEditar (){
+	$("#boton_editar_datos").text("Guardar")
+	$( "#boton_editar_datos" ).on( "click",  guardarDatosEditados );
 }
 
 function guardarDatosEditados(){
-	$("#formulario_detalle_clientes").submit();
+	$("#formulario_de_editar").submit();
 }
 
 function detalleVenta(datosJSON){
 	//como en el array que recibe, solo es de una venta propia, le daremos la primera posicon (0)
 	var datos = datosJSON[0];
+	if (datos["estado"] == 1){
+		var estado_venta = "vendido";
+	}
+	else if (datos["estado"] == 0) {
+		var estado_venta = "'sin vender'";
+	}
 	//datos de la venta
-	var descripcion = $("<input type=text value="+datos["descripcion"]+" class=datos_cliente name=nombre readonly/>");
-	var estado = $("<input type=text value="+datos["estado"]+" class=datos_cliente name=documento readonly/>");
-	//var fecha_modificacion = $("<input type=text value="+datos["updated_at"]+" class=datos_cliente name=telefono readonly/>");
+	var descripcion = $("<input type=text value="+datos["descripcion"]+" class=datos_detalle name=descripcion disabled/>");
 
-	$("#nombre_cliente").prepend("Cliente: "+datos["nombre"]+"\t");
+
+	//var estado = $("<input type=text value="+estado_venta+" class=datos_detalle name=estado disabled/>");
+	var estado = $("<select name=estado class=datos_detalle disabled>"
+					).append($("<option value=0>").text("Sin vender")
+					).append($("<option value=1>").text("Vendido"));
+	var fecha_modificacion = $("<input type=text value="+datos["updated_at"]+" class=datos_detalle name=fecha_modificacion disabled/>");
+	//$("#nombre_cliente").prepend("Cliente: "+datos["nombre"]+"\t");
 
 	$(".detalles_venta").append(//le añadiremos un tr al tbody:
 		$("<tr>").append(//al tr le iremos añadiendo varios td

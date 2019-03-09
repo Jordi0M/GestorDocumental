@@ -4,7 +4,7 @@
 	
 		<div class="row">
 			<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-				<h3 id="nombre_cliente"><button class="btn btn-success" id="boton_editar_cliente">Editar</button></h3>
+				<h3 id="nombre_cliente"><button class="btn btn-success" id="boton_editar_datos">Editar</button></h3>
 			</div>
 		</div>
 		<br>
@@ -19,8 +19,9 @@
 		-->
 	<div class="row">
 		<div class="col" style="margin-left: 50px; margin-right: 50px;">
-			<form method="POST" id="formulario_detalle_clientes">
-		            {{ csrf_field() }}
+			<form method="POST" id="formulario_de_editar">
+				{{ method_field('PUT') }}
+		        {{ csrf_field() }}
 				<table class="table">
 				  <thead class="thead-light">
 				    <tr>
@@ -81,9 +82,9 @@
 		});
 
 		function darOnclick_y_action_detalle_clientes(datos_JSON){
-			$( "#boton_editar_cliente" ).on( "click", editarDatosCliente ); //le asignamos el onclick de editar datos
-		    $("#formulario_detalle_clientes").attr("action","/cliente/"+datos_JSON[0]["id"]);
-		    $("#form_modal_nueva_venta").attr("action","/cliente/venta/"+datos_JSON[0]["id"]);
+			$( "#boton_editar_datos" ).on( "click", editarDatos ); //le asignamos el onclick de editar datos
+		    $("#formulario_de_editar").attr("action","/cliente/"+datos_JSON[0]["id"]);
+		    $("#form_modal_nueva_venta").attr("action","/cliente/"+datos_JSON[0]["id"]);
 		    //ponemos bien el ID del formulario para el action
 		}
 
