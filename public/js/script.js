@@ -54,7 +54,7 @@ function detalleCliente(datosJSON){
 
 	$("#nombre_cliente").prepend("Cliente: "+datos["nombre"]+"\t");
 
-	$(".tbody").append(//le añadiremos un tr al tbody:
+	$(".detalles_cliente1").append(//le añadiremos un tr al tbody:
 		$("<tr>").append(//al tr le iremos añadiendo varios td
 			$("<td>").append(nombre//añadiremos el nombre al td
 				)//cerramos el td
@@ -67,7 +67,7 @@ function detalleCliente(datosJSON){
 			)//cerramos el td
 	);//cerramos el tbody 1
 
-	$(".tbody2").append(//este es el segundo tbody:
+	$(".detalles_cliente2").append(//este es el segundo tbody:
 		$("<tr>").append(//como en el anterior ejemplo, seguimos añadiendo td al tr
 			$("<td>").append(direccion//añadiremos el nombre al td
 				)//cerramos el td

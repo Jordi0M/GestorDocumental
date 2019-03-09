@@ -17,34 +17,60 @@
 			
 		</div>
 		-->
-	<form method="POST" id="formulario_detalle_clientes">
-            {{ csrf_field() }}
-		<table class="table">
-		  <thead class="thead-light">
-		    <tr>
-		      <th scope="col">Nombre</th>
-		      <th scope="col">DNI/NIF</th>
-		      <th scope="col">Telefono</th>
-		      <th scope="col">Mail</th>
-		    </tr>
-		  </thead>
-		  <tbody class="tbody">
-		  </tbody>
-		</table>
+	<div class="row">
+		<div class="col" style="margin-left: 50px; margin-right: 50px;">
+			<form method="POST" id="formulario_detalle_clientes">
+		            {{ csrf_field() }}
+				<table class="table">
+				  <thead class="thead-light">
+				    <tr>
+				      <th scope="col">Nombre</th>
+				      <th scope="col">DNI/NIF</th>
+				      <th scope="col">Telefono</th>
+				      <th scope="col">Mail</th>
+				    </tr>
+				  </thead>
+				  <tbody class="detalles_cliente1">
+				  </tbody>
+				</table>
 
-		<table class="table">
-		  <thead class="thead-light">
-		    <tr>
-		      <th scope="col">Dirección</th>
-		      <th scope="col">Provincia</th>
-		      <th scope="col">Localidad</th>
-		      <th scope="col">CP</th>
-		    </tr>
-		  </thead>
-		  <tbody class="tbody2">
-		  </tbody>
-		</table>
-	</form>
+				<table class="table">
+				  <thead class="thead-light">
+				    <tr>
+				      <th scope="col">Dirección</th>
+				      <th scope="col">Provincia</th>
+				      <th scope="col">Localidad</th>
+				      <th scope="col">CP</th>
+				    </tr>
+				  </thead>
+				  <tbody class="detalles_cliente2">
+				  </tbody>
+				</table>
+			</form>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-xs-12">
+			<h3>Ventas Asociadas <button class="btn btn-success" data-toggle="modal" data-target="#myModal">Nueva venta</button></h3>
+		</div>
+	</div>
+
+	<div class="row">
+ 		<div class="col" style="margin-left: 50px; margin-right: 50px;">
+			<table class="table">
+			  <thead class="thead-light">
+			    <tr>
+			      <th scope="col">Descripcion</th>
+			      <th scope="col">Estado</th>
+			      <th scope="col">Fecha</th>
+			    </tr>
+			  </thead>
+			  <tbody class="tbody">
+			  </tbody>
+			</table>
+		</div>
+	</div>
 
 <script type="text/javascript">
 		//una vez este todo cargado, llamara a los datos

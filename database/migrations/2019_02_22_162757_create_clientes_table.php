@@ -28,8 +28,9 @@ class CreateClientesTable extends Migration
 
         Schema::create('ventas', function (Blueprint $table) {
             $table->increments('id')->unique();
-            $table->integer('id_cliente')->unsigned()->unsigned();
-            $table->date('fecha_venta');
+            $table->integer('id_cliente')->unsigned();
+            $table->text('descripcion');
+            $table->boolean('estado');
             $table->timestamps();
 
             //foraneas
@@ -38,9 +39,9 @@ class CreateClientesTable extends Migration
 
         Schema::create('documentos', function (Blueprint $table) {
             $table->increments('id')->unique();
-            $table->integer('id_venta')->unsigned()->unsigned();
+            $table->integer('id_venta')->unsigned();
             $table->string('tipo_documento');
-            $table->string('archivo');
+            $table->binary('archivo');
             $table->timestamps();
 
             //foraneas

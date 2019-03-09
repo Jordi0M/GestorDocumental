@@ -17,41 +17,22 @@
 		
 	</div>
  	-->
-		<table class="table">
-		  <thead class="thead-light">
-		    <tr>
-		      <th scope="col">Nombre</th>
-		      <th scope="col">Telefono</th>
-		      <th scope="col">Dirección</th>
-		      <th scope="col">Provincia</th>
-		      <th scope="col">Opciones</th>
-		    </tr>
-		  </thead>
-		  <tbody class="tbody">
-		<!--
-		  	@foreach ($ListaClientes as $cliente)
-	    	
-		
-		    <tr>
-		      <th scope="row">{{ $cliente->nombre}}</th>
-		      <td>{{$cliente->telefono}}</td>
-		      <td>{{ $cliente->direccion }}</td>
-		      <td>{{ $cliente->provincia}}</td>
-		      <td>
-		      	<div style="width: 40%;">
-		      		<button type="button" class="btn btn-success">Detalle</button>
-
-		      		<button type="button" class="btn btn-danger">Eliminar</button>
-
-		      	</div>
-		      </td>
-		    </tr>
-		    
-		    @endforeach
-		-->
-		  </tbody>
-		</table>
-		
+ 	<div class="row">
+ 		<div class="col" style="margin-left: 50px; margin-right: 50px;">
+			<table class="table">
+			  <thead class="thead-light">
+			    <tr>
+			      <th scope="col">Nombre</th>
+			      <th scope="col">Telefono</th>
+			      <th scope="col">Dirección</th>
+			      <th scope="col">Provincia</th>
+			      <th scope="col">Opciones</th>
+			    </tr>
+			  </thead>
+			  <tbody class="tbody">
+			  </tbody>
+			</table>
+		</div>
 	</div>
 
 	<script type="text/javascript">
