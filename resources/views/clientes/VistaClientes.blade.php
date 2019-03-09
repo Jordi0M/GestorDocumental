@@ -46,7 +46,8 @@
 		y los usaremos para crear la vista correspondiente (listado clientes)
 		*/
 		function llamar_Datos(){
-			recoger_Datos();
+			var datos = '{{$ListaClientes}}';
+			recoger_Datos(datos);
 			listadoClientes(datos_JSON);
 		}
 	</script>

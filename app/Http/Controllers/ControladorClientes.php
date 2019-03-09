@@ -19,7 +19,9 @@ class ControladorClientes extends Controller
 	{
 		$clientes = DB::table('clientes')->where('id', $id)->get();
 
-	    return view('clientes.DetalleClientes', ['ListaClientes' => $clientes]);
+		$ventas = DB::table('ventas')->where('id_cliente', $id)->get();
+
+	    return view('clientes.DetalleClientes', ['ListaClientes' => $clientes], ['ListaVentas' => $ventas]);
 	}
 
 	public function guardarCliente(Request $request)
@@ -42,8 +44,6 @@ class ControladorClientes extends Controller
 
 		$editar_cliente->update($request->all());
 
-		$clientes = DB::table('clientes')->where('id', $id)->get();
-		return view('clientes.DetalleClientes', ['ListaClientes' => $clientes]);
-
+		return $this->getDetalleClientes($id);
 	}
 }

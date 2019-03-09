@@ -49,13 +49,13 @@
 			</form>
 		</div>
 	</div>
-
+	<br>
 	<div class="row">
 		<div class="col-xs-12">
 			<h3>Ventas Asociadas <button class="btn btn-success" data-toggle="modal" data-target="#myModal">Nueva venta</button></h3>
 		</div>
 	</div>
-
+	<br>
 	<div class="row">
  		<div class="col" style="margin-left: 50px; margin-right: 50px;">
 			<table class="table">
@@ -64,9 +64,10 @@
 			      <th scope="col">Descripcion</th>
 			      <th scope="col">Estado</th>
 			      <th scope="col">Fecha</th>
+			      <th scope="col">Opciones</th>
 			    </tr>
 			  </thead>
-			  <tbody class="tbody">
+			  <tbody class="lista_ventas">
 			  </tbody>
 			</table>
 		</div>
@@ -77,7 +78,7 @@
 		document.addEventListener('DOMContentLoaded', function(){
 		    llamar_Datos();
 		    $( "#boton_editar_cliente" ).on( "click", editarDatosCliente ); //le asignamos el onclick de editar datos
-		    $("#formulario_detalle_clientes").attr("action","/detalle/"+datos_JSON[0]["id"]);
+		    $("#formulario_detalle_clientes").attr("action","/cliente/"+datos_JSON[0]["id"]);
 		    //ponemos bien el ID del formulario para el action
 		});
 
@@ -86,8 +87,14 @@
 		y los usaremos para crear la vista correspondiente (listado clientes)
 		*/
 		function llamar_Datos(){
-			recoger_Datos();
+			var datos = '{{$ListaClientes}}';
+			recoger_Datos(datos);
 			detalleCliente(datos_JSON);
+
+			var datos_ventas = '{{$ListaVentas}}';
+			recoger_Datos(datos_ventas);
+			listadoVentas(datos_JSON);
+
 		}
 	</script>
 @endsection
