@@ -29,7 +29,7 @@ class CreateClientesTable extends Migration
         Schema::create('ventas', function (Blueprint $table) {
             $table->increments('id')->unique();
             $table->integer('id_cliente')->unsigned();
-            $table->text('descripcion');
+            $table->string('descripcion');
             $table->boolean('estado');
             $table->timestamps();
 

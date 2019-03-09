@@ -24,3 +24,4 @@ Route::get('/cliente/{id}', 'ControladorClientes@getDetalleClientes');
 Route::post('/cliente/{id}', 'ControladorClientes@guardarDatosEditadosCliente');
 
 Route::get('/cliente/venta/{id}', 'ControladorVentas@getDetalleVenta');
+Route::post('/nueva_venta/{id}', 'ControladorVentas@nuevaVenta');

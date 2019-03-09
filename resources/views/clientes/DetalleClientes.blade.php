@@ -53,6 +53,7 @@
 	<div class="row">
 		<div class="col-xs-12">
 			<h3>Ventas Asociadas <button class="btn btn-success" data-toggle="modal" data-target="#myModal">Nueva venta</button></h3>
+			@include('../modals/modal_nueva_venta')
 		</div>
 	</div>
 	<br>
@@ -77,10 +78,14 @@
 		//una vez este todo cargado, llamara a los datos
 		document.addEventListener('DOMContentLoaded', function(){
 		    llamar_Datos();
-		    $( "#boton_editar_cliente" ).on( "click", editarDatosCliente ); //le asignamos el onclick de editar datos
-		    $("#formulario_detalle_clientes").attr("action","/cliente/"+datos_JSON[0]["id"]);
-		    //ponemos bien el ID del formulario para el action
 		});
+
+		function darOnclick_y_action_detalle_clientes(datos_JSON){
+			$( "#boton_editar_cliente" ).on( "click", editarDatosCliente ); //le asignamos el onclick de editar datos
+		    $("#formulario_detalle_clientes").attr("action","/cliente/"+datos_JSON[0]["id"]);
+		    $("#form_modal_nueva_venta").attr("action","/nueva_venta/"+datos_JSON[0]["id"]);
+		    //ponemos bien el ID del formulario para el action
+		}
 
 		/*
 		con este script, llamaremos a la funcion que recoge datos (que esta en master),
@@ -90,6 +95,7 @@
 			var datos = '{{$ListaClientes}}';
 			recoger_Datos(datos);
 			detalleCliente(datos_JSON);
+			darOnclick_y_action_detalle_clientes(datos_JSON);
 
 			var datos_ventas = '{{$ListaVentas}}';
 			recoger_Datos(datos_ventas);
