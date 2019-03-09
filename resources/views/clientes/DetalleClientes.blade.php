@@ -56,7 +56,7 @@
 			@include('../modals/modal_nueva_venta')
 		</div>
 	</div>
-	<br>
+	<br><br>
 	<div class="row">
  		<div class="col" style="margin-left: 50px; margin-right: 50px;">
 			<table class="table">
@@ -83,7 +83,7 @@
 		function darOnclick_y_action_detalle_clientes(datos_JSON){
 			$( "#boton_editar_cliente" ).on( "click", editarDatosCliente ); //le asignamos el onclick de editar datos
 		    $("#formulario_detalle_clientes").attr("action","/cliente/"+datos_JSON[0]["id"]);
-		    $("#form_modal_nueva_venta").attr("action","/nueva_venta/"+datos_JSON[0]["id"]);
+		    $("#form_modal_nueva_venta").attr("action","/cliente/venta/"+datos_JSON[0]["id"]);
 		    //ponemos bien el ID del formulario para el action
 		}
 

@@ -10,11 +10,9 @@ class ControladorVentas extends Controller
 {
     public function getDetalleVenta($id)
 	{
-		$clientes = DB::table('clientes')->where('id', $id)->get();
+		$ventas = DB::table('ventas')->where('id', $id)->get();
 
-		$ventas = DB::table('ventas')->where('id_cliente', $id)->get();
-
-	    return view('clientes.DetalleVentas', ['ListaClientes' => $clientes], ['ListaVentas' => $ventas]);
+	    return view('clientes.DetalleVentas', ['ListaVentas' => $ventas]);
 	}
 
 	public function nuevaVenta(Request $request, $id)
@@ -26,11 +24,9 @@ class ControladorVentas extends Controller
 		$cliente->estado = $request->input('estado');
 		$cliente->save();
 
-			//Cliente::create($request->all());
-		//return "prueba";
-		/*
-		$clientes = DB::table('clientes')->get();
-		return view('clientes.VistaClientes', ['ListaClientes' => $clientes]);
-		*/
+		$cc = new ControladorClientes();
+		$cc->getDetalleClientes($id);
+		return $cc->getDetalleClientes($id);
+		
 	}
 }

@@ -13,7 +13,7 @@
                 </div>
                 <br>
                 <div class="modal-body">
-                    <form action="/nueva_venta" method="POST" id="form_modal_nueva_venta">
+                    <form method="POST" id="form_modal_nueva_venta">
                         {{ csrf_field() }}
                         <div>   
                             <div class="form-group">

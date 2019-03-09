@@ -102,6 +102,27 @@ function guardarDatosEditados(){
 	$("#formulario_detalle_clientes").submit();
 }
 
+function detalleVenta(datosJSON){
+	//como en el array que recibe, solo es de una venta propia, le daremos la primera posicon (0)
+	var datos = datosJSON[0];
+	//datos de la venta
+	var descripcion = $("<input type=text value="+datos["descripcion"]+" class=datos_cliente name=nombre readonly/>");
+	var estado = $("<input type=text value="+datos["estado"]+" class=datos_cliente name=documento readonly/>");
+	//var fecha_modificacion = $("<input type=text value="+datos["updated_at"]+" class=datos_cliente name=telefono readonly/>");
+
+	$("#nombre_cliente").prepend("Cliente: "+datos["nombre"]+"\t");
+
+	$(".detalles_venta").append(//le añadiremos un tr al tbody:
+		$("<tr>").append(//al tr le iremos añadiendo varios td
+			$("<td>").append(descripcion//añadiremos el nombre al td
+				)//cerramos el td
+			).append(
+			$("<td>").append(estado)
+			)//cerramos el td
+	);//cerramos el tbody 1
+
+}
+
 function listadoVentas(datosJSON){
 	
 	var datos = datosJSON;
