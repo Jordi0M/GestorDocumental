@@ -114,11 +114,18 @@ function detalleVenta(datosJSON){
 	//datos de la venta
 	var descripcion = $("<input type=text value="+datos["descripcion"]+" class=datos_detalle name=descripcion disabled/>");
 
-
-	//var estado = $("<input type=text value="+estado_venta+" class=datos_detalle name=estado disabled/>");
-	var estado = $("<select name=estado class=datos_detalle disabled>"
-					).append($("<option value=0>").text("Sin vender")
+	//depndiendo de cual tenga le servidor, le daremos un selected u otro
+	if (datos["estado"] == 0) {
+		var estado = $("<select name=estado class=datos_detalle disabled>"
+					).append($("<option value=0 selected>").text("Sin vender")
 					).append($("<option value=1>").text("Vendido"));
+	}
+	else if (datos["estado"] == 1){
+		var estado = $("<select name=estado class=datos_detalle disabled>"
+					).append($("<option value=0>").text("Sin vender")
+					).append($("<option value=1 selected>").text("Vendido"));
+	}
+	
 	var fecha_modificacion = $("<input type=text value="+datos["updated_at"]+" class=datos_detalle name=fecha_modificacion disabled/>");
 	//$("#nombre_cliente").prepend("Cliente: "+datos["nombre"]+"\t");
 

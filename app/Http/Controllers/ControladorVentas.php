@@ -32,19 +32,11 @@ class ControladorVentas extends Controller
 
 	public function guardarDatosEditadosVenta(Request $request, $id){
 
-		$editar_venta = ventas::where('id', $id)->first();
+        $editar_venta = ventas::find($id);
+        $editar_venta->descripcion = $request->input('descripcion');
+        $editar_venta->estado = $request->input('estado');
+        $editar_venta->save();
 
-		//$editar_venta->update($request->all());
-
-		if ($request->input('estado') == "sin vender") {
-			$estado = 0;
-		}
-		elseif ($request->input('estado') == "vendido") {
-			$estado = 1;
-		}
-
-		return $request;
-
-		//return $this->getDetalleVenta($id);
+		return $this->getDetalleVenta($id);
 	}
 }
