@@ -126,7 +126,8 @@ function detalleVenta(datosJSON){
 					).append($("<option value=1 selected>").text("Vendido"));
 	}
 	
-	var fecha_modificacion = $("<input type=text value="+datos["updated_at"]+" class=datos_detalle name=fecha_modificacion disabled/>");
+	var fecha_modificacion = $("<input type=text value="+datos["updated_at"]+" name=fecha_modificacion readonly/>");
+	var fecha_modificacion = $("<label>").text(datos["updated_at"]);
 	//$("#nombre_cliente").prepend("Cliente: "+datos["nombre"]+"\t");
 
 	$(".detalles_venta").append(//le añadiremos un tr al tbody:
@@ -135,6 +136,8 @@ function detalleVenta(datosJSON){
 				)//cerramos el td
 			).append(
 			$("<td>").append(estado)
+			).append(
+			$("<td>").append(fecha_modificacion)
 			)//cerramos el td
 	);//cerramos el tbody 1
 
