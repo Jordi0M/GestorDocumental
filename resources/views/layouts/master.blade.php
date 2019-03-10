@@ -266,8 +266,7 @@
 		luego, será llamado por la vista, y la vista sabra a que componente llamar
 		para generar los datos correspondientes-->
 	<script type="text/javascript">
-		function recoger_Datos(){
-			var datos = '{{$ListaClientes}}';
+		function recoger_Datos(datos){
 			//lo transformamos en JSON para poder trabajar con ellos
 			//tambien remplazaremos el "&quot que aparece"
 			datos_JSON = JSON.parse(datos.replace(/&quot;/g,'"'));
