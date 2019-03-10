@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\Cliente;
+use App\Http\Requests\ClienteNuevoRequest;
+use App\Http\Requests\ClienteEditarRequest;
 
 class ControladorClientes extends Controller
 {
@@ -24,7 +26,7 @@ class ControladorClientes extends Controller
 	    return view('clientes.DetalleClientes', ['ListaClientes' => $clientes], ['ListaVentas' => $ventas]);
 	}
 
-	public function guardarCliente(Request $request)
+	public function guardarCliente(ClienteNuevoRequest $request)
 	{
 		//dd($request -> all());
 		/*
@@ -38,7 +40,7 @@ class ControladorClientes extends Controller
 		$clientes = DB::table('clientes')->get();
 		return view('clientes.VistaClientes', ['ListaClientes' => $clientes]);
 	}
-	public function guardarDatosEditadosCliente(Request $request, $id){
+	public function guardarDatosEditadosCliente(ClienteEditarRequest $request, $id){
 
 		$editar_cliente = Cliente::where('id', $id)->first();
 

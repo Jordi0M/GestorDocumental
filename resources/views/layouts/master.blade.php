@@ -32,15 +32,13 @@
     @yield('script')
 
 	<style>
-	/*
-  .text {
+		.text {
   font-size:28px;
   font-family:helvetica;
   font-weight:bold;
   color:#71d90b;
   text-transform:uppercase;
 }
-*/
 .parpadea {
   
   animation-name: parpadeo;
@@ -97,7 +95,7 @@
         <!-- Logo -->
         <a href="/" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          <span class="logo-mini"><b><img src="{{ URL::to('/') }}/img/logo1.jpeg" class="img-fluid" alt="Responsive image" style="width:100%"></b></span>
+          <span class="logo-mini"><b>GD</b></span>
           <!-- logo for regular state and mobile devices -->
           <span class="logo-lg"><b>GestorDocumental</b></span>
         </a>
@@ -116,10 +114,8 @@
               <!-- User Account: style can be found in dropdown.less -->
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                	<!--
                   <small class="bg-red">Online</small>
                   <span class="hidden-xs">USUARIO</span>
-                  	-->
                 </a>
                 <ul class="dropdown-menu">
                   <!-- User image -->
@@ -187,9 +183,7 @@
                  <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-              	<!--
-                <li><a ><i class="fa fa-circle-o"></i> Ventas</a></li>
-                -->
+                <li><a href="/detalle"><i class="fa fa-circle-o"></i> Ventas</a></li>
                 <li><a href="/"><i class="fa fa-circle-o"></i> Clientes</a></li>
               </ul>
             </li>
@@ -272,13 +266,16 @@
 		luego, será llamado por la vista, y la vista sabra a que componente llamar
 		para generar los datos correspondientes-->
 	<script type="text/javascript">
-		function recoger_Datos(datos){
+		function recoger_Datos(){
+			var datos = '{{$ListaClientes}}';
 			//lo transformamos en JSON para poder trabajar con ellos
 			//tambien remplazaremos el "&quot que aparece"
 			datos_JSON = JSON.parse(datos.replace(/&quot;/g,'"'));
 			return datos_JSON;
 		}
 	</script>
+
+    
 
       <!--Fin-Contenido-->
       <footer class="main-footer">
