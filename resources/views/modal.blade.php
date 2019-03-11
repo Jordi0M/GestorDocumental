@@ -12,6 +12,7 @@
       	
                 <h5 class="modal-title">Nuevo Cliente</h5>
                 <!--error modal-->
+                
                 <div class="alert alert-danger" id="errores" role="alert" style="display:none;">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -24,7 +25,8 @@
             <div style="display:flex;">   
                 <div class="form-group">
                         <label for="nombre">Nombre</label>
-                        <input type="text" name="nombre" class="form-control"placeholder="Nombre...">
+                        <i class="glyphicon glyphicon-user"></i></span>
+                        <input type="text" name="nombre" class="form-control is-invalid" placeholder="Nombre...">
                 </div>
 
                 <div class="form-group">
@@ -54,7 +56,7 @@
 
                 <div class="form-group">
                     <label for="cp">Codigo Postal</label>
-                    <input type="text" name="cp" class="form-control" placeholder="C.P...">
+                    <input type="text" name="cp" class="form-control is-invalid" placeholder="C.P...">
                 </div>
             </div>
             <!--------->
@@ -130,7 +132,5 @@
         
         
     }
-    
-
 </script>
 </div>
