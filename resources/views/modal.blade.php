@@ -76,7 +76,7 @@
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
         </form>
-        <button class="btn btn-success" id="ajaxSubmit" onclick="Comprobar()">Guardar Cambios</button>
+        <button class="btn btn-success" onclick="Comprobar()">Guardar Cambios</button>
     </div>
   </div>
 </div>

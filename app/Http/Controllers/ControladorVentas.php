@@ -39,4 +39,27 @@ class ControladorVentas extends Controller
 
 		return $this->getDetalleVenta($id);
 	}
+
+	public function SubirFichero(Request $request, $id)
+	{
+		/*
+		//dd($request -> all());
+		$cliente = new Cliente;
+		$cliente->nombre = $request->input('nombre');
+		$cliente->save();
+		Cliente::create($request->all());
+		//return "prueba";
+		
+		$clientes = DB::table('clientes')->get();
+		return view('clientes.VistaClientes', ['ListaClientes' => $clientes]);
+		*/
+
+
+		//return $id;
+		//$ventas = DB::table('ventas')->where('id', $id)->get();
+		//dd($request->file('documento')->store('public'));
+
+		dd($request);
+
+	}
 }

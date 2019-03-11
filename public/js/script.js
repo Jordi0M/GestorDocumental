@@ -163,8 +163,10 @@ function listadoVentas(datosJSON){
 		$(".lista_ventas").append(//todo esto se añadira al tbody
 			$("<tr>").append(//creamos un tr y añadiremos el contenido
 				$("<th scope=row>").append(//comenzamos a añadir a los "td" tanto texto como botones
+				$("<td>").text(datos[i]["id"]))
+				).append(
 				$("<td>").text(datos[i]["descripcion"])
-				)).append(
+				).append(
 				$("<td>").text(estado)
 				).append(
 				$("<td>").text(datos[i]["updated_at"])
@@ -183,4 +185,13 @@ function listadoVentas(datosJSON){
 function redirigir_a_DetalleVentas(id){
 
 	window.location='/cliente/venta/'+id;
+}
+
+//se utilizara para saber que tipo de documento va a saber
+function indicarTipoDeDocumentoAlModal(){
+	$(".agregar_documento").on("click", function(){
+	var tipo_de_documento = $(this).data("documento");
+	$("#label_tipo_de_documento").text(tipo_de_documento);
+	$("#input_tipo_de_documento").val(tipo_de_documento);
+	});
 }
