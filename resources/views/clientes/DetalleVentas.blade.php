@@ -87,6 +87,10 @@
 			recoger_Datos(datos);
 			detalleVenta(datos_JSON);
 			darOnclick_y_action_detalle_ventas(datos_JSON);
+
+			var datos_documentos = '{{$ListaDocumentos}}';
+			recoger_Datos(datos_documentos);
+			listadoDocumentos(datos_JSON);
 		}
 	</script>
 @endsection

@@ -5,14 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\ventas;
+use App\documento;
 
 class ControladorVentas extends Controller
 {
     public function getDetalleVenta($id)
 	{
 		$ventas = DB::table('ventas')->where('id', $id)->get();
+		$documentos = DB::table('documentos')->where('id_venta', $id)->get();
 
-	    return view('clientes.DetalleVentas', ['ListaVentas' => $ventas]);
+	    return view('clientes.DetalleVentas', ['ListaVentas' => $ventas], ['ListaDocumentos' => $documentos]);
 	}
 
 	public function nuevaVenta(Request $request, $id)
@@ -25,7 +27,6 @@ class ControladorVentas extends Controller
 		$venta->save();
 
 		$cc = new ControladorClientes();
-		//$cc->getDetalleClientes($id);
 		return $cc->getDetalleClientes($id);
 		
 	}
@@ -42,24 +43,14 @@ class ControladorVentas extends Controller
 
 	public function SubirFichero(Request $request, $id)
 	{
-		/*
-		//dd($request -> all());
-		$cliente = new Cliente;
-		$cliente->nombre = $request->input('nombre');
-		$cliente->save();
-		Cliente::create($request->all());
-		//return "prueba";
-		
-		$clientes = DB::table('clientes')->get();
-		return view('clientes.VistaClientes', ['ListaClientes' => $clientes]);
-		*/
 
+		$documento = new documento;
+        $documento->id_venta = $id;
+        $documento->tipo_documento = $request->input('tipo_de_documento');
+        $documento->archivo = $request->file('documento')->store('public');
+        $documento->save();
 
-		//return $id;
-		//$ventas = DB::table('ventas')->where('id', $id)->get();
-		//dd($request->file('documento')->store('public'));
-
-		dd($request);
+		return $this->getDetalleVenta($id);
 
 	}
 }

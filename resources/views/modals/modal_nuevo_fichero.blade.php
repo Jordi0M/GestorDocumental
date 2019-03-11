@@ -14,7 +14,7 @@
                 <br>
                 
                 <div class="modal-body">
-                    <form method="POST" id="form_modal_nuevo_fichero">
+                    <form method="POST" id="form_modal_nuevo_fichero" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <div>   
                             <div class="form-group">
