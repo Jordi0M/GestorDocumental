@@ -42,12 +42,15 @@ class ControladorVentas extends Controller
 	}
 
 	public function SubirFichero(Request $request, $id)
-	{
+	{	
+		$date =  date( "Y-m-d_H:i:s", time());
+		$tipo_documento = $request->input('tipo_de_documento');
+		$nombre_del_documento = $request->input('nombre_del_documento');
 
 		$documento = new documento;
         $documento->id_venta = $id;
-        $documento->tipo_documento = $request->input('tipo_de_documento');
-        $documento->archivo = $request->file('documento')->store('public');
+        $documento->tipo_documento = $tipo_documento;
+        $documento->archivo = $request->file('documento')->storeAs('public',$nombre_del_documento ."_". $tipo_documento ."_". $date.".pdf");
         $documento->save();
 
 		return $this->getDetalleVenta($id);

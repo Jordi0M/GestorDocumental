@@ -25,9 +25,15 @@
                                     <br>
                             </div>
                             <div class="form-group">
+                                    <label>Introduce un nombre para el fichero:</label>
+                                    <br><br>
+                                    <input type="text" name="nombre_del_documento" required>
+                                    <br>
+                            </div>
+                            <div class="form-group">
                                 <label>Introduce el fichero</label>
                                 <br>
-                                <input type="file" name="documento">
+                                <input type="file" name="documento" required accept="application/pdf">
                             </div>
 
                             <div class="modal-footer">
