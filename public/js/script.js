@@ -204,31 +204,63 @@ function listadoDocumentos(datosJSON){
 
 		var archivo = datos[i]["archivo"].replace("public", "/storage");
 		//reemplazamos la carpeta "public" por "storage"
+		var nombre_archivo_mostrar = archivo.replace("/storage/","")
+		//mostraremos el archivo sin storage
 
 		//y segun el tipo de documento, lo añadimos en algun div u otro:
 		if (datos[i]["tipo_documento"] == "presupuesto"){
 			$("#div_documento_presupuesto").append(
-				$("<object>").attr("data",archivo)
+				$(".documentos_presupuesto").append(
+					$("<tr>").append(
+						$("<td>").append(
+							$("<a>").attr("href",archivo).text(archivo)
+						)
+					)
+				)
 			)
 		}
 		else if (datos[i]["tipo_documento"] == "factura"){
 			$("#div_documento_factura").append(
-				$("<object>").attr("data",archivo)
+				$(".documentos_factura").append(
+					$("<tr>").append(
+						$("<td>").append(
+							$("<a>").attr("href",archivo).text(nombre_archivo_mostrar)
+						)
+					)
+				)
 			)
 		}
 		else if (datos[i]["tipo_documento"] == "albaran"){
 			$("#div_documento_albaran").append(
-				$("<object>").attr("data",archivo)
+				$(".documentos_albaran").append(
+					$("<tr>").append(
+						$("<td>").append(
+							$("<a>").attr("href",archivo).text(nombre_archivo_mostrar)
+						)
+					)
+				)
 			)
 		}
 		else if (datos[i]["tipo_documento"] == "x"){
 			$("#div_documento_x").append(
-				$("<object>").attr("data",archivo)
+				$(".documentos_x").append(
+					$("<tr>").append(
+						$("<td>").append(
+							$("<a>").attr("href",archivo).text(nombre_archivo_mostrar)
+						)
+					)
+				)
 			)
 		}
 		else if (datos[i]["tipo_documento"] == "y"){
 			$("#div_documento_y").append(
-				$("<object>").attr("data",archivo)
+				$(".documentos_y").append(
+					$("<tr>").append(
+						$("<td>").append(
+							$("<a>").attr("href",archivo).text(nombre_archivo_mostrar)
+						)
+					)
+				)
 			)
 		}
 	}//cerramos el for
