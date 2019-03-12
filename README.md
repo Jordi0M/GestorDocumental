@@ -23,8 +23,13 @@ Una vez lo tengamos todo instalado, crearemos la base de datos.
 
 Al tener ya la base de datos, tendremos que hacer dentro de la carpeta un **composer install**, copiaremos el ".env.example" y crearemos ".env" donde pegaremos el contenido, cambiando el nombre de la base de datos, el usuario y la contraseña.
 
-Procederemos a hacer el comando "php artisan key:generate".
+Procederemos a hacer el comando *"php artisan key:generate"*.
 
-Haremos la migracion de la base de datos con "php artisan migrate".
+Haremos la migracion de la base de datos con *"php artisan migrate"*.
+(En caso de que ya tuviesemos una migracion hecha, podemos usar el comando "php artisan migrate:refresh" para borrar las tablas de la base de datos, y que nos la vuelva a crear. **Borrara toda la informacion que tengamos en la base de datos**)
 
-Para finalizar, ejecutaremos el comando "php artisan serve", y ya podremos ver la aplicacion.
+Para añadir informacion a la base de datos, tendremos el seeder. Tenemos que hacer dos comandos:
+*"composer dump-autoload -o"* y *"php artisan db:seed --class=ClienteSeeder"*.
+Asi ya tendremos la informacion generada en la base de datos.
+
+Para finalizar, ejecutaremos el comando *"php artisan serve"*, y ya podremos ver la aplicacion.
