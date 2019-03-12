@@ -25,8 +25,14 @@
     <link rel="stylesheet" href="{{asset('css/_all-skins.min.css')}}">
     <link rel="apple-touch-icon" href="{{'img/apple-touch-icon.png'}}">
     <link rel="shortcut icon" href="{{'img/favicon.ico'}}">
-		<link rel="stylesheet" href="{{'https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css'}}">
-  	<script src="{{'https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'}}"></script>
+    
+    <link rel="stylesheet" href="{{'https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css'}}">
+
+    <!--
+    <link rel="stylesheet" href="{{'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css'}}" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+-->
+    <script src="{{'https://cdn.rawgit.com/PascaleBeier/bootstrap-validate/v2.2.0/dist/bootstrap-validate.js'}}"></script>
+    <script src="{{'https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'}}"></script>
   	<script src="{{'https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js'}}"></script>
    
     <script src="{{'http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js'}}"></script>  
@@ -261,6 +267,8 @@
                 <div class="box-body">
                   	<div class="row">
 	                  	<div class="col-md-12">
+                       <div class="row">
+                      
 		                          <!--Contenido-->
                               @yield('contenido')
 		                          <!--Fin Contenido-->

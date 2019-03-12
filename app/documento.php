@@ -4,8 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ventas extends Model
+class documento extends Model
 {
-
-	protected $guarded = array();
+    //
 }

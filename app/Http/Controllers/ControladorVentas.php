@@ -5,14 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\ventas;
+use App\documento;
 
 class ControladorVentas extends Controller
 {
     public function getDetalleVenta($id)
 	{
 		$ventas = DB::table('ventas')->where('id', $id)->get();
+		$documentos = DB::table('documentos')->where('id_venta', $id)->get();
 
-	    return view('clientes.DetalleVentas', ['ListaVentas' => $ventas]);
+	    return view('clientes.DetalleVentas', ['ListaVentas' => $ventas], ['ListaDocumentos' => $documentos]);
 	}
 
 	public function nuevaVenta(Request $request, $id)
@@ -25,7 +27,6 @@ class ControladorVentas extends Controller
 		$venta->save();
 
 		$cc = new ControladorClientes();
-		//$cc->getDetalleClientes($id);
 		return $cc->getDetalleClientes($id);
 		
 	}
@@ -38,5 +39,18 @@ class ControladorVentas extends Controller
         $editar_venta->save();
 
 		return $this->getDetalleVenta($id);
+	}
+
+	public function SubirFichero(Request $request, $id)
+	{
+
+		$documento = new documento;
+        $documento->id_venta = $id;
+        $documento->tipo_documento = $request->input('tipo_de_documento');
+        $documento->archivo = $request->file('documento')->store('public');
+        $documento->save();
+
+		return $this->getDetalleVenta($id);
+
 	}
 }

@@ -12,6 +12,7 @@
       	
                 <h5 class="modal-title">Nuevo Cliente</h5>
                 <!--error modal-->
+                
                 <div class="alert alert-danger" id="errores" role="alert" style="display:none;">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -54,7 +55,7 @@
 
                 <div class="form-group">
                     <label for="cp">Codigo Postal</label>
-                    <input type="text" name="cp" class="form-control" placeholder="C.P...">
+                    <input type="text" name="cp" class="form-control is-invalid" placeholder="C.P...">
                 </div>
             </div>
             <!--------->
@@ -76,7 +77,7 @@
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
         </form>
-        <button class="btn btn-success" id="ajaxSubmit" onclick="Comprobar()">Guardar Cambios</button>
+        <button class="btn btn-success" onclick="Comprobar()">Guardar Cambios</button>
     </div>
   </div>
 </div>
@@ -133,7 +134,5 @@
         
         
     }
-    
-
 </script>
 </div>

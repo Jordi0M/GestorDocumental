@@ -9,27 +9,25 @@
         <div class="modal-content">
         	<div class="alert alert-danger" style="display:none"></div>
                 <div class="modal-header">
-                    <h5 class="modal-title">Nueva Venta</h5>
+                    <h5 class="modal-title">Nuevo Fichero</h5>
                 </div>
                 <br>
                 
                 <div class="modal-body">
-                    <form method="POST" id="form_modal_nueva_venta">
+                    <form method="POST" id="form_modal_nuevo_fichero" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <div>   
                             <div class="form-group">
-                                    <label for="descripcion">Inserta una pequeña descripción</label>
+                                    <label>Tipo de documento:</label>
                                     <br><br>
-                                    <input name="descripcion" class="form-control" placeholder="Descripcion..." style="height: 5em">
+                                    <label id="label_tipo_de_documento"></label>
+                                    <input type="text" id="input_tipo_de_documento" name="tipo_de_documento" hidden>
                                     <br>
                             </div>
                             <div class="form-group">
-                                <label>Estado</label>
+                                <label>Introduce el fichero</label>
                                 <br>
-                                <select name="estado">
-                                    <option value="0">Sin vender</option>
-                                    <option value="1">Vendido</option>
-                                </select>
+                                <input type="file" name="documento">
                             </div>
 
                             <div class="modal-footer">
