@@ -187,6 +187,18 @@ function redirigir_a_DetalleVentas(id){
 	window.location='/cliente/venta/'+id;
 }
 
+function comprobarSiEsPDF(){
+    var doc = $("#subida_documento").val();
+    var extension = doc.split('.').pop();
+    if (extension == "pdf") {
+    	$("#form_modal_nuevo_fichero").submit();
+    }
+    else{
+    	alert("mal");
+    }
+}
+
+
 //se utilizara para saber que tipo de documento va a saber
 function indicarTipoDeDocumentoAlModal(){
 	$(".agregar_documento").on("click", function(){

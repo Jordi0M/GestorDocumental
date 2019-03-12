@@ -33,15 +33,14 @@
                             <div class="form-group">
                                 <label>Introduce el fichero</label>
                                 <br>
-                                <input type="file" name="documento" required accept="application/pdf">
-                            </div>
-
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button class="btn btn-success">Guardar Cambios</button>
+                                <input type="file" name="documento" id="subida_documento" accept="application/pdf" required>
                             </div>
                         </div>
                     </form>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button class="btn btn-success" id="boton_guardar_cambios">Guardar Cambios</button>
+                    </div>
                 </div>
             </div>
         </div>

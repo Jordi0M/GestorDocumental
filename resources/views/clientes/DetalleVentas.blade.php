@@ -107,7 +107,9 @@
 		//una vez este todo cargado, llamara a los datos
 		document.addEventListener('DOMContentLoaded', function(){
 		    llamar_Datos();
-			indicarTipoDeDocumentoAlModal();		    
+			indicarTipoDeDocumentoAlModal();
+
+			$("#boton_guardar_cambios").on("click", comprobarSiEsPDF)	    
 		});
 
 		function darOnclick_y_action_detalle_ventas(datos_JSON){
