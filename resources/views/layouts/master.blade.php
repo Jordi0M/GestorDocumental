@@ -42,13 +42,15 @@
     @yield('script')
 
 	<style>
-	/*	.text {
+	/*
+  text {
   font-size:28px;
   font-family:helvetica;
   font-weight:bold;
   color:#71d90b;
   text-transform:uppercase;
-}*/
+}
+*/
 .parpadea {
   
   animation-name: parpadeo;
