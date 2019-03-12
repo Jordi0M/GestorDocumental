@@ -102,7 +102,23 @@
     padding: 10px;
     border-radius: 0;
 }
-
+input:valid {
+  background-color: #BBFFF0;
+}
+input:invalid{
+  background-color: #E88080;
+}
+.check-ok {
+  color: lime;
+}
+ 
+input:invalid ~ .check-ok {
+  display: none;
+}
+ 
+input:valid ~ .check-ok {
+  display: inline;
+}
 	</style>
   </head>
   <body class="hold-transition skin-blue sidebar-mini">
