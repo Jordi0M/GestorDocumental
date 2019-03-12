@@ -25,8 +25,8 @@ Al tener ya la base de datos, tendremos que hacer dentro de la carpeta un **comp
 
 Procederemos a hacer el comando *"php artisan key:generate"*.
 
-Haremos la migracion de la base de datos con "php artisan migrate".
-(En caso de que ya tuviesemos una migracion hecha, podemos usar el comando "php artisan migrate:refresh" para borrar las tablas de la base de datos, y que nos la vuelva a crear **borrara toda la informacion que tengamos en la base de datos**)
+Haremos la migracion de la base de datos con *"php artisan migrate"*.
+(En caso de que ya tuviesemos una migracion hecha, podemos usar el comando "php artisan migrate:refresh" para borrar las tablas de la base de datos, y que nos la vuelva a crear. **Borrara toda la informacion que tengamos en la base de datos**)
 
 Para añadir informacion a la base de datos, tendremos el seeder. Tenemos que hacer dos comandos:
 *"composer dump-autoload -o"* y *"php artisan db:seed --class=ClienteSeeder"*.
