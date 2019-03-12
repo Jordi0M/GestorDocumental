@@ -28,17 +28,27 @@
 		<link rel="stylesheet" href="{{'https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css'}}">
   	<script src="{{'https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'}}"></script>
   	<script src="{{'https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js'}}"></script>
-		<link href="{{'//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'}}" rel="stylesheet">
+   
+    <script src="{{'http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js'}}"></script>  
+   <script src="{{'https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js'}}"></script>  
+    <script src="{{'https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/additional-methods.min.js'}}"></script>
+    <script src="{{'https://cdn.rawgit.com/PascaleBeier/bootstrap-validate/v2.2.0/dist/bootstrap-validate.js'}}" ></script>
+    
+
+      <script src="{{'/js/jquery.validate.js'}}"></script>
+
+
+		
     @yield('script')
 
 	<style>
-		.text {
+	/*	.text {
   font-size:28px;
   font-family:helvetica;
   font-weight:bold;
   color:#71d90b;
   text-transform:uppercase;
-}
+}*/
 .parpadea {
   
   animation-name: parpadeo;

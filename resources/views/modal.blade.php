@@ -24,7 +24,7 @@
             <div style="display:flex;">   
                 <div class="form-group">
                         <label for="nombre">Nombre</label>
-                        <input type="text" name="nombre" class="form-control"placeholder="Nombre...">
+                        <input type="text" name="nombre" class="form-control is-valid"placeholder="Nombre...">
                 </div>
 
                 <div class="form-group">
@@ -83,6 +83,7 @@
   </form>
 <!--Creamos una función que captará los errores del formulario en un modal-->
   <script>
+ 
     function Comprobar(){
         var nombre= $("input[name=nombre]").val();
         var documento=$("input[name=documento]").val();
@@ -92,9 +93,11 @@
         var mail=$("input[name=mail]").val();
 
         if(nombre <= 0){
+            nombre.addClass('is-invalid');
             $("#errores").css("display","block");
             var $span = $( document.createElement('span') );
            $("#errores").append($span.addClass('parpadea text').text("Has de introducir un nombre."));
+          
            $("#errores").append('<br/>');
         }if (documento <=0){
             $("#errores").css("display","block");
