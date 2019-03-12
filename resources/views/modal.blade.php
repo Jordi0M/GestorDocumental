@@ -26,13 +26,13 @@
                 <div class="form-group">
                         <label for="nombre">Nombre</label>
                         <!--Admitiremos nombres de cualquier nacionalidad, incluyendo nombres compuestos y la mayoría de normas de acentuación. El número de caracteres será como mínimo 3 y como máximo 32.-->
-                        <input type="text" name="nombre" class="form-control " required pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}" placeholder="Nombre..."><i class="fa fa-check check-ok"></i>
+                        <input type="text" name="nombre" class="form-control " required pattern="[A-Za-z0-9]{5,40}" placeholder="Nombre..."><i class="fa fa-check check-ok"></i>
                         
                 </div>
 
                 <div class="form-group">
                     <label for="documento">DNI/NIF</label>
-                    <input type="text" name="documento"  class="form-control" required pattern="^\d{8}[a-zA-Z]{1}$" placeholder="DNI/NIF..."><i class="fa fa-check check-ok"></i>
+                    <input type="text" name="documento"  class="form-control" required pattern="^[A-Z|\d](-)?\d{7}[A-Z|\d]" placeholder="DNI/NIF..."><i class="fa fa-check check-ok"></i>
                 </div>
             </div>
                 <!--------->

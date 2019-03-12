@@ -24,14 +24,14 @@ class ClienteEditarRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombre' => 'required', 
-            'documento' => 'required', 
-            'direccion' => 'required', 
-            'provincia' => 'required', 
-            'localidad' => 'required', 
-            'cp' => 'required', 
-            'telefono' => 'required', 
-            'mail' => 'required',
+            'nombre' => 'required|clientes_nombre', 
+            'documento' => 'required|clientes_nif', 
+            'direccion' => 'required|clientes_direccion', 
+            'provincia' => 'required|clientes_provincia', 
+            'localidad' => 'required|clientes_localidad', 
+            'cp' => 'required|clientes_cp', 
+            'telefono' => 'required|clientes_telefono', 
+            'mail' => 'required|clientes_mail',
         ];
     }
 

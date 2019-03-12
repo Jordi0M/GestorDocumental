@@ -12,7 +12,14 @@ return [
     | as the size rules. Feel free to tweak each of these messages here.
     |
     */
-
+    'clientes_nombre' => 'El nombre introducido no es valido',
+    'clientes_cp' => 'El formato del cp es erroneo.',
+    'clientes_nif' => 'El NIF no es correcto.',
+    'clientes_direccion' => 'La direccion no es valida',
+    'clientes_provincia' => 'La provincia no es valida',
+    'clientes_localidad' => 'La localidad no es valida',
+    'clientes_telefono' => 'El telefono no es valido',
+    'clientes_mail' => 'El mail no es valido',
     'accepted' => 'The :attribute must be accepted.',
     'active_url' => 'The :attribute is not a valid URL.',
     'after' => 'The :attribute must be a date after :date.',
