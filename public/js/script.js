@@ -1,3 +1,13 @@
+function cerrarModalNuevoCliente(){
+
+	window.location='/';
+}
+
+function cerrarModalNuevoFichero(id_venta, id_cliente){
+
+	window.location='/cliente/venta/'+id_venta+'/'+id_cliente;
+}
+
 function listadoClientes(datosJSON){
 	
 	//php recoge los datos, y los guardamos en una variable de javascript
@@ -199,8 +209,12 @@ function comprobarSiEsPDF(){
     	$("#form_modal_nuevo_fichero").submit();
     }
     else{
-    	$("#div_subir_fichero").append(
-    		$("<div class='alert alert-danger'>").text("No has introducido un PDF, o no tiene nombre"))
+
+    	$("#errores").css("display","block");
+    	$("#p_error").remove();
+    	$("#errores").append(
+    		$("<p id='p_error'>").addClass('parpadea text').text("No has introducido un PDF, o no tiene nombre")
+    	)
     }
 }
 
@@ -263,12 +277,12 @@ function listadoDocumentos(datosJSON){
 function estructuraDocumentos(tipo_factura, archivo, nombre_archivo_mostrar){
 	$(tipo_factura).append(
 		$("<tr>").append(
-			$("<td style='padding-left: 50px'>").append(
+			$("<td style='width: 8%'>").append(
 				$("<img src='/img/pdf.png' style='width: 35px'>")
 			)
 		).append(
 		$("<td>").append(
-				$("<a>").attr("href",archivo).text(nombre_archivo_mostrar)
+				$("<a>").attr("href",archivo).attr("target","_blank").text(nombre_archivo_mostrar)
 			)
 		)
 	)

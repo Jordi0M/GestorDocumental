@@ -8,8 +8,11 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
         	<div class="alert alert-danger" style="display:none"></div>
-                <div class="modal-header">
+                <div class="modal-header" id="modal-header-nuevo-fichero">
                     <h5 class="modal-title">Nuevo Fichero</h5>
+                    <div class="alert alert-danger" id="errores" role="alert" style="display:none;">
+                        <p id="p_error"></p>
+                    </div>
                 </div>
                
                 <div class="modal-body">
@@ -37,7 +40,7 @@
                         </div>
                     </form>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="click_cerrar" >Close</button>
                         <button class="btn btn-success" id="boton_guardar_cambios">Guardar Cambios</button>
                     </div>
                 </div>
