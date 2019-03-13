@@ -24,6 +24,6 @@ Route::get('/cliente/{id}', 'ControladorClientes@getDetalleClientes');
 Route::put('/cliente/{id}', 'ControladorClientes@guardarDatosEditadosCliente');
 Route::post('/cliente/{id}', 'ControladorVentas@nuevaVenta');
 
-Route::get('/cliente/venta/{id}', 'ControladorVentas@getDetalleVenta');
-Route::put('/cliente/venta/{id}', 'ControladorVentas@guardarDatosEditadosVenta');
-Route::post('/cliente/venta/{id}', 'ControladorVentas@SubirFichero');
+Route::get('/cliente/venta/{id}/{idcliente}', 'ControladorVentas@getDetalleVenta');
+Route::put('/cliente/venta/{id}/{idcliente}', 'ControladorVentas@guardarDatosEditadosVenta');
+Route::post('/cliente/venta/{id}/{idcliente}', 'ControladorVentas@SubirFichero');

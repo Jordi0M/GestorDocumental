@@ -43,14 +43,14 @@ function detalleCliente(datosJSON){
 	var datos = datosJSON[0];
 
 	//datos del cliente
-	var nombre = $("<input type=text value="+datos["nombre"]+" class=datos_detalle name=nombre disabled/>");
-	var documento = $("<input type=text value="+datos["documento"]+" class=datos_detalle name=documento disabled/>");
-	var telefono = $("<input type=text value="+datos["telefono"]+" class=datos_detalle name=telefono disabled/>");
-	var mail = $("<input type=label value="+datos["mail"]+" class=datos_detalle name=mail disabled/>");
-	var direccion = $("<input type=label value="+datos["direccion"]+" class=datos_detalle name=direccion disabled/>");
-	var provincia = $("<input type=label value="+datos["provincia"]+" class=datos_detalle name=provincia disabled/>");
-	var localidad = $("<input type=label value="+datos["localidad"]+" class=datos_detalle name=localidad disabled/>");
-	var cp = $("<input type=label value="+datos["cp"]+" class=datos_detalle name=cp disabled/>");
+	var nombre = $("<input type=text class=datos_detalle name=nombre disabled/>").val(datos["nombre"]);
+	var documento = $("<input type=text class=datos_detalle name=documento disabled/>").val(datos["documento"]);
+	var telefono = $("<input type=text class=datos_detalle name=telefono disabled/>").val(datos["telefono"]);
+	var mail = $("<input type=label class=datos_detalle name=mail disabled/>").val(datos["mail"]);
+	var direccion = $("<input type=label class=datos_detalle name=direccion disabled/>").val(datos["direccion"]);
+	var provincia = $("<input type=label class=datos_detalle name=provincia disabled/>").val(datos["provincia"]);
+	var localidad = $("<input type=label class=datos_detalle name=localidad disabled/>").val(datos["localidad"]);
+	var cp = $("<input type=label class=datos_detalle name=cp disabled/>").val(datos["cp"]);
 
 	$("#nombre_cliente").prepend("Cliente: "+datos["nombre"]+"\t");
 
@@ -102,9 +102,15 @@ function guardarDatosEditados(){
 	$("#formulario_de_editar").submit();
 }
 
-function detalleVenta(datosJSON){
+function detalleVenta(datosJSON, nombre_cliente){
+
 	//como en el array que recibe, solo es de una venta propia, le daremos la primera posicon (0)
 	var datos = datosJSON[0];
+	var nombre_cliente = nombre_cliente[0];
+
+	$("#nombre_cliente").prepend("Ventas del Cliente: "+nombre_cliente["nombre"]+"\t");
+
+	
 	if (datos["estado"] == 1){
 		var estado_venta = "vendido";
 	}
@@ -112,7 +118,7 @@ function detalleVenta(datosJSON){
 		var estado_venta = "'sin vender'";
 	}
 	//datos de la venta
-	var descripcion = $("<input type=text value="+datos["descripcion"]+" class=datos_detalle name=descripcion disabled/>");
+	var descripcion = $("<input type=text class=datos_detalle name=descripcion disabled/>").val(datos["descripcion"]);
 
 	//depndiendo de cual tenga le servidor, le daremos un selected u otro
 	if (datos["estado"] == 0) {
@@ -126,9 +132,8 @@ function detalleVenta(datosJSON){
 					).append($("<option value=1 selected>").text("Vendido"));
 	}
 	
-	var fecha_modificacion = $("<input type=text value="+datos["updated_at"]+" name=fecha_modificacion readonly/>");
+	//var fecha_modificacion = $("<input type=text value="+datos["updated_at"]+" name=fecha_modificacion readonly/>");
 	var fecha_modificacion = $("<label>").text(datos["updated_at"]);
-	//$("#nombre_cliente").prepend("Cliente: "+datos["nombre"]+"\t");
 
 	$(".detalles_venta").append(//le añadiremos un tr al tbody:
 		$("<tr>").append(//al tr le iremos añadiendo varios td
@@ -150,14 +155,13 @@ function listadoVentas(datosJSON){
 
 	for (var i = 0; i<datos.length; i++) {
 		//declaramos primero el onclick del boton
-		var onclick = "onclick=redirigir_a_DetalleVentas("+datos[i]["id"]+")";
+		var onclick = "onclick=redirigir_a_DetalleVentas("+datos[i]["id"]+","+datos[i]["id_cliente"]+")";
 		if (datos[i]["estado"] == 1){
 			var estado = "vendido";
 		}
 		else if (datos[i]["estado"] == 0){
 			var estado = "sin vender";
 		}
-
 		//creamos el boton segun el dato que crea el for
 		var boton_detalle_cliente = "<button type='button' class='btn btn-success'"+onclick+">";
 		$(".lista_ventas").append(//todo esto se añadira al tbody
@@ -182,19 +186,21 @@ function listadoVentas(datosJSON){
 	}//cerramos el for
 }
 
-function redirigir_a_DetalleVentas(id){
+function redirigir_a_DetalleVentas(id,id_cliente){
 
-	window.location='/cliente/venta/'+id;
+	window.location='/cliente/venta/'+id+"/"+id_cliente;
 }
 
 function comprobarSiEsPDF(){
+	var nombre_del_documento = $("#nombre_del_documento").val();
     var doc = $("#subida_documento").val();
     var extension = doc.split('.').pop();
-    if (extension == "pdf") {
+    if (extension == "pdf" && nombre_del_documento.length>=1) {
     	$("#form_modal_nuevo_fichero").submit();
     }
     else{
-    	alert("mal");
+    	$("#div_subir_fichero").append(
+    		$("<div class='alert alert-danger'>").text("No has introducido un PDF, o no tiene nombre"))
     }
 }
 
@@ -216,61 +222,58 @@ function listadoDocumentos(datosJSON){
 
 		var archivo = datos[i]["archivo"].replace("public", "/storage");
 		//reemplazamos la carpeta "public" por "storage"
-		var nombre_archivo_mostrar = archivo.replace("/storage/","")
+		var nombre_archivo_mostrar = archivo.replace("/storage/","");
 		//mostraremos el archivo sin storage
+		var nombre_archivo_mostrar = nombre_archivo_mostrar.replace("/",":");
+		var nombre_archivo_mostrar = nombre_archivo_mostrar.replace("/",":");
+		//como no dejaba guardar el fichero con dos puntos, anteriormente le añadimos la "/" para guardarlo
+		//pero para mostrarlo, le daremos los dos puntos (lo pongo dos veces, porque hay 2)
 
 		//y segun el tipo de documento, lo añadimos en algun div u otro:
 		if (datos[i]["tipo_documento"] == "presupuesto"){
-			$("#div_documento_presupuesto").append(
-				$(".documentos_presupuesto").append(
-					$("<tr>").append(
-						$("<td>").append(
-							$("<a>").attr("href",archivo).text(archivo)
-						)
+			$(".documentos_presupuesto").append(
+				$("<tr>").append(
+					$("<img src='/img/pdf.ico' style='width: 20px'>")
+				).append(
+				$("<td>").append(
+						$("<a>").attr("href",archivo).text(nombre_archivo_mostrar)
 					)
 				)
 			)
 		}
+
 		else if (datos[i]["tipo_documento"] == "factura"){
-			$("#div_documento_factura").append(
-				$(".documentos_factura").append(
-					$("<tr>").append(
-						$("<td>").append(
-							$("<a>").attr("href",archivo).text(nombre_archivo_mostrar)
-						)
+			$(".documentos_factura").append(
+				$("<tr>").append(
+					$("<td>").append(
+						$("<a>").attr("href",archivo).text(nombre_archivo_mostrar)
 					)
 				)
 			)
 		}
 		else if (datos[i]["tipo_documento"] == "albaran"){
-			$("#div_documento_albaran").append(
-				$(".documentos_albaran").append(
-					$("<tr>").append(
-						$("<td>").append(
-							$("<a>").attr("href",archivo).text(nombre_archivo_mostrar)
-						)
+			$(".documentos_albaran").append(
+				$("<tr>").append(
+					$("<td>").append(
+						$("<a>").attr("href",archivo).text(nombre_archivo_mostrar)
 					)
 				)
 			)
 		}
 		else if (datos[i]["tipo_documento"] == "x"){
-			$("#div_documento_x").append(
-				$(".documentos_x").append(
-					$("<tr>").append(
-						$("<td>").append(
-							$("<a>").attr("href",archivo).text(nombre_archivo_mostrar)
-						)
+			$(".documentos_x").append(
+				$("<tr>").append(
+					$("<td>").append(
+						$("<a>").attr("href",archivo).text(nombre_archivo_mostrar)
 					)
 				)
 			)
 		}
 		else if (datos[i]["tipo_documento"] == "y"){
-			$("#div_documento_y").append(
-				$(".documentos_y").append(
-					$("<tr>").append(
-						$("<td>").append(
-							$("<a>").attr("href",archivo).text(nombre_archivo_mostrar)
-						)
+			$(".documentos_y").append(
+				$("<tr>").append(
+					$("<td>").append(
+						$("<a>").attr("href",archivo).text(nombre_archivo_mostrar)
 					)
 				)
 			)
