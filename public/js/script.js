@@ -12,7 +12,7 @@ function listadoClientes(datosJSON){
 	
 	//php recoge los datos, y los guardamos en una variable de javascript
 	var datos = datosJSON;
-	var enlace_nombre_cliente = "<a class='nombre_cliente'>";
+	//var enlace_nombre_cliente = "<a class='nombre_cliente'>";
 	var icono_detalle_cliente = "<i class='fas fa-search-plus'>";
 
 	for (var i = 0; i<datos.length; i++) {
@@ -24,7 +24,7 @@ function listadoClientes(datosJSON){
 		$(".tbody").append(//todo esto se añadira al tbody
 			$("<tr>").append(//creamos un tr y añadiremos el contenido
 				$("<th scope=row>").append(//comenzamos a añadir a los "td" tanto texto como botones
-				$(enlace_nombre_cliente).text(datos[i]["nombre"])
+				$("<td>").text(datos[i]["nombre"])
 				)).append(
 				$("<td>").text(datos[i]["telefono"])
 				).append(
@@ -282,7 +282,8 @@ function estructuraDocumentos(tipo_factura, archivo, nombre_archivo_mostrar){
 			)
 		).append(
 		$("<td>").append(
-				$("<a>").attr("href",archivo).attr("target","_blank").text(nombre_archivo_mostrar)
+				//$("<a>").attr("href",archivo).attr("target","_blank").text(nombre_archivo_mostrar)
+				$("<a>").attr("target","_blank").text(nombre_archivo_mostrar)
 			)
 		)
 	)

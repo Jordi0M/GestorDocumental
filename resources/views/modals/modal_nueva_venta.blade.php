@@ -12,6 +12,7 @@
                     <h5 class="modal-title">Nueva Venta</h5>
                 </div>
                 <br>
+            <!--
                 @if ($errors->any())
                     <div class="alert alert-danger">
                         <ul>
@@ -21,6 +22,7 @@
                         </ul>
                     </div>
                 @endif
+            -->
                 <div class="modal-body">
                     <form method="POST" id="form_modal_nueva_venta">
                         {{ csrf_field() }}
