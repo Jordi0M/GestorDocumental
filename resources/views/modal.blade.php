@@ -116,15 +116,6 @@ $(document).ready(function() {
                 errorP.append($span.addClass('parpadea text').text("formato  de nombre no válido."));
                 $("#errores").append(errorP);
             }
-        if(documento.match(/^[A-Z|\d](-)?\d{7}[A-Z|\d]/)) {
-                $("#boton_cliente").submit();
-            }else{
-                $("#errores").css("display","block");
-                var errorP=$( document.createElement('p') );
-                var $span = $( document.createElement('span') );
-                errorP.append($span.addClass('parpadea text').text("NIF no válido."));
-                $("#errores").append(errorP);
-            }
         
         if(cp.match(/^[0-5][1-9]{3}[0-9]$/)) {
                 $("#boton_cliente").submit();
@@ -161,10 +152,33 @@ $(document).ready(function() {
         $("#errores").find("p").remove()   
         $("#errores").css("display","none");
     });
+
+
+    $("#boton_cliente").click(function(){
+        var NIF=$("input[name=documento]").val();
+        String.prototype.isNif=function()
+        {
+        return /^(\d{7,8})([A-HJ-NP-TV-Z])$/.test(this) && ("TRWAGMYFPDXBNJZSQVHLCKE"[(RegExp.$1%23)]==RegExp.$2);
+        };
+        if (NIF.isNif()==true){
+            $("#boton_cliente").submit();
+        }
+        else{
+            $("#errores").css("display","block");
+            var errorP=$( document.createElement('p') );
+            var $span = $( document.createElement('span') );
+            errorP.append($span.addClass('parpadea text').text("El NIF no es válido."));
+            $("#errores").append(errorP);;
+        }
+    });
 });
 
 
 
+
+
+console.log()
+ 
  
 </script>
 </div>
