@@ -14,9 +14,7 @@
                 <!--error modal-->
                 
                 <div class="alert alert-danger" id="errores" role="alert" style="display:none;">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                <button><span id="boton_modal_cerrar" class="glyphicon glyphicon-remove"></span></button>
                 </div>
             </div>
       <div class="modal-body">
@@ -81,17 +79,50 @@
 
 
             <div class="modal-footer">
+                <button class="btn btn-success" id="boton_cliente">Guardar Cambios</button>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
         </form>
-        <button class="btn btn-success" onclick="Comprobar()">Guardar Cambios</button>
+        
     </div>
   </div>
 </div>
   </form>
 <!--Creamos una función que captará los errores del formulario en un modal-->
   <script>
- 
+
+$(document).ready(function() {
+    
+    $("#boton_cliente").click(function() {
+        var nombre= $("input[name=nombre]").val();
+        var documento=$("input[name=documento]").val();
+        var direccion= $("input[name=direccion]").val();
+        var cp=$("input[name=cp]").val();
+        var telefono= $("input[name=telefono]").val();
+        var mail=$("input[name=mail]").val();
+        if(nombre<=0 || documento<=0 ||direccion<=0 ||cp<=0 ||telefono<=0 ||mail<=0){
+            $("#errores").css("display","block");
+            var errorP=$( document.createElement('p') );
+            var $span = $( document.createElement('span') );
+            errorP.append($span.addClass('parpadea text').text("Todos los campos son obligatorios"));
+           $("#errores").append(errorP);
+        }
+        else if (nombre.match(/[A-Za-z0-9]{5,40}/)) {
+        alert("Bien");
+        }
+        else {alert("Esto no son números");}
+    });
+
+
+    $("#boton_modal_cerrar").click(function(){
+    $("#errores").find("p").remove()   
+    $("#errores").css("display","none");
+    });
+});
+
+
+
+ /*
     function Comprobar(){
         var nombre= $("input[name=nombre]").val();
         var documento=$("input[name=documento]").val();
@@ -141,5 +172,6 @@
         
         
     }
+    */
 </script>
 </div>

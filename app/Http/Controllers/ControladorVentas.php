@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use DB;
 use App\ventas;
 use App\documento;
+use App\Http\Requests\VentaNuevaRequest;
 
 class ControladorVentas extends Controller
 {
@@ -19,7 +20,7 @@ class ControladorVentas extends Controller
 	    return view('clientes.DetalleVentas', compact('ListaCliente', 'ListaVentas', 'ListaDocumentos'));
 	}
 
-	public function nuevaVenta(Request $request, $id)
+	public function nuevaVenta(VentaNuevaRequest $request, $id)
 	{
 
 		$venta = new ventas;
@@ -33,7 +34,7 @@ class ControladorVentas extends Controller
 		
 	}
 
-	public function guardarDatosEditadosVenta(Request $request, $id, $id_cliente){
+	public function guardarDatosEditadosVenta(VentaNuevaRequest $request, $id, $id_cliente){
 
         $editar_venta = ventas::find($id);
         $editar_venta->descripcion = $request->input('descripcion');
