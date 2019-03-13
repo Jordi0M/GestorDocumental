@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 use App\Cliente;
+use App\ventas;
 
 class ClienteSeeder extends Seeder
 {
@@ -13,16 +14,26 @@ class ClienteSeeder extends Seeder
      */
     public function run()
     {
-        for ($i=0; $i<20; $i++){
+        for ($i=1; $i<10; $i++){
             Cliente::create([
                 'nombre' 		=>	'Cliente ' . $i,
-                'documento'	=>	'A12345 ' . $i,
+                'documento'	=>	$i . '2345678A',
                 'direccion'		=>	'Cornella' . $i,
                 'provincia'		=>	'Barcelona' . $i,
                 'localidad'		=>	'Barcelona' . $i,
-                'cp'		=>	'555' . $i,
-                'telefono'		=>	'9325147' . $i,
+                'cp'		=>	'5555' . $i,
+                'telefono'		=>	'93251478' . $i,
                 'mail'		=>	'cliente' . $i.'@proyecto.com'
+            ]);
+        }
+
+        for ($i=1; $i<20; $i++){
+            $id_cliente = rand(1,9);
+            $estado = rand(0,1);
+            ventas::create([
+                'id_cliente'    =>  $id_cliente,
+                'descripcion'   =>     'Ejemplo ' . $i,
+                'estado'     =>  $estado
             ]);
         }
     }
