@@ -129,7 +129,7 @@ input:valid ~ .check-ok {
         <!-- Logo -->
         <a href="/" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          <span class="logo-mini"><b>GD</b></span>
+          <span class="logo-mini"><b><img src="/img/logo1.jpeg" class="img-fluid" style=" width: 100%;" ></b></span>
           <!-- logo for regular state and mobile devices -->
           <span class="logo-lg"><b>GestorDocumental</b></span>
         </a>
