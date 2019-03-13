@@ -222,61 +222,54 @@ function listadoDocumentos(datosJSON){
 
 		var archivo = datos[i]["archivo"].replace("public", "/storage");
 		//reemplazamos la carpeta "public" por "storage"
+
 		var nombre_archivo_mostrar = archivo.replace("/storage/","");
 		//mostraremos el archivo sin storage
+
+		/*
 		var nombre_archivo_mostrar = nombre_archivo_mostrar.replace("/",":");
 		var nombre_archivo_mostrar = nombre_archivo_mostrar.replace("/",":");
 		//como no dejaba guardar el fichero con dos puntos, anteriormente le añadimos la "/" para guardarlo
 		//pero para mostrarlo, le daremos los dos puntos (lo pongo dos veces, porque hay 2)
+		*/
+		
+		var nombre_archivo_mostrar = nombre_archivo_mostrar.split('_');
 
 		//y segun el tipo de documento, lo añadimos en algun div u otro:
 		if (datos[i]["tipo_documento"] == "presupuesto"){
-			$(".documentos_presupuesto").append(
-				$("<tr>").append(
-					$("<img src='/img/pdf.ico' style='width: 20px'>")
-				).append(
-				$("<td>").append(
-						$("<a>").attr("href",archivo).text(nombre_archivo_mostrar)
-					)
-				)
-			)
+			var tipo_factura = ".documentos_presupuesto";
+			estructuraDocumentos(tipo_factura, archivo, nombre_archivo_mostrar[0])
 		}
 
 		else if (datos[i]["tipo_documento"] == "factura"){
-			$(".documentos_factura").append(
-				$("<tr>").append(
-					$("<td>").append(
-						$("<a>").attr("href",archivo).text(nombre_archivo_mostrar)
-					)
-				)
-			)
+			var tipo_factura = ".documentos_factura";
+			estructuraDocumentos(tipo_factura, archivo, nombre_archivo_mostrar[0])
 		}
 		else if (datos[i]["tipo_documento"] == "albaran"){
-			$(".documentos_albaran").append(
-				$("<tr>").append(
-					$("<td>").append(
-						$("<a>").attr("href",archivo).text(nombre_archivo_mostrar)
-					)
-				)
-			)
+			var tipo_factura = ".documentos_albaran";
+			estructuraDocumentos(tipo_factura, archivo, nombre_archivo_mostrar[0])
 		}
 		else if (datos[i]["tipo_documento"] == "x"){
-			$(".documentos_x").append(
-				$("<tr>").append(
-					$("<td>").append(
-						$("<a>").attr("href",archivo).text(nombre_archivo_mostrar)
-					)
-				)
-			)
+			var tipo_factura = ".documentos_x";
+			estructuraDocumentos(tipo_factura, archivo, nombre_archivo_mostrar[0])
 		}
 		else if (datos[i]["tipo_documento"] == "y"){
-			$(".documentos_y").append(
-				$("<tr>").append(
-					$("<td>").append(
-						$("<a>").attr("href",archivo).text(nombre_archivo_mostrar)
-					)
-				)
-			)
+			var tipo_factura = ".documentos_y";
+			estructuraDocumentos(tipo_factura, archivo, nombre_archivo_mostrar[0])
 		}
 	}//cerramos el for
+}
+
+function estructuraDocumentos(tipo_factura, archivo, nombre_archivo_mostrar){
+	$(tipo_factura).append(
+		$("<tr>").append(
+			$("<td style='padding-left: 50px'>").append(
+				$("<img src='/img/pdf.png' style='width: 35px'>")
+			)
+		).append(
+		$("<td>").append(
+				$("<a>").attr("href",archivo).text(nombre_archivo_mostrar)
+			)
+		)
+	)
 }
