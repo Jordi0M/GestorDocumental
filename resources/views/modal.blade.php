@@ -80,7 +80,7 @@
 
             <div class="modal-footer">
                 <button class="btn btn-success" id="boton_cliente">Guardar Cambios</button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="cerrarModalNuevoCliente()">Close</button>
             </div>
         </form>
         

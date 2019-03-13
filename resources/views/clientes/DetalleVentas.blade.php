@@ -122,6 +122,11 @@
 		    //ponemos bien el ID del formulario de editar para el action
 		    $("#form_modal_nuevo_fichero").attr("action","/cliente/venta/"+datos_JSON_ventas[0]["id"]+"/"+datos_JSON_clientes[0]["id"]);
 		    //ponemos bien el ID del formulario de añadir para el action
+
+		    $("#click_cerrar").on("click", function(){
+		    	cerrarModalNuevoFichero(datos_JSON_ventas[0]["id"],datos_JSON_clientes[0]["id"])
+		    	//para cerrar y recargar bien la pagina
+		    })
 		}
 
 		/*
