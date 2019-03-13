@@ -107,71 +107,64 @@ $(document).ready(function() {
             errorP.append($span.addClass('parpadea text').text("Todos los campos son obligatorios"));
            $("#errores").append(errorP);
         }
-        else if (nombre.match(/[A-Za-z0-9]{5,40}/)) {
-        alert("Bien");
-        }
-        else {alert("Esto no son números");}
+        if(nombre.match(/[A-Za-z0-9]{5,40}/)) {
+                $("#boton_cliente").submit();
+            }else{
+                $("#errores").css("display","block");
+                var errorP=$( document.createElement('p') );
+                var $span = $( document.createElement('span') );
+                errorP.append($span.addClass('parpadea text').text("formato  de nombre no válido."));
+                $("#errores").append(errorP);
+            }
+        if(documento.match(/^[A-Z|\d](-)?\d{7}[A-Z|\d]/)) {
+                $("#boton_cliente").submit();
+            }else{
+                $("#errores").css("display","block");
+                var errorP=$( document.createElement('p') );
+                var $span = $( document.createElement('span') );
+                errorP.append($span.addClass('parpadea text').text("NIF no válido."));
+                $("#errores").append(errorP);
+            }
+        
+        if(cp.match(/^[0-5][1-9]{3}[0-9]$/)) {
+                $("#boton_cliente").submit();
+            }else{
+                $("#errores").css("display","block");
+                var errorP=$( document.createElement('p') );
+                var $span = $( document.createElement('span') );
+                errorP.append($span.addClass('parpadea text').text("Formato codigo postal incorrecto."));
+                $("#errores").append(errorP);;
+            }
+        if(telefono.match(/^(\+34|0034|34)?[\s|\-|\.]?[6|7|8|9][\s|\-|\.]?([0-9][\s|\-|\.]?){8}$/)) {
+                $("#boton_cliente").submit();
+            }else{
+                $("#errores").css("display","block");
+                var errorP=$( document.createElement('p') );
+                var $span = $( document.createElement('span') );
+                errorP.append($span.addClass('parpadea text').text("Telefono no valido."));
+                $("#errores").append(errorP);;
+            }
+        if(mail.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/)) {
+                $("#boton_cliente").submit();
+            }else{
+                $("#errores").css("display","block");
+                var errorP=$( document.createElement('p') );
+                var $span = $( document.createElement('span') );
+                errorP.append($span.addClass('parpadea text').text("El mail no es correcto."));
+                $("#errores").append(errorP);;
+            }
+        
     });
 
 
     $("#boton_modal_cerrar").click(function(){
-    $("#errores").find("p").remove()   
-    $("#errores").css("display","none");
+        $("#errores").find("p").remove()   
+        $("#errores").css("display","none");
     });
 });
 
 
 
- /*
-    function Comprobar(){
-        var nombre= $("input[name=nombre]").val();
-        var documento=$("input[name=documento]").val();
-        var direccion= $("input[name=direccion]").val();
-        var cp=$("input[name=cp]").val();
-        var telefono= $("input[name=telefono]").val();
-        var mail=$("input[name=mail]").val();
-
-        if(nombre <= 0){
-            nombre.addClass('is-invalid');
-            $("#errores").css("display","block");
-            var $span = $( document.createElement('span') );
-           $("#errores").append($span.addClass('parpadea text').text("Has de introducir un nombre."));
-          
-           $("#errores").append('<br/>');
-        }if (documento <=0){
-            $("#errores").css("display","block");
-            var $span = $( document.createElement('span') );
-           $("#errores").append($span.addClass('parpadea text').text("Has de introducir una NIF/CIF."));
-            $("#errores").append('<br/>');
-        }
-        if(direccion <= 0){
-            $("#errores").css("display","block");
-            var $span = $( document.createElement('span') );
-           $("#errores").append($span.addClass('parpadea text').text("Has de introducir una direccion."));
-           $("#errores").append('<br/>');
-        }if (cp <=0){
-            $("#errores").css("display","block");
-            var $span = $( document.createElement('span') );
-           $("#errores").append($span.addClass('parpadea text').text("Has de introducir un codigo postal."));
-            $("#errores").append('<br/>');
-        }
-        if(telefono <= 0){
-            $("#errores").css("display","block");
-            var $span = $( document.createElement('span') );
-           $("#errores").append($span.addClass('parpadea text').text("Has de introducir un numero de telefono."));
-           $("#errores").append('<br/>');
-        }if (mail <=0){
-            $("#errores").css("display","block");
-            var $span = $( document.createElement('span') );
-           $("#errores").append($span.addClass('parpadea text').text("Has de introducir un mail."));
-            $("#errores").append('<br/>');
-        }
-        else{
-            $("#form_modal").submit();
-        }
-        
-        
-    }
-    */
+ 
 </script>
 </div>
