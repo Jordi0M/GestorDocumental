@@ -79,10 +79,11 @@
 
 
             <div class="modal-footer">
-                <button class="btn btn-success" id="boton_cliente">Guardar Cambios</button>
+               
                 <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="cerrarModalNuevoCliente()">Close</button>
             </div>
         </form>
+         <button class="btn btn-success" id="boton_cliente">Guardar Cambios</button>
         
     </div>
   </div>
@@ -108,7 +109,7 @@ $(document).ready(function() {
            $("#errores").append(errorP);
         }
         if(nombre.match(/[A-Za-z0-9]{5,40}/)) {
-                $("#boton_cliente").submit();
+                //$("#boton_cliente").submit();
             }else{
                 $("#errores").css("display","block");
                 var errorP=$( document.createElement('p') );
@@ -118,7 +119,7 @@ $(document).ready(function() {
             }
         
         if(cp.match(/^[0-5][1-9]{3}[0-9]$/)) {
-                $("#boton_cliente").submit();
+                //$("#boton_cliente").submit();
             }else{
                 $("#errores").css("display","block");
                 var errorP=$( document.createElement('p') );
@@ -127,7 +128,7 @@ $(document).ready(function() {
                 $("#errores").append(errorP);;
             }
         if(telefono.match(/^(\+34|0034|34)?[\s|\-|\.]?[6|7|8|9][\s|\-|\.]?([0-9][\s|\-|\.]?){8}$/)) {
-                $("#boton_cliente").submit();
+               // $("#boton_cliente").submit();
             }else{
                 $("#errores").css("display","block");
                 var errorP=$( document.createElement('p') );
@@ -136,7 +137,7 @@ $(document).ready(function() {
                 $("#errores").append(errorP);;
             }
         if(mail.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/)) {
-                $("#boton_cliente").submit();
+                //$("#boton_cliente").submit();
             }else{
                 $("#errores").css("display","block");
                 var errorP=$( document.createElement('p') );
@@ -160,11 +161,12 @@ $(document).ready(function() {
         {
         return /^(\d{7,8})([A-HJ-NP-TV-Z])$/.test(this) && ("TRWAGMYFPDXBNJZSQVHLCKE"[(RegExp.$1%23)]==RegExp.$2);
         };
-        if (NIF.isNif()==true){
-            $("#boton_cliente").submit();
+        if (NIF.isNif()===true){
+            console.log("funciona");
+            $("#form_modal").submit();
         }
         else{
-            NIF.remove();
+           
             $("#errores").css("display","block");
             var errorP=$( document.createElement('p') );
             var $span = $( document.createElement('span') );
