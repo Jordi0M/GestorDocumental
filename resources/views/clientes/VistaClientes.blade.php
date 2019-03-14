@@ -8,7 +8,7 @@
 		</div>
 	</div>
 	<br>
-	<!--
+	
 	<div class="col-6 mb-5 " style="display: flex; width: 30%;">
 		
 			<input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
@@ -16,7 +16,7 @@
 			<button type="button" class="btn btn-primary ml-1">Search</button>
 		
 	</div>
- 	-->
+ 	
  	<div class="row">
  		<div class="col" style="margin-left: 50px; margin-right: 50px;">
 			<table class="table">
