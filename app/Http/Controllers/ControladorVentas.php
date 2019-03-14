@@ -46,7 +46,7 @@ class ControladorVentas extends Controller
 
 	public function SubirFichero(Request $request, $id, $id_cliente)
 	{	
-		$date =  date( "Y-m-d_H/i/s", time());
+		$date =  date( "Y-m-d_H-i-s", time());
 		$tipo_documento = $request->input('tipo_de_documento');
 		$nombre_del_documento = $request->input('nombre_del_documento');
 

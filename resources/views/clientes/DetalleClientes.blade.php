@@ -64,7 +64,7 @@
 	<br>
 	<div class="row">
 		<div class="col-xs-12">
-			<h3>Ventas Asociadas <button class="btn btn-success" data-toggle="modal" data-target="#myModal">Nueva venta</button></h3>
+			<h3>Ventas Asociadas <!--<button class="btn btn-success" data-toggle="modal" data-target="#myModal">Nueva venta</button>--></h3>
 			@include('../modals/modal_nueva_venta')
 		</div>
 	</div>
