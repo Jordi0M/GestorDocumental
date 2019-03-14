@@ -164,20 +164,16 @@ $(document).ready(function() {
             $("#boton_cliente").submit();
         }
         else{
+            NIF.remove();
             $("#errores").css("display","block");
             var errorP=$( document.createElement('p') );
             var $span = $( document.createElement('span') );
             errorP.append($span.addClass('parpadea text').text("El NIF no es válido."));
-            $("#errores").append(errorP);;
+            $("#errores").append(errorP);
+            
         }
     });
 });
-
-
-
-
-
-console.log()
  
  
 </script>
