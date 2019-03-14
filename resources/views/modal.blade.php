@@ -14,7 +14,7 @@
                 <!--error modal-->
                 
                 <div class="alert alert-danger" id="errores" role="alert" style="display:none;">
-                <button><span id="boton_modal_cerrar" class="glyphicon glyphicon-remove"></span></button>
+                <button style="margin-left:95%;"><span id="boton_modal_cerrar" class="glyphicon glyphicon-remove"></span></button>
                 </div>
             </div>
       <div class="modal-body">
@@ -147,13 +147,13 @@ $(document).ready(function() {
         
     });
 
-
+    //funcion que cierra los mensajes de error.
     $("#boton_modal_cerrar").click(function(){
         $("#errores").find("p").remove()   
         $("#errores").css("display","none");
     });
 
-
+    //funcion que comprueba si el NIF es válido.
     $("#boton_cliente").click(function(){
         var NIF=$("input[name=documento]").val();
         String.prototype.isNif=function()

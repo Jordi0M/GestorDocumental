@@ -106,7 +106,7 @@ input:valid {
   background-color: #BBFFF0;
 }
 input:invalid{
-  background-color: #E88080;
+  background-color: #e8808040;
 }
 .check-ok {
   color: lime;
