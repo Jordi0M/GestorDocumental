@@ -202,18 +202,35 @@ function redirigir_a_DetalleVentas(id,id_cliente){
 }
 
 function comprobarSiEsPDF(){
-	var nombre_del_documento = $("#nombre_del_documento").val();
-    var doc = $("#subida_documento").val();
+	var nombre_del_documento = $("#nombre_del_documento_nuevo_fichero").val();
+    var doc = $("#subida_documento_nuevo_fichero").val();
     var extension = doc.split('.').pop();
     if (extension == "pdf" && nombre_del_documento.length>=1) {
     	$("#form_modal_nuevo_fichero").submit();
     }
     else{
 
-    	$("#errores").css("display","block");
-    	$("#p_error").remove();
-    	$("#errores").append(
-    		$("<p id='p_error'>").addClass('parpadea text').text("No has introducido un PDF, o no tiene nombre")
+    	$("#errores_nuevo_fichero").css("display","block");
+    	$("#p_error_nuevo_fichero").remove();
+    	$("#errores_nuevo_fichero").append(
+    		$("<p id='p_error_nuevo_fichero'>").addClass('parpadea text').text("No has introducido un PDF, o no tiene nombre")
+    	)
+    }
+}
+
+function comprobarSiEsPDFv2(){
+	var nombre_del_documento = $("#nombre_del_documento_actualizar_fichero").val();
+    var doc = $("#subida_documento_actualizar_fichero").val();
+    var extension = doc.split('.').pop();
+    if (extension == "pdf" && nombre_del_documento.length>=1) {
+    	$("#form_modal_actualizar_fichero").submit();
+    }
+    else{
+
+    	$("#errores_actualizar_fichero").css("display","block");
+    	$("#p_error_actualizar_fichero").remove();
+    	$("#errores_actualizar_fichero").append(
+    		$("<p id='p_error_actualizar_fichero'>").addClass('parpadea text').text("No has introducido un PDF, o no tiene nombre")
     	)
     }
 }
@@ -222,9 +239,17 @@ function comprobarSiEsPDF(){
 //se utilizara para saber que tipo de documento va a saber
 function indicarTipoDeDocumentoAlModal(){
 	$(".agregar_documento").on("click", function(){
+	var ruta_fichero = $(this).attr("ruta_fichero");
+
+	if (ruta_fichero != null) {
+		var ruta_fichero = ruta_fichero.replace("/storage/", "");
+		$(".documento_a_actualizar").val(ruta_fichero);
+	}
+	
 	var tipo_de_documento = $(this).data("documento");
-	$("#label_tipo_de_documento").text(tipo_de_documento);
-	$("#input_tipo_de_documento").val(tipo_de_documento);
+	$(".label_tipo_de_documento").text(tipo_de_documento);
+	$(".input_tipo_de_documento").val(tipo_de_documento);
+	
 	});
 }
 
@@ -280,6 +305,7 @@ function estructuraDocumentos(tipo_factura, archivo, nombre_archivo_mostrar){
 	var icono_editar = "<i class='fas fa-edit'></i>";
 	var icono_descargar = "<i class='fas fa-arrow-alt-circle-down'></i>";
 
+	var tipo_documento_v2 = tipo_factura.split('_').pop();
 
 	$(tipo_factura).append(
 		$("<tr>").append(
@@ -292,11 +318,11 @@ function estructuraDocumentos(tipo_factura, archivo, nombre_archivo_mostrar){
 			)
 		).append(
 			$("<td>").append(
-				$("<a class='btn btn-success' style='margin: 10px'>").append(icono_editar+"\t Modificar")
+				$("<a class='btn btn-success agregar_documento' style='margin: 10px' data-toggle='modal' data-target='#modal_actualizar_fichero'>").attr("data-documento",tipo_documento_v2).attr("ruta_fichero",archivo).append(icono_editar+"\t Modificar")
 			).append(
 				$("<a class='btn btn-success' style='margin: 10px'>").append(icono_visualizar+"\t Visualizar").attr("href",archivo).attr("target","_blank")
 			).append(
-				$("<a class='btn btn-success' style='margin: 10px'>").append(icono_descargar+"\t Descargar").attr("href","/cliente"+archivo)
+				$("<a class='btn btn-success' style='margin: 10px'>").append(icono_descargar+"\t Descargar").attr("href","/documento"+archivo)
 			)
 		)
 	)

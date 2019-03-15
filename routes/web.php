@@ -27,5 +27,6 @@ Route::post('/cliente/{id}', 'ControladorVentas@nuevaVenta');
 Route::get('/cliente/venta/{id}/{idcliente}', 'ControladorVentas@getDetalleVenta');
 Route::put('/cliente/venta/{id}/{idcliente}', 'ControladorVentas@guardarDatosEditadosVenta');
 Route::post('/cliente/venta/{id}/{idcliente}', 'ControladorVentas@SubirFichero');
+Route::patch('/cliente/venta/{id}/{idcliente}', 'ControladorVentas@actualizarFichero');
 
-Route::get('/cliente/storage/{fichero}' , 'ControladorVentas@descargarFichero');
+Route::get('/documento/storage/{fichero}' , 'ControladorVentas@descargarFichero');

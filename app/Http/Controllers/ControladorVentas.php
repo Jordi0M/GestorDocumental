@@ -8,6 +8,7 @@ use App\ventas;
 use App\documento;
 use App\Http\Requests\VentaNuevaRequest;
 
+
 class ControladorVentas extends Controller
 {
     public function getDetalleVenta($id,$id_cliente)
@@ -69,5 +70,29 @@ class ControladorVentas extends Controller
     	$ruta_del_fichero = public_path()."/storage/".$fichero;
     	return response()->download($ruta_del_fichero, $nombre_real_del_fichero);
     	
+    }
+
+    public function actualizarFichero(Request $request, $id, $id_cliente)
+	{
+		//recibe el antiguo nombre del documento
+		$fichero_a_actualizar = $request->input('documento_a_actualizar');
+		//busca el antiguo nombre en la bbdd (añaidendole la ruta, porque se guarda asi)
+		$fichero_bbdd = documento::where('archivo', '=', "public/".$fichero_a_actualizar)->first();
+
+		//unlink elimina
+		unlink(storage_path('/app/public/'.$fichero_a_actualizar));
+
+		//Lo demas es igual a antes
+		$date =  date( "Y-m-d_H-i-s", time());
+		$tipo_documento = $request->input('tipo_de_documento');
+		$nombre_del_documento = $request->input('nombre_del_documento');
+
+
+        $fichero_bbdd->archivo = $request->file('documento')->storeAs('public',$nombre_del_documento ."_". $tipo_documento ."_".$date.".pdf");
+        $fichero_bbdd->nombre_inicial = $request->file('documento')->getClientOriginalName();
+
+        $fichero_bbdd->save();
+
+        return $this->getDetalleVenta($id, $id_cliente);    	
     }
 }
