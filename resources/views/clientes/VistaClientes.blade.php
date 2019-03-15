@@ -3,7 +3,7 @@
 @section('contenido')
 	<div class="row">
 		<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-			<h3>Listado de Clientes <button class="btn btn-success" data-toggle="modal" data-target="#myModal">Nuevo</button></h3>
+			<h3>Listado de Clientes <button class="btn btn-success" data-toggle="modal" data-target="#myModal"><i class="fas fa-plus-square"></i>   Nuevo</button></h3>
 			@include('../modal')
 		</div>
 	</div>

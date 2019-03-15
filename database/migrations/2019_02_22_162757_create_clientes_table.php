@@ -42,6 +42,7 @@ class CreateClientesTable extends Migration
             $table->integer('id_venta')->unsigned();
             $table->string('tipo_documento');
             $table->string('archivo');
+            $table->string('nombre_inicial');
             $table->timestamps();
 
             //foraneas

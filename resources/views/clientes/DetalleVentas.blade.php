@@ -3,7 +3,7 @@
 @section('contenido')
 	<div class="row">
 		<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-			<h3 id="nombre_cliente"><button class="btn btn-success" id="boton_editar_datos">Editar</button></h3>
+			<h3 id="nombre_cliente"><button class="btn btn-success" id="boton_editar_datos"><i class="fas fa-edit"></i>   Editar</button></h3>
 		</div>
 	</div>
 		<br>
@@ -30,7 +30,7 @@
 	@include('../modals/modal_nuevo_fichero')
 	<div class="row">
 		<div class="col-xs-12" id="div_documento_presupuesto">
-			<h3>Presupuesto	<button class="btn btn-success agregar_documento" data-toggle="modal" data-target="#myModal" data-documento="presupuesto">Añadir Presupuesto</button></h3>
+			<h3>Presupuesto	<button class="btn btn-success agregar_documento" data-toggle="modal" data-target="#myModal" data-documento="presupuesto"><i class="fas fa-folder-plus"></i>   Añadir Presupuesto</button></h3>
 			<table class="table">
 				<thead class="thead-light">
 					<tr>
@@ -46,7 +46,7 @@
 
 	<div class="row">
 		<div class="col-xs-12" id="div_documento_factura">
-			<h3>Factura	<button class="btn btn-success agregar_documento" data-toggle="modal" data-target="#myModal" data-documento="factura">Añadir Factura</button></h3>
+			<h3>Factura	<button class="btn btn-success agregar_documento" data-toggle="modal" data-target="#myModal" data-documento="factura"><i class="fas fa-folder-plus"></i>   Añadir Factura</button></h3>
 			<table class="table">
 				<thead class="thead-light">
 					<tr>
@@ -62,7 +62,7 @@
 	
 	<div class="row">
 		<div class="col-xs-12" id="div_documento_albaran">
-			<h3>Albaran	<button class="btn btn-success agregar_documento" data-toggle="modal" data-target="#myModal" data-documento="albaran">Añadir Albaran</button></h3>
+			<h3>Albaran	<button class="btn btn-success agregar_documento" data-toggle="modal" data-target="#myModal" data-documento="albaran"><i class="fas fa-folder-plus"></i>   Añadir Albaran</button></h3>
 			<table class="table">
 				<thead class="thead-light">
 					<tr>
@@ -78,7 +78,7 @@
 	
 	<div class="row">
 		<div class="col-xs-12" id="div_documento_x">
-			<h3>Documento X	<button class="btn btn-success agregar_documento" data-toggle="modal" data-target="#myModal" data-documento="x">Añadir documento X</button></h3>
+			<h3>Documento X	<button class="btn btn-success agregar_documento" data-toggle="modal" data-target="#myModal" data-documento="x"><i class="fas fa-folder-plus"></i>   Añadir documento X</button></h3>
 			<table class="table">
 				<thead class="thead-light">
 					<tr>
@@ -94,7 +94,7 @@
 	
 	<div class="row">
 		<div class="col-xs-12" id="div_documento_y">
-			<h3>Documento Y	<button class="btn btn-success agregar_documento" data-toggle="modal" data-target="#myModal" data-documento="y">Añadir documento Y</button></h3>
+			<h3>Documento Y	<button class="btn btn-success agregar_documento" data-toggle="modal" data-target="#myModal" data-documento="y"><i class="fas fa-folder-plus"></i>   Añadir documento Y</button></h3>
 			<table class="table">
 				<thead class="thead-light">
 					<tr>

@@ -54,9 +54,20 @@ class ControladorVentas extends Controller
         $documento->id_venta = $id;
         $documento->tipo_documento = $tipo_documento;
         $documento->archivo = $request->file('documento')->storeAs('public',$nombre_del_documento ."_". $tipo_documento ."_".$date.".pdf");
+        $documento->nombre_inicial = $request->file('documento')->getClientOriginalName();
         $documento->save();
 
 		return $this->getDetalleVenta($id, $id_cliente);
-
 	}
+
+	public function descargarFichero($fichero)
+	{
+		$fichero_bbdd = DB::table('documentos')->where('archivo', "public/".$fichero)->get();
+
+		$nombre_real_del_fichero = $fichero_bbdd[0]->nombre_inicial;
+
+    	$ruta_del_fichero = public_path()."/storage/".$fichero;
+    	return response()->download($ruta_del_fichero, $nombre_real_del_fichero);
+    	
+    }
 }

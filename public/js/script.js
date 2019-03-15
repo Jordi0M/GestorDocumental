@@ -275,15 +275,28 @@ function listadoDocumentos(datosJSON){
 }
 
 function estructuraDocumentos(tipo_factura, archivo, nombre_archivo_mostrar){
+
+	var icono_visualizar = "<i class='fas fa-search-plus'></i>";
+	var icono_editar = "<i class='fas fa-edit'></i>";
+	var icono_descargar = "<i class='fas fa-arrow-alt-circle-down'></i>";
+
+
 	$(tipo_factura).append(
 		$("<tr>").append(
 			$("<td style='width: 8%'>").append(
 				$("<img src='/img/pdf.png' style='width: 35px'>")
 			)
 		).append(
-		$("<td>").append(
-				//$("<a>").attr("href",archivo).attr("target","_blank").text(nombre_archivo_mostrar)
-				$("<a>").attr("target","_blank").text(nombre_archivo_mostrar)
+			$("<td>").append(
+				$("<label>").text(nombre_archivo_mostrar)
+			)
+		).append(
+			$("<td>").append(
+				$("<a class='btn btn-success' style='margin: 10px'>").append(icono_editar+"\t Modificar")
+			).append(
+				$("<a class='btn btn-success' style='margin: 10px'>").append(icono_visualizar+"\t Visualizar").attr("href",archivo).attr("target","_blank")
+			).append(
+				$("<a class='btn btn-success' style='margin: 10px'>").append(icono_descargar+"\t Descargar").attr("href","/cliente"+archivo)
 			)
 		)
 	)

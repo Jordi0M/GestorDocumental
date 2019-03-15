@@ -27,3 +27,5 @@ Route::post('/cliente/{id}', 'ControladorVentas@nuevaVenta');
 Route::get('/cliente/venta/{id}/{idcliente}', 'ControladorVentas@getDetalleVenta');
 Route::put('/cliente/venta/{id}/{idcliente}', 'ControladorVentas@guardarDatosEditadosVenta');
 Route::post('/cliente/venta/{id}/{idcliente}', 'ControladorVentas@SubirFichero');
+
+Route::get('/cliente/storage/{fichero}' , 'ControladorVentas@descargarFichero');
