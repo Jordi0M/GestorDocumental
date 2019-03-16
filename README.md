@@ -32,6 +32,8 @@ Para añadir informacion a la base de datos, tendremos el seeder. Tenemos que ha
 *"composer dump-autoload -o"* y *"php artisan db:seed --class=ClienteSeeder"*.
 Asi ya tendremos la informacion generada en la base de datos.
 
+Como utilizaremos Breadcrumbs, necesitaremos hacer el siguiente comando para instalarlo desde el composer: *"composer require davejamesmiller/laravel-breadcrumbs"*
+
 Para que se guarde bien el contenido de los documentos, debemos hacer el siguiente comando:
 *"php artisan storage:link"*, esto creara un link a la carpeta storage para poder guardar en local los ficheros y luego poder mostrarlos linkandolos a la base de datos.
 
