@@ -27,6 +27,8 @@ Route::put('/cliente/{id}', 'ControladorClientes@guardarDatosEditadosCliente');
 Route::post('/cliente/{id}', 'ControladorVentas@nuevaVenta');
 
 Route::get('/cliente/venta/{id}/{idcliente}', 'ControladorVentas@getDetalleVenta');
+//el route name es para los breadcumbs al pasar un id
+Route::name('detalle_venta')->get('/detalle_venta/{id}', 'ControladorVentas@getDetalleVenta');
 Route::put('/cliente/venta/{id}/{idcliente}', 'ControladorVentas@guardarDatosEditadosVenta');
 Route::post('/cliente/venta/{id}/{idcliente}', 'ControladorVentas@SubirFichero');
 Route::patch('/cliente/venta/{id}/{idcliente}', 'ControladorVentas@actualizarFichero');
