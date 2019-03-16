@@ -15,12 +15,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 */
-//Route::get('/visualizacionclientes', 'ControladorClientes@getListadoClientes');
 
-Route::get('/', 'ControladorClientes@getListadoClientes');
+//se utiliza el "uses", "as" para definir la ruta del breadcrumb
+Route::get('/',['uses' => 'ControladorClientes@getListadoClientes', 'as' => '/']);
 Route::post('/','ControladorClientes@guardarCliente');
 
 Route::get('/cliente/{id}', 'ControladorClientes@getDetalleClientes');
+//el route name es para los breadcumbs al pasar un id
+Route::name('detalle_cliente')->get('/detalle_cliente/{id}', 'ControladorClientes@getDetalleClientes');
 Route::put('/cliente/{id}', 'ControladorClientes@guardarDatosEditadosCliente');
 Route::post('/cliente/{id}', 'ControladorVentas@nuevaVenta');
 
