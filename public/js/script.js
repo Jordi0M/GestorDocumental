@@ -28,9 +28,9 @@ function listadoClientes(datosJSON){
 				)).append(
 				$("<td>").text(datos[i]["telefono"])
 				).append(
-				$("<td>").text(datos[i]["direccion"])
+				$("<td>").text(datos[i]["localidad"])
 				).append(
-				$("<td>").text(datos[i]["provincia"])
+				$("<td>").text(datos[i]["documento"])
 				).append(
 				$("<td>").append(//en este "td" meteremos un div con todos los botones
 					$("<div style='width: 40%;'>").append(

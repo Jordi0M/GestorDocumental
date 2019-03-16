@@ -13,7 +13,7 @@
 	<div class="col-6 mb-5 " style="display: flex; width: 30%;">
 			<form method="get" action="/" accept-charset="UTF-8">
 
-				<input type="text" class="form-control" name="nombre" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
+				<input type="text" class="form-control" name="busqueda" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
 				
 				<button type="submit" class="btn btn-primary ml-1">Search</button>
 			</form>
@@ -27,8 +27,8 @@
 			    <tr>
 			      <th scope="col">Nombre</th>
 			      <th scope="col">Telefono</th>
-			      <th scope="col">Dirección</th>
-			      <th scope="col">Provincia</th>
+			      <th scope="col">Localidad</th>
+			      <th scope="col">NIF/CIF</th>
 			      <th scope="col">Opciones</th>
 			    </tr>
 			  </thead>
