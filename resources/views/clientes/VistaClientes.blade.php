@@ -9,12 +9,14 @@
 		</div>
 	</div>
 	<br>
-	
+
 	<div class="col-6 mb-5 " style="display: flex; width: 30%;">
-		
-			<input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
-			
-			<button type="button" class="btn btn-primary ml-1">Search</button>
+			<form method="get" action="/" accept-charset="UTF-8">
+
+				<input type="text" class="form-control" name="nombre" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
+				
+				<button type="submit" class="btn btn-primary ml-1">Search</button>
+			</form>
 		
 	</div>
  	

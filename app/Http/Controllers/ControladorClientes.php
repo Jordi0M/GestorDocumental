@@ -10,9 +10,13 @@ use App\Http\Requests\ClienteEditarRequest;
 
 class ControladorClientes extends Controller
 {
-    public function getListadoClientes()
+    public function getListadoClientes(Request $request)
 	{
-		$clientes = DB::table('clientes')->get();
+		//con esto, le pasaremos al "Cliente.php" el scope para que haga el where
+		$clientes = Cliente::search($request->nombre)->get();
+
+		//antigua:
+		//$clientes = DB::table('clientes')->get();
 
 	    return view('clientes.VistaClientes', ['ListaClientes' => $clientes]);
 	}
