@@ -10,15 +10,15 @@
 	</div>
 	<br>
 
-	<div class="col-6 mb-5 " style="display: flex; width: 30%;">
-			<form method="get" action="/" accept-charset="UTF-8">
+	<form method="get" action="/" accept-charset="UTF-8">
+		<div class="col-6 mb-5 " style="display: flex; width: 30%;">
 
-				<input type="text" class="form-control" name="busqueda" placeholder="Busca" aria-label="Recipient's username" aria-describedby="basic-addon2">
+			<input type="text" class="form-control" name="busqueda" placeholder="Busca" aria-label="Recipient's username" aria-describedby="basic-addon2">
 				
-				<button type="submit" class="btn btn-primary ml-1">Search</button>
-			</form>
+			<button type="submit" class="btn btn-primary ml-1">Search</button>
 		
-	</div>
+		</div>
+	</form>
  	
  	<div class="row">
  		<div class="col" style="margin-left: 50px; margin-right: 50px;">
