@@ -22,6 +22,8 @@ class ventas extends Model
 			$estado = $dato_a_buscar;
 		}
 		return $query->where('id_cliente', "=", $id)
-		->where('estado' , 'LIKE', "%$estado%");
+		->where('estado' , 'LIKE', "%$estado%")
+		->orWhere('id_cliente', "=", $id)
+		->Where('updated_at' , 'LIKE', "%$dato_a_buscar%");
 	}
 }

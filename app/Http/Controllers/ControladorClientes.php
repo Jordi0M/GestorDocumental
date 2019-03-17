@@ -53,6 +53,6 @@ class ControladorClientes extends Controller
 
 		$editar_cliente->update($request->all());
 
-		return $this->getDetalleClientes($id);
+		return $this->getDetalleClientes($request, $id);
 	}
 }
