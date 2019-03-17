@@ -13,7 +13,7 @@
 	<div class="col-6 mb-5 " style="display: flex; width: 30%;">
 			<form method="get" action="/" accept-charset="UTF-8">
 
-				<input type="text" class="form-control" name="busqueda" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
+				<input type="text" class="form-control" name="busqueda" placeholder="Busca" aria-label="Recipient's username" aria-describedby="basic-addon2">
 				
 				<button type="submit" class="btn btn-primary ml-1">Search</button>
 			</form>

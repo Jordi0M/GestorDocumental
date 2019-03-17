@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\Cliente;
+use App\ventas;
 use App\Http\Requests\ClienteNuevoRequest;
 use App\Http\Requests\ClienteEditarRequest;
 
@@ -21,11 +22,13 @@ class ControladorClientes extends Controller
 	    return view('clientes.VistaClientes', ['ListaClientes' => $clientes]);
 	}
 
-	public function getDetalleClientes($id)
+	public function getDetalleClientes(Request $request, $id)
 	{
 		$clientes = DB::table('clientes')->where('id', $id)->get();
 
-		$ventas = DB::table('ventas')->where('id_cliente', $id)->get();
+		//$ventas = DB::table('ventas')->where('id_cliente', $id)->get();
+
+		$ventas = ventas::search($request->busqueda, $id)->get();
 
 	    return view('clientes.DetalleClientes', ['ListaClientes' => $clientes], ['ListaVentas' => $ventas]);
 	}
