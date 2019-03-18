@@ -36,34 +36,22 @@
 				
 			  </tbody>
 			</table>
-		 
+		 {!! $ListaClientes->render() !!}
 		</div>
 	</div>
 
 	<script type="text/javascript">
 		//una vez este todo cargado, llamara a los datos
 		document.addEventListener('DOMContentLoaded', function(){
-		    llamar_Datos();
+				datos_JSON = {!! json_encode($ListaClientes->toArray(), JSON_HEX_TAG) !!}['data'];
+				listadoClientes(datos_JSON);
 		});
 
 		/*
 		con este script, llamaremos a la funcion que recoge datos (que esta en master),
 		y los usaremos para crear la vista correspondiente (listado clientes)
 		*/
-		function llamar_Datos(){
-			var datos = '{{$ListaClientes}}';
 		
-			recoger_Datos(datos);
-			listadoClientes(datos_JSON);
-		}
-
-
-		$(document).ready(function () {
-			$('#dtBasicExample').DataTable({
-				"pagingType": "simple" // "simple" option for 'Previous' and 'Next' buttons only
-			});
-			$('.dataTables_length').addClass('bs-select');
-		});
 	</script>
 
 
