@@ -1,6 +1,7 @@
 @extends('layouts.master')
 
 @section('contenido')
+	{{ Breadcrumbs::render('detalle_venta', $ListaCliente[0], $ListaVentas[0]) }}
 	<div class="row">
 		<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
 			<h3 id="nombre_cliente"><button class="btn btn-success" id="boton_editar_datos"><i class="fas fa-edit"></i>   Editar</button></h3>

@@ -31,7 +31,7 @@ class ControladorVentas extends Controller
 		$venta->save();
 
 		$cc = new ControladorClientes();
-		return $cc->getDetalleClientes($id);
+		return $cc->getDetalleClientes($request,$id);
 		
 	}
 

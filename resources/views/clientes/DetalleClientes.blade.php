@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('contenido')
-	
+	{{ Breadcrumbs::render('detalle_cliente', $ListaClientes[0]) }}	
 		<div class="row">
 			<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
 				<h3 id="nombre_cliente"><button class="btn btn-success" id="boton_editar_datos"><i class="fas fa-edit"></i>  Editar</button></h3>
@@ -17,14 +17,6 @@
 							</ul>
 					</div>
 			@endif
-		
-		<div class="col-6 mb-5 " style="display: flex; width: 30%;">
-			
-				<input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
-				
-				<button type="button" class="btn btn-primary ml-1">Search</button>
-			
-		</div>
 		
 	<div class="row">
 		<div class="col" style="margin-left: 50px; margin-right: 50px;">
@@ -61,6 +53,19 @@
 
 		</div>
 	</div>
+
+	<br><br>
+
+	<form method="get" id="busqueda_detalle_cliente" accept-charset="UTF-8">
+		<div class="col-6 mb-5 " style="display: flex; width: 30%;">
+			
+			<input type="text" class="form-control" name="busqueda" placeholder="Busca" aria-label="Recipient's username" aria-describedby="basic-addon2">
+				
+			<button type="submit" class="btn btn-primary ml-1">Search</button>
+		
+		</div>
+	</form>
+
 	<br>
 	<div class="row">
 		<div class="col-xs-12">
@@ -97,6 +102,7 @@
 			$( "#boton_editar_datos" ).on( "click", editarDatos ); //le asignamos el onclick de editar datos
 		    $("#formulario_de_editar").attr("action","/cliente/"+datos_JSON[0]["id"]);
 		    $("#form_modal_nueva_venta").attr("action","/cliente/"+datos_JSON[0]["id"]);
+		    $("#busqueda_detalle_cliente").attr("action","/cliente/"+datos_JSON[0]["id"]);
 		    //ponemos bien el ID del formulario para el action
 		}
 

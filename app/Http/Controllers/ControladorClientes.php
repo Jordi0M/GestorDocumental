@@ -12,8 +12,7 @@ class ControladorClientes extends Controller
 {
     public function getListadoClientes()
 	{
-		$clientes = DB::table('clientes')->get()-paginate(5);
-		
+		$clientes = DB::table('clientes')->get()->paginate(5);
 		
 
 	    return view('clientes.VistaClientes', ['ListaClientes' => $clientes]);
