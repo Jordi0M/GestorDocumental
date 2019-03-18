@@ -15,13 +15,16 @@ class ControladorClientes extends Controller
 	{
 		//con esto, le pasaremos al "Cliente.php" el scope para que haga el where
 		$clientes = Cliente::search($request->busqueda)->paginate(4);
+		$busqueda = $request->get("busqueda");
+		$clientes->appends(['busqueda' => $busqueda])->links();
+
 		//antigua:
 		//$clientes = DB::table('clientes')->get();
 
 		//$clientes = DB::table('clientes')->get()->paginate(5);
 		
 		//return $clientes;
-	    return view('clientes.VistaClientes', ['ListaClientes' => $clientes]);
+	    return view('clientes.VistaClientes', ['ListaClientes' => $clientes], ['busqueda' => $busqueda]);
 	}
 
 	public function getDetalleClientes(Request $request, $id)
@@ -48,7 +51,10 @@ class ControladorClientes extends Controller
 		//return "prueba";
 		
 		$clientes = DB::table('clientes')->paginate(5);
-		return view('clientes.VistaClientes', ['ListaClientes' => $clientes]);
+		$busqueda = $request->get("busqueda");
+		$clientes->appends(['busqueda' => $busqueda])->links();
+		
+		return view('clientes.VistaClientes', ['ListaClientes' => $clientes], ['busqueda' => $busqueda]);
 	}
 	public function guardarDatosEditadosCliente(ClienteEditarRequest $request, $id){
 
