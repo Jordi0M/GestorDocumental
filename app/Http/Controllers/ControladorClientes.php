@@ -20,7 +20,7 @@ class ControladorClientes extends Controller
 
 		//$clientes = DB::table('clientes')->get()->paginate(5);
 		
-
+		//return $clientes;
 	    return view('clientes.VistaClientes', ['ListaClientes' => $clientes]);
 	}
 
@@ -47,7 +47,7 @@ class ControladorClientes extends Controller
 		Cliente::create($request->all());
 		//return "prueba";
 		
-		$clientes = DB::table('clientes')->get();
+		$clientes = DB::table('clientes')->paginate(5);
 		return view('clientes.VistaClientes', ['ListaClientes' => $clientes]);
 	}
 	public function guardarDatosEditadosCliente(ClienteEditarRequest $request, $id){

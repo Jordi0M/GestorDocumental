@@ -36,7 +36,7 @@
 				
 			  </tbody>
 			</table>
-		 {!! $ListaClientes->render() !!}
+		 {!! $ListaClientes->links() !!}
 		</div>
 	</div>
 
