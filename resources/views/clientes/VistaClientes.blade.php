@@ -29,9 +29,11 @@
 			      <th scope="col">Opciones</th>
 			    </tr>
 			  </thead>
-			  <tbody class="tbody">
+			  <tbody class="tbody" id="ListClients">
+				
 			  </tbody>
 			</table>
+		 
 		</div>
 	</div>
 
@@ -47,6 +49,7 @@
 		*/
 		function llamar_Datos(){
 			var datos = '{{$ListaClientes}}';
+		
 			recoger_Datos(datos);
 			listadoClientes(datos_JSON);
 		}

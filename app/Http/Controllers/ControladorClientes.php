@@ -8,11 +8,14 @@ use App\Cliente;
 use App\Http\Requests\ClienteNuevoRequest;
 use App\Http\Requests\ClienteEditarRequest;
 
+
 class ControladorClientes extends Controller
 {
     public function getListadoClientes()
 	{
 		$clientes = DB::table('clientes')->get();
+		
+	
 
 	    return view('clientes.VistaClientes', ['ListaClientes' => $clientes]);
 	}

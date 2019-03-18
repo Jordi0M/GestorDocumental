@@ -41,6 +41,8 @@ function listadoClientes(datosJSON){
 				)//cerramos el tr
 		);//cerramos el tbody
 	}//cerramos el for
+
+	
 }
 
 function redirigir_a_DetalleClientes(id){
