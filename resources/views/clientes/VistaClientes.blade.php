@@ -43,7 +43,7 @@
 	<script type="text/javascript">
 		//una vez este todo cargado, llamara a los datos
 		document.addEventListener('DOMContentLoaded', function(){
-				datos_JSON = {!! json_encode($ListaClientes->toArray(), JSON_HEX_TAG) !!}['data'];
+				var datos_JSON = {!! json_encode($ListaClientes->toArray(), JSON_HEX_TAG) !!}['data'];
 				listadoClientes(datos_JSON);
 		});
 

@@ -293,23 +293,7 @@ input:valid ~ .check-ok {
 					                
 
         </section><!-- /.content -->
-      </div><!-- /.content-wrapper -->
-
-    <!--Este script de aqui, recogera los datos que le diga el controlador,
-		luego, será llamado por la vista, y la vista sabra a que componente llamar
-		para generar los datos correspondientes-->
-	<script type="text/javascript">
-		function recoger_Datos(){
-			//lo transformamos en JSON para poder trabajar con ellos
-      //tambien remplazaremos el "&quot que aparece"
-      
-      datos_JSON = {!! json_encode($ListaClientes->toArray(), JSON_HEX_TAG) !!}['data'];
-      console.log(datos_JSON);
-			return datos_JSON;
-		}
-	</script>
-
-    
+      </div><!-- /.content-wrapper -->   
 
       <!--Fin-Contenido-->
       <footer class="main-footer">

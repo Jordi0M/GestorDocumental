@@ -95,7 +95,13 @@
 <script type="text/javascript">
 		//una vez este todo cargado, llamara a los datos
 		document.addEventListener('DOMContentLoaded', function(){
-		    llamar_Datos();
+		    datos_JSON = {!! json_encode($ListaClientes->toArray(), JSON_HEX_TAG) !!};
+		    detalleCliente(datos_JSON);
+
+		    darOnclick_y_action_detalle_clientes(datos_JSON);
+		    
+		    datos_JSON = {!! json_encode($ListaVentas->toArray(), JSON_HEX_TAG) !!};
+		    listadoVentas(datos_JSON);
 		});
 
 		function darOnclick_y_action_detalle_clientes(datos_JSON){
@@ -106,20 +112,5 @@
 		    //ponemos bien el ID del formulario para el action
 		}
 
-		/*
-		con este script, llamaremos a la funcion que recoge datos (que esta en master),
-		y los usaremos para crear la vista correspondiente (listado clientes)
-		*/
-		function llamar_Datos(){
-			var datos = '{{$ListaClientes}}';
-			recoger_Datos(datos);
-			detalleCliente(datos_JSON);
-			darOnclick_y_action_detalle_clientes(datos_JSON);
-
-			var datos_ventas = '{{$ListaVentas}}';
-			recoger_Datos(datos_ventas);
-			listadoVentas(datos_JSON);
-
-		}
 	</script>
 @endsection
