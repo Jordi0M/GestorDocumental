@@ -5,7 +5,7 @@
 
 	<!--JS propio-->
 	<script type="text/javascript" src="/js/script.js"></script>
-  <!--CSS propio-->
+  
   <link rel="stylesheet" type="text/css" href="/css/style.css">
 	<!--Font Awesome (iconos)-->
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -34,20 +34,12 @@
     <script src="{{'https://cdn.rawgit.com/PascaleBeier/bootstrap-validate/v2.2.0/dist/bootstrap-validate.js'}}"></script>
     <script src="{{'https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'}}"></script>
   	<script src="{{'https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js'}}"></script>
-   
-    <script src="{{'http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js'}}"></script>  
-   <script src="{{'https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js'}}"></script>  
-    <script src="{{'https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/additional-methods.min.js'}}"></script>
-    <script src="{{'https://cdn.rawgit.com/PascaleBeier/bootstrap-validate/v2.2.0/dist/bootstrap-validate.js'}}" ></script>
-    
-
-      <script src="{{'/js/jquery.validate.js'}}"></script>
-
-
 		
     @yield('script')
 
 	<style>
+
+  
 	/*
   text {
   font-size:28px;

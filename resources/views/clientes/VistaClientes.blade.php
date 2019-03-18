@@ -19,7 +19,7 @@
  	
  	<div class="row">
  		<div class="col" style="margin-left: 50px; margin-right: 50px;">
-			<table class="table">
+			<table class="table" id="dtBasicExample">
 			  <thead class="thead-light">
 			    <tr>
 			      <th scope="col">Nombre</th>
@@ -32,6 +32,7 @@
 			  <tbody class="tbody">
 			  </tbody>
 			</table>
+		
 		</div>
 	</div>
 
@@ -47,9 +48,18 @@
 		*/
 		function llamar_Datos(){
 			var datos = '{{$ListaClientes}}';
+		
 			recoger_Datos(datos);
 			listadoClientes(datos_JSON);
 		}
+
+
+		$(document).ready(function () {
+			$('#dtBasicExample').DataTable({
+				"pagingType": "simple" // "simple" option for 'Previous' and 'Next' buttons only
+			});
+			$('.dataTables_length').addClass('bs-select');
+		});
 	</script>
 
 
