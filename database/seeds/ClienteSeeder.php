@@ -30,10 +30,18 @@ class ClienteSeeder extends Seeder
         for ($i=1; $i<20; $i++){
             $id_cliente = rand(1,9);
             $estado = rand(0,1);
+
+            if ($estado == 0) {
+                    $estado_final = "sin vender";
+                }
+                elseif ($estado == 1) {
+                    $estado_final    = "vendido";
+                }
+
             ventas::create([
                 'id_cliente'    =>  $id_cliente,
                 'descripcion'   =>     'Ejemplo ' . $i,
-                'estado'     =>  $estado
+                'estado'    =>  $estado_final
             ]);
         }
     }

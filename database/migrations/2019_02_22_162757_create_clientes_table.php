@@ -30,7 +30,7 @@ class CreateClientesTable extends Migration
             $table->increments('id')->unique();
             $table->integer('id_cliente')->unsigned();
             $table->string('descripcion');
-            $table->boolean('estado');
+            $table->string('estado');
             $table->timestamps();
 
             //foraneas
