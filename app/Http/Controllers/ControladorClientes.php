@@ -5,26 +5,31 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\Cliente;
+use App\ventas;
 use App\Http\Requests\ClienteNuevoRequest;
 use App\Http\Requests\ClienteEditarRequest;
 
 
 class ControladorClientes extends Controller
 {
-    public function getListadoClientes()
+    public function getListadoClientes(Request $request)
 	{
-		$clientes = DB::table('clientes')->get();
-		
-	
+		//con esto, le pasaremos al "Cliente.php" el scope para que haga el where
+		$clientes = Cliente::search($request->busqueda)->get();
+
+		//antigua:
+		//$clientes = DB::table('clientes')->get();
 
 	    return view('clientes.VistaClientes', ['ListaClientes' => $clientes]);
 	}
 
-	public function getDetalleClientes($id)
+	public function getDetalleClientes(Request $request, $id)
 	{
 		$clientes = DB::table('clientes')->where('id', $id)->get();
 
-		$ventas = DB::table('ventas')->where('id_cliente', $id)->get();
+		//$ventas = DB::table('ventas')->where('id_cliente', $id)->get();
+
+		$ventas = ventas::search($request->busqueda, $id)->get();
 
 	    return view('clientes.DetalleClientes', ['ListaClientes' => $clientes], ['ListaVentas' => $ventas]);
 	}
@@ -49,6 +54,6 @@ class ControladorClientes extends Controller
 
 		$editar_cliente->update($request->all());
 
-		return $this->getDetalleClientes($id);
+		return $this->getDetalleClientes($request, $id);
 	}
 }

@@ -1,6 +1,7 @@
 @extends('layouts.master')
 
 @section('contenido')
+	{{ Breadcrumbs::render('clientes') }}
 	<div class="row">
 		<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
 			<h3>Listado de Clientes <button class="btn btn-success" data-toggle="modal" data-target="#myModal"><i class="fas fa-plus-square"></i>   Nuevo</button></h3>
@@ -8,14 +9,16 @@
 		</div>
 	</div>
 	<br>
-	
-	<div class="col-6 mb-5 " style="display: flex; width: 30%;">
+
+	<form method="get" action="/" accept-charset="UTF-8">
+		<div class="col-6 mb-5 " style="display: flex; width: 30%;">
+
+			<input type="text" class="form-control" name="busqueda" placeholder="Busca" aria-label="Recipient's username" aria-describedby="basic-addon2">
+				
+			<button type="submit" class="btn btn-primary ml-1">Search</button>
 		
-			<input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
-			
-			<button type="button" class="btn btn-primary ml-1">Search</button>
-		
-	</div>
+		</div>
+	</form>
  	
  	<div class="row">
  		<div class="col" style="margin-left: 50px; margin-right: 50px;">
@@ -24,8 +27,8 @@
 			    <tr>
 			      <th scope="col">Nombre</th>
 			      <th scope="col">Telefono</th>
-			      <th scope="col">Dirección</th>
-			      <th scope="col">Provincia</th>
+			      <th scope="col">Localidad</th>
+			      <th scope="col">NIF/CIF</th>
 			      <th scope="col">Opciones</th>
 			    </tr>
 			  </thead>

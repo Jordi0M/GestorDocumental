@@ -1,6 +1,7 @@
 @extends('layouts.master')
 
 @section('contenido')
+	{{ Breadcrumbs::render('detalle_venta', $ListaCliente[0], $ListaVentas[0]) }}
 	<div class="row">
 		<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
 			<h3 id="nombre_cliente"><button class="btn btn-success" id="boton_editar_datos"><i class="fas fa-edit"></i>   Editar</button></h3>
@@ -28,6 +29,7 @@
 	</div>
 
 	@include('../modals/modal_nuevo_fichero')
+	@include('../modals/modal_actualizar_fichero')
 	<div class="row">
 		<div class="col-xs-12" id="div_documento_presupuesto">
 			<h3>Presupuesto	<button class="btn btn-success agregar_documento" data-toggle="modal" data-target="#myModal" data-documento="presupuesto"><i class="fas fa-folder-plus"></i>   Añadir Presupuesto</button></h3>
@@ -113,7 +115,8 @@
 		    llamar_Datos();
 			indicarTipoDeDocumentoAlModal();
 
-			$("#boton_guardar_cambios").on("click", comprobarSiEsPDF)	    
+			$("#boton_guardar_cambios_nuevo_fichero").on("click", comprobarSiEsPDF)
+			$("#boton_guardar_cambios_actualizar_fichero").on("click", comprobarSiEsPDFv2)	  
 		});
 
 		function darOnclick_y_action_detalle_ventas(datos_JSON_ventas, datos_JSON_clientes){
@@ -123,7 +126,15 @@
 		    $("#form_modal_nuevo_fichero").attr("action","/cliente/venta/"+datos_JSON_ventas[0]["id"]+"/"+datos_JSON_clientes[0]["id"]);
 		    //ponemos bien el ID del formulario de añadir para el action
 
-		    $("#click_cerrar").on("click", function(){
+		    $("#form_modal_actualizar_fichero").attr("action","/cliente/venta/"+datos_JSON_ventas[0]["id"]+"/"+datos_JSON_clientes[0]["id"]);
+		    //ponemos bien el ID del formulario de añadir para el action
+
+		    $("#click_cerrar_nuevo_fichero").on("click", function(){
+		    	cerrarModalNuevoFichero(datos_JSON_ventas[0]["id"],datos_JSON_clientes[0]["id"])
+		    	//para cerrar y recargar bien la pagina
+		    });
+		    
+		    $("#click_cerrar_actualizar_fichero").on("click", function(){
 		    	cerrarModalNuevoFichero(datos_JSON_ventas[0]["id"],datos_JSON_clientes[0]["id"])
 		    	//para cerrar y recargar bien la pagina
 		    })
