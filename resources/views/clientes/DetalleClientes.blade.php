@@ -59,7 +59,7 @@
 	<form method="get" id="busqueda_detalle_cliente" accept-charset="UTF-8">
 		<div class="col-6 mb-5 " style="display: flex; width: 30%;">
 			
-			<input type="text" class="form-control" name="busqueda" placeholder="Busca" aria-label="Recipient's username" aria-describedby="basic-addon2">
+			<input type="text" class="form-control" name="busqueda" placeholder="{{$busqueda}}" aria-label="Recipient's username" aria-describedby="basic-addon2">
 				
 			<button type="submit" class="btn btn-primary ml-1">Search</button>
 		
@@ -89,6 +89,7 @@
 			  <tbody class="lista_ventas">
 			  </tbody>
 			</table>
+			{!! $ListaVentas->links() !!}
 		</div>
 	</div>
 
@@ -100,7 +101,7 @@
 
 		    darOnclick_y_action_detalle_clientes(datos_JSON);
 		    
-		    datos_JSON = {!! json_encode($ListaVentas->toArray(), JSON_HEX_TAG) !!};
+		    datos_JSON = {!! json_encode($ListaVentas->toArray(), JSON_HEX_TAG) !!}["data"];
 		    listadoVentas(datos_JSON);
 		});
 

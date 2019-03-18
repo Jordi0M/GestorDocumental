@@ -31,12 +31,14 @@ class ControladorClientes extends Controller
 	{
 
 
-		$clientes = DB::table('clientes')->where('id', $id)->get();
+		$ListaClientes = DB::table('clientes')->where('id', $id)->get();
 
 		//$ventas = DB::table('ventas')->where('id_cliente', $id)->get();
-		$ventas = ventas::search($request->busqueda, $id)->get();
+		$ListaVentas = ventas::search($request->busqueda, $id)->paginate(3);
+		$busqueda = $request->get("busqueda");
+		$ListaVentas->appends(['busqueda' => $busqueda])->links();
 
-	    return view('clientes.DetalleClientes', ['ListaClientes' => $clientes], ['ListaVentas' => $ventas]);
+	    return view('clientes.DetalleClientes', compact('ListaClientes', 'ListaVentas', 'busqueda'));
 	}
 
 	public function guardarCliente(ClienteNuevoRequest $request)
@@ -50,7 +52,7 @@ class ControladorClientes extends Controller
 		Cliente::create($request->all());
 		//return "prueba";
 		
-		$clientes = DB::table('clientes')->paginate(5);
+		$clientes = DB::table('clientes')->paginate(4);
 		$busqueda = $request->get("busqueda");
 		$clientes->appends(['busqueda' => $busqueda])->links();
 		

@@ -37,8 +37,8 @@
                                 <label>Estado</label>
                                 <br>
                                 <select name="estado">
-                                    <option value="0">Sin vender</option>
-                                    <option value="1">Vendido</option>
+                                    <option value="sin vender">Sin vender</option>
+                                    <option value="vendido">Vendido</option>
                                 </select>
                             </div>
 
