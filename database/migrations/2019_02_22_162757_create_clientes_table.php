@@ -16,13 +16,13 @@ class CreateClientesTable extends Migration
         Schema::create('clientes', function (Blueprint $table) {
             $table->increments('id')->unique();
             $table->string('nombre');
-            $table->string('documento',10);
+            $table->string('documento',10)->unique();
             $table->string('direccion');
             $table->string('provincia');
             $table->string('localidad');
             $table->string('cp',5);
             $table->integer('telefono')->unsigned();
-            $table->string('mail');
+            $table->string('mail')->unique();
             $table->timestamps();
         });
 
@@ -30,7 +30,7 @@ class CreateClientesTable extends Migration
             $table->increments('id')->unique();
             $table->integer('id_cliente')->unsigned();
             $table->string('descripcion');
-            $table->boolean('estado');
+            $table->string('estado');
             $table->timestamps();
 
             //foraneas

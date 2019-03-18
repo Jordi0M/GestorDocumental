@@ -14,9 +14,7 @@ class ControladorClientes extends Controller
     public function getListadoClientes(Request $request)
 	{
 		//con esto, le pasaremos al "Cliente.php" el scope para que haga el where
-
-		
-		$clientes = Cliente::search($request->busqueda)->paginate(5);
+		$clientes = Cliente::search($request->busqueda)->paginate(4);
 		//antigua:
 		//$clientes = DB::table('clientes')->get();
 
