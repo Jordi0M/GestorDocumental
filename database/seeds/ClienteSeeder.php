@@ -34,7 +34,7 @@ class ClienteSeeder extends Seeder
             if ($estado == 0) {
                     $estado_final = "sin vender";
                 }
-                elseif ($estado == 1) {
+            elseif ($estado == 1) {
                     $estado_final    = "vendido";
                 }
 
