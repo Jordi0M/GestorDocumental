@@ -54,7 +54,8 @@
 			var datos = '{{$ListaClientes}}';
 		
 			recoger_Datos(datos);
-			listadoClientes(datos_JSON);
+			console.log(listadoClientes(datos_JSON));
+
 		}
 	</script>
 
