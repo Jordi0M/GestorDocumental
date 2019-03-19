@@ -27,12 +27,12 @@ class AppServiceProvider extends ServiceProvider
         
         Validator::extend('clientes_nombre', function($attribute, $value, $parameters)
             {
-                return preg_match('/[A-Za-z0-9]{5,40}/',$value);
+                return preg_match('/[a-zA-ZÀ-ÖØ-öø-ÿ]+\.?(( |\-)[a-zA-ZÀ-ÖØ-öø-ÿ]+\.?)*/',$value);
             });
         
         Validator::extend('clientes_nif', function($attribute, $value, $parameters)
             {
-                return preg_match('/^[A-Z|\d](-)?\d{7}[A-Z|\d]+$/',$value);
+                return preg_match('/^(\d{7,8})([A-HJ-NP-TV-Z])$/',$value);
             });
 
         Validator::extend('clientes_cp', function($attribute, $value, $parameters)
@@ -42,17 +42,17 @@ class AppServiceProvider extends ServiceProvider
 
         Validator::extend('clientes_direccion', function($attribute, $value, $parameters)
             {
-                return preg_match('/[A-Za-z0-9]{5,80}/',$value);
+                return preg_match('/[a-zA-Z1-9À-ÖØ-öø-ÿ]+\.?(( |\-)[a-zA-Z1-9À-ÖØ-öø-ÿ]+\.?)* (((#|[nN][oO]\.?) ?)?\d{1,4}(( ?[a-zA-Z0-9\-]+)+)?)/',$value);
             });
 
         Validator::extend('clientes_provincia', function($attribute, $value, $parameters)
             {
-                return preg_match('/[A-Za-z0-9]{5,40}/',$value);
+                return preg_match('/[a-zA-ZÀ-ÖØ-öø-ÿ]+\.?(( |\-)[a-zA-ZÀ-ÖØ-öø-ÿ]+\.?)*/',$value);
             });
 
         Validator::extend('clientes_localidad', function($attribute, $value, $parameters)
             {
-                return preg_match('/[A-Za-z0-9]{5,40}/',$value);
+                return preg_match('/[a-zA-ZÀ-ÖØ-öø-ÿ]+\.?(( |\-)[a-zA-ZÀ-ÖØ-öø-ÿ]+\.?)*/',$value);
             });
 
         Validator::extend('clientes_telefono', function($attribute, $value, $parameters)
