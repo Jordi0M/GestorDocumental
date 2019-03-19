@@ -13,7 +13,7 @@
 	<form method="get" action="/" accept-charset="UTF-8">
 		<div class="col-6 mb-5 " style="display: flex; width: 30%;">
 
-			<input type="text" class="form-control" name="busqueda" placeholder="Busca" aria-label="Recipient's username" aria-describedby="basic-addon2">
+			<input type="text" class="form-control" name="busqueda" placeholder="{{$busqueda}}" aria-label="Recipient's username" aria-describedby="basic-addon2">
 				
 			<button type="submit" class="btn btn-primary ml-1">Search</button>
 		
@@ -22,7 +22,7 @@
  	
  	<div class="row">
  		<div class="col" style="margin-left: 50px; margin-right: 50px;">
-			<table class="table">
+			<table class="table" id="dtBasicExample">
 			  <thead class="thead-light">
 			    <tr>
 			      <th scope="col">Nombre</th>
@@ -36,27 +36,22 @@
 				
 			  </tbody>
 			</table>
-		 
+		 {!! $ListaClientes->links() !!}
 		</div>
 	</div>
 
 	<script type="text/javascript">
 		//una vez este todo cargado, llamara a los datos
 		document.addEventListener('DOMContentLoaded', function(){
-		    llamar_Datos();
+				var datos_JSON = {!! json_encode($ListaClientes->toArray(), JSON_HEX_TAG) !!}['data'];
+				listadoClientes(datos_JSON);
 		});
 
 		/*
 		con este script, llamaremos a la funcion que recoge datos (que esta en master),
 		y los usaremos para crear la vista correspondiente (listado clientes)
 		*/
-		function llamar_Datos(){
-			var datos = '{{$ListaClientes}}';
 		
-			recoger_Datos(datos);
-			console.log(listadoClientes(datos_JSON));
-
-		}
 	</script>
 
 

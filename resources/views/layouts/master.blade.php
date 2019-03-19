@@ -5,7 +5,7 @@
 
 	<!--JS propio-->
 	<script type="text/javascript" src="/js/script.js"></script>
-  <!--CSS propio-->
+  
   <link rel="stylesheet" type="text/css" href="/css/style.css">
 	<!--Font Awesome (iconos)-->
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -23,31 +23,23 @@
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="{{asset('css/_all-skins.min.css')}}">
-    <link rel="apple-touch-icon" href="{{'img/apple-touch-icon.png'}}">
-    <link rel="shortcut icon" href="{{'img/favicon.ico'}}">
+    <link rel="shortcut icon" href="{{'/img/favicon.png'}}">
     
     <link rel="stylesheet" href="{{'https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css'}}">
 
     <!--
     <link rel="stylesheet" href="{{'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css'}}" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 -->
-    <script src="{{'https://cdn.rawgit.com/PascaleBeier/bootstrap-validate/v2.2.0/dist/bootstrap-validate.js'}}"></script>
     <script src="{{'https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'}}"></script>
   	<script src="{{'https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js'}}"></script>
    
     <script src="{{'http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js'}}"></script>  
-   <script src="{{'https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js'}}"></script>  
-    <script src="{{'https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/additional-methods.min.js'}}"></script>
-    <script src="{{'https://cdn.rawgit.com/PascaleBeier/bootstrap-validate/v2.2.0/dist/bootstrap-validate.js'}}" ></script>
-    
 
-      <script src="{{'/js/jquery.validate.js'}}"></script>
-
-
-		
     @yield('script')
 
 	<style>
+
+  
 	/*
   text {
   font-size:28px;
@@ -300,21 +292,7 @@ input:valid ~ .check-ok {
 					                
 
         </section><!-- /.content -->
-      </div><!-- /.content-wrapper -->
-
-    <!--Este script de aqui, recogera los datos que le diga el controlador,
-		luego, será llamado por la vista, y la vista sabra a que componente llamar
-		para generar los datos correspondientes-->
-	<script type="text/javascript">
-		function recoger_Datos(datos){
-			//lo transformamos en JSON para poder trabajar con ellos
-			//tambien remplazaremos el "&quot que aparece"
-			datos_JSON = JSON.parse(datos.replace(/&quot;/g,'"'));
-			return datos_JSON;
-		}
-	</script>
-
-    
+      </div><!-- /.content-wrapper -->   
 
       <!--Fin-Contenido-->
       <footer class="main-footer">

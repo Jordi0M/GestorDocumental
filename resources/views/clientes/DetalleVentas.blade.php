@@ -112,7 +112,17 @@
 <script type="text/javascript">
 		//una vez este todo cargado, llamara a los datos
 		document.addEventListener('DOMContentLoaded', function(){
-		    llamar_Datos();
+		    datos_JSON = {!! json_encode($ListaVentas->toArray(), JSON_HEX_TAG) !!};
+			var datos_JSON_ventas = datos_JSON;
+
+			datos_JSON = {!! json_encode($ListaCliente->toArray(), JSON_HEX_TAG) !!};
+			var datos_JSON_clientes = datos_JSON;
+
+			detalleVenta(datos_JSON_ventas, datos_JSON_clientes);
+			darOnclick_y_action_detalle_ventas(datos_JSON_ventas, datos_JSON_clientes);
+
+			datos_JSON = {!! json_encode($ListaDocumentos->toArray(), JSON_HEX_TAG) !!};
+			listadoDocumentos(datos_JSON);
 			indicarTipoDeDocumentoAlModal();
 
 			$("#boton_guardar_cambios_nuevo_fichero").on("click", comprobarSiEsPDF)
@@ -138,29 +148,6 @@
 		    	cerrarModalNuevoFichero(datos_JSON_ventas[0]["id"],datos_JSON_clientes[0]["id"])
 		    	//para cerrar y recargar bien la pagina
 		    })
-		}
-
-		/*
-		con este script, llamaremos a la funcion que recoge datos (que esta en master),
-		y los usaremos para crear la vista correspondiente (listado ventas)
-		*/
-		function llamar_Datos(){
-			var datos = '{{$ListaVentas}}';
-			recoger_Datos(datos);
-			var datos_JSON_ventas = datos_JSON;
-
-			var datos = '{{$ListaCliente}}';
-			recoger_Datos(datos);
-			var datos_JSON_clientes = datos_JSON;
-
-			detalleVenta(datos_JSON_ventas, datos_JSON_clientes);
-			darOnclick_y_action_detalle_ventas(datos_JSON_ventas, datos_JSON_clientes);
-
-			var datos_documentos = '{{$ListaDocumentos}}';
-			recoger_Datos(datos_documentos);
-			listadoDocumentos(datos_JSON);
-
-			
 		}
 	</script>
 @endsection

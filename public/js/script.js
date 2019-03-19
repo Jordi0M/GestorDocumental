@@ -122,27 +122,21 @@ function detalleVenta(datosJSON, nombre_cliente){
 
 	$("#nombre_cliente").prepend("Ventas del Cliente: "+nombre_cliente["nombre"]+"\t");
 
-	
-	if (datos["estado"] == 1){
-		var estado_venta = "vendido";
-	}
-	else if (datos["estado"] == 0) {
-		var estado_venta = "'sin vender'";
-	}
 	//datos de la venta
 	var descripcion = $("<input type=text class=datos_detalle name=descripcion disabled/>").val(datos["descripcion"]);
 
 	//depndiendo de cual tenga le servidor, le daremos un selected u otro
-	if (datos["estado"] == 0) {
+	if (datos["estado"] == "sin vender") {
 		var estado = $("<select name=estado class=datos_detalle disabled>"
-					).append($("<option value=0 selected>").text("Sin vender")
-					).append($("<option value=1>").text("Vendido"));
+					).append($("<option value='sin vender' selected>").text("Sin vender")
+					).append($("<option value='vendido'>").text("Vendido"));
 	}
-	else if (datos["estado"] == 1){
+	else if (datos["estado"] == "vendido"){
 		var estado = $("<select name=estado class=datos_detalle disabled>"
-					).append($("<option value=0>").text("Sin vender")
-					).append($("<option value=1 selected>").text("Vendido"));
+					).append($("<option value='sin vender'>").text("Sin vender")
+					).append($("<option value='vendido' selected>").text("Vendido"));
 	}
+	
 	
 	//var fecha_modificacion = $("<input type=text value="+datos["updated_at"]+" name=fecha_modificacion readonly/>");
 	var fecha_modificacion = $("<label>").text(datos["updated_at"]);
@@ -168,12 +162,7 @@ function listadoVentas(datosJSON){
 	for (var i = 0; i<datos.length; i++) {
 		//declaramos primero el onclick del boton
 		var onclick = "onclick=redirigir_a_DetalleVentas("+datos[i]["id"]+","+datos[i]["id_cliente"]+")";
-		if (datos[i]["estado"] == 1){
-			var estado = "vendido";
-		}
-		else if (datos[i]["estado"] == 0){
-			var estado = "sin vender";
-		}
+
 		//creamos el boton segun el dato que crea el for
 		var boton_detalle_cliente = "<button type='button' class='btn btn-success'"+onclick+">";
 		$(".lista_ventas").append(//todo esto se añadira al tbody
@@ -183,7 +172,7 @@ function listadoVentas(datosJSON){
 				).append(
 				$("<td>").text(datos[i]["descripcion"])
 				).append(
-				$("<td>").text(estado)
+				$("<td>").text(datos[i]["estado"])
 				).append(
 				$("<td>").text(datos[i]["updated_at"])
 				).append(
