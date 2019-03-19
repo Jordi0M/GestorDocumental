@@ -87,12 +87,12 @@
             <!--------->
 
 
-            <div class="modal-footer">
-               
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="cerrarModalNuevoCliente()">Close</button>
-            </div>
+            
         </form>
-         <button class="btn btn-success" id="boton_cliente">Guardar Cambios</button>
+        <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="cerrarModalNuevoCliente()">Close</button>
+                <button class="btn btn-success" id="boton_cliente">Guardar Cambios</button>
+        </div>
         
     </div>
   </div>
