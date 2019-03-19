@@ -9,7 +9,15 @@
 		</div>
 	</div>
 	<br>
-
+	@if ($errors->any())
+					<div class="alert alert-danger">
+							<ul>
+									@foreach ($errors->all() as $error)
+											<li>{{ $error }}</li>
+									@endforeach
+							</ul>
+					</div>
+			@endif
 	<form method="get" action="/" accept-charset="UTF-8">
 		<div class="col-6 mb-5 " style="display: flex; width: 30%;">
 
@@ -18,6 +26,7 @@
 			<button type="submit" class="btn btn-primary ml-1">Search</button>
 		
 		</div>
+		
 	</form>
  	
  	<div class="row">

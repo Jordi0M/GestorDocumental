@@ -25,13 +25,13 @@ class ClienteNuevoRequest extends FormRequest
     {
         return [
             'nombre' => 'required', 
-            'documento' => 'required', 
+            'documento' => ['required', 'unique:clientes,documento'],
             'direccion' => 'required', 
             'provincia' => 'required', 
             'localidad' => 'required', 
             'cp' => 'required', 
-            'telefono' => 'required', 
-            'mail' => 'required',
+            'telefono' => 'required|unique:clientes,telefono',
+            'mail' => 'required|unique:clientes,mail',
         ];
     }
 
@@ -40,12 +40,15 @@ class ClienteNuevoRequest extends FormRequest
     return [
         'nombre.required' => 'El campo Nombre no puede estar vacio',
         'documento.required' => 'El campo DNI/NIF no puede estar vacio',
+        'documento.unique' => 'El NIF ya existe',
         'direccion.required' => 'El campo Direccion no puede estar vacio',
         'provincia.required' => 'El campo Provincia no puede estar vacio',
         'localidad.required' => 'El campo Localidad no puede estar vacio',
         'cp.required' => 'El campo CP no puede estar vacio',
         'telefono.required' => 'El campo Telefono no puede estar vacio',
         'mail.required' => 'El campo Mail no puede estar vacio',
+        'mail.unique' => 'El mail ya existe',
+        'telefono.unique' => 'Este telefono ya existe',
     ];
     }
 }
