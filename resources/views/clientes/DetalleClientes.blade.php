@@ -4,7 +4,7 @@
 	{{ Breadcrumbs::render('detalle_cliente', $ListaClientes[0]) }}	
 		<div class="row">
 			<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-				<h3 id="nombre_cliente"><button class="btn btn-success" id="boton_editar_datos"><i class="fas fa-edit"></i>  Editar</button></h3>
+				<h3 id="nombre_cliente"><button class="btn btn-info" style="margin-left: 16%;"id="boton_editar_datos"><i class="fas fa-edit"></i>  Editar</button></h3>
 			</div>
 		</div>
 		<br>
@@ -69,7 +69,7 @@
 	<br>
 	<div class="row">
 		<div class="col-xs-12">
-			<h3>Ventas Asociadas <button class="btn btn-success" data-toggle="modal" data-target="#myModal"><i class="fas fa-plus-square"></i>   Nueva venta</button></h3>
+			<h3>Ventas Asociadas <button class="btn btn-success" style="margin-left: 7%;" data-toggle="modal" data-target="#myModal"><i class="fas fa-plus-square"></i>   Nueva venta</button></h3>
 			@include('../modals/modal_nueva_venta')
 		</div>
 	</div>
