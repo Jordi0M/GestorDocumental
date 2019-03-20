@@ -24,12 +24,12 @@ class ClienteNuevoRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombre' => 'required', 
+            'nombre' => 'required|max:100', 
             'documento' => ['required', 'unique:clientes,documento'],
-            'direccion' => 'required', 
-            'provincia' => 'required', 
-            'localidad' => 'required', 
-            'cp' => 'required', 
+            'direccion' => 'required|max:100', 
+            'provincia' => 'required|max:100', 
+            'localidad' => 'required|max:100', 
+            'cp' => 'required|max:5', 
             'telefono' => 'required|unique:clientes,telefono',
             'mail' => 'required|unique:clientes,mail',
         ];

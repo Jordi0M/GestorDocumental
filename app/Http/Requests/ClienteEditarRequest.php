@@ -26,9 +26,9 @@ class ClienteEditarRequest extends FormRequest
         return [
             'nombre' => 'required|clientes_nombre', 
             'documento' => 'required|clientes_nif', 
-            'direccion' => 'required', 
-            'provincia' => 'required', 
-            'localidad' => 'required', 
+            'direccion' => 'required|max:100', 
+            'provincia' => 'required|max:100', 
+            'localidad' => 'required|max:100', 
             'cp' => 'required|clientes_cp', 
             'telefono' => 'required|clientes_telefono', 
             'mail' => 'required|clientes_mail',
