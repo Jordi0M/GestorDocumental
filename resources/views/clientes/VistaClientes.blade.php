@@ -37,7 +37,7 @@
 			      <th scope="col">Nombre</th>
 			      <th scope="col">Telefono</th>
 			      <th scope="col">Localidad</th>
-			      <th scope="col">NIF/CIF</th>
+			      <th scope="col">DNI/NIF</th>
 			      <th scope="col">Opciones</th>
 			    </tr>
 			  </thead>
