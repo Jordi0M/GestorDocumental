@@ -4,7 +4,7 @@
 	{{ Breadcrumbs::render('detalle_venta', $ListaCliente[0], $ListaVentas[0]) }}
 	<div class="row">
 		<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-			<h3 id="nombre_cliente"><button class="btn btn-success" id="boton_editar_datos"><i class="fas fa-edit"></i>   Editar</button></h3>
+			<h3 id="nombre_cliente"><button class="btn btn-info" style="margin-left:5%" id="boton_editar_datos"><i class="fas fa-edit"></i>   Editar</button></h3>
 		</div>
 	</div>
 		<br>
@@ -32,7 +32,7 @@
 	@include('../modals/modal_actualizar_fichero')
 	<div class="row">
 		<div class="col-xs-12" id="div_documento_presupuesto">
-			<h3>Presupuesto	<button class="btn btn-success agregar_documento" data-toggle="modal" data-target="#myModal" data-documento="presupuesto"><i class="fas fa-folder-plus"></i>   Añadir Presupuesto</button></h3>
+			<h3>Presupuesto	<button class="btn btn-success agregar_documento" style="margin-left:15%" data-toggle="modal" data-target="#myModal" data-documento="presupuesto"><i class="fas fa-folder-plus"></i>   Añadir Presupuesto</button></h3>
 			<table class="table">
 				<thead class="thead-light">
 					<tr>
@@ -48,7 +48,7 @@
 
 	<div class="row">
 		<div class="col-xs-12" id="div_documento_factura">
-			<h3>Factura	<button class="btn btn-success agregar_documento" data-toggle="modal" data-target="#myModal" data-documento="factura"><i class="fas fa-folder-plus"></i>   Añadir Factura</button></h3>
+			<h3>Factura	<button class="btn btn-success agregar_documento" style="margin-left:18%" data-toggle="modal" data-target="#myModal" data-documento="factura"><i class="fas fa-folder-plus"></i>   Añadir Factura</button></h3>
 			<table class="table">
 				<thead class="thead-light">
 					<tr>
@@ -64,7 +64,7 @@
 	
 	<div class="row">
 		<div class="col-xs-12" id="div_documento_albaran">
-			<h3>Albaran	<button class="btn btn-success agregar_documento" data-toggle="modal" data-target="#myModal" data-documento="albaran"><i class="fas fa-folder-plus"></i>   Añadir Albaran</button></h3>
+			<h3>Albaran	<button class="btn btn-success agregar_documento" style="margin-left:18%" data-toggle="modal" data-target="#myModal" data-documento="albaran"><i class="fas fa-folder-plus"></i>   Añadir Albaran</button></h3>
 			<table class="table">
 				<thead class="thead-light">
 					<tr>
@@ -80,7 +80,7 @@
 	
 	<div class="row">
 		<div class="col-xs-12" id="div_documento_x">
-			<h3>Documento X	<button class="btn btn-success agregar_documento" data-toggle="modal" data-target="#myModal" data-documento="x"><i class="fas fa-folder-plus"></i>   Añadir documento X</button></h3>
+			<h3>Documento X	<button class="btn btn-success agregar_documento" style="margin-left:14%" data-toggle="modal" data-target="#myModal" data-documento="x"><i class="fas fa-folder-plus"></i>   Añadir documento X</button></h3>
 			<table class="table">
 				<thead class="thead-light">
 					<tr>
@@ -96,7 +96,7 @@
 	
 	<div class="row">
 		<div class="col-xs-12" id="div_documento_y">
-			<h3>Documento Y	<button class="btn btn-success agregar_documento" data-toggle="modal" data-target="#myModal" data-documento="y"><i class="fas fa-folder-plus"></i>   Añadir documento Y</button></h3>
+			<h3>Documento Y	<button class="btn btn-success agregar_documento" style="margin-left:14%" data-toggle="modal" data-target="#myModal" data-documento="y"><i class="fas fa-folder-plus"></i>   Añadir documento Y</button></h3>
 			<table class="table">
 				<thead class="thead-light">
 					<tr>

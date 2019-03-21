@@ -24,7 +24,15 @@ class VentaNuevaRequest extends FormRequest
     public function rules()
     {
         return [
-            'descripcion'=>'required'
+            'descripcion'=>'required|max:100'
         ];
     }
+     public function messages()
+{
+  return [
+    'descripcion.required' => 'Hay que introducir una descripcion.'
+    
+    
+  ];
+}
 }

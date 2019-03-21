@@ -9,10 +9,19 @@
     <div class="modal-content">
     	<div class="alert alert-danger" style="display:none"></div>
             <div class="modal-header">
-      	
+        
                 <h5 class="modal-title">Nuevo Cliente</h5>
-                <!--error modal-->
                 
+                <!--error modal-->
+                @if ($errors->any())
+					<div class="alert alert-danger">
+							<ul>
+									@foreach ($errors->all() as $error)
+											<li>{{ $error }}</li>
+									@endforeach
+							</ul>
+					</div>
+			@endif
                 <div class="alert alert-danger" id="errores" role="alert" style="display:none;">
                 <button style="margin-left:95%;"><span id="boton_modal_cerrar" class="glyphicon glyphicon-remove"></span></button>
                 </div>
@@ -24,7 +33,7 @@
                 <div class="form-group">
                         <label for="nombre">Nombre</label>
                         <!--Admitiremos nombres de cualquier nacionalidad, incluyendo nombres compuestos y la mayoría de normas de acentuación. El número de caracteres será como mínimo 3 y como máximo 32.-->
-                        <input type="text" name="nombre" class="form-control " required pattern="[A-Za-z0-9]{5,40}" placeholder="Nombre...">
+                        <input type="text" name="nombre" class="form-control " required pattern="[a-zA-ZÀ-ÖØ-öø-ÿ]+\.?(( |\-)[a-zA-ZÀ-ÖØ-öø-ÿ]+\.?)*" placeholder="Nombre...">
                         
                 </div>
 
@@ -38,7 +47,7 @@
                 <div class="form-group">
                     <label for="direccion">Direccion</label>
                     <!--Sólo se permiten letras (mayúsculas y minúsculas) y números-->
-                    <input type="text" name="direccion" id="direcciones"class="form-control" minlength="5" maxlength="40" required pattern="[A-Za-z0-9]+" placeholder="Direccion...">
+                    <input type="text" name="direccion" id="direcciones"class="form-control" minlength="3" maxlength="40" required pattern="[a-zA-Z1-9À-ÖØ-öø-ÿ]+\.?(( |\-)[a-zA-Z1-9À-ÖØ-öø-ÿ]+\.?)* (((#|[nN][oO]\.?) ?)?\d{1,4}(( ?[a-zA-Z0-9\-]+)+)?)" placeholder="Direccion...">
                 </div>
             </div>
                 <!--------->
@@ -46,14 +55,14 @@
                 <div class="form-group">
                     <label for="provincia">Provincia</label>
                     <!--Sólo se permiten letras (mayúsculas y minúsculas)-->
-                    <input type="text" name="provincia" class="form-control" minlength="5" maxlength="40" required pattern="[A-Za-z]+" placeholder="Provincia...">
+                    <input type="text" name="provincia" class="form-control" minlength="5" maxlength="40" required pattern="[a-zA-Z1-9À-ÖØ-öø-ÿ]+\.?(( |\-)[a-zA-Z1-9À-ÖØ-öø-ÿ]+\.?)*" placeholder="Provincia...">
                 </div>
         
         
                 <div class="form-group">
                         <label for="localidad">Localidad</label>
                         <!-- Sólo se permiten letras (mayúsculas y minúsculas)-->
-                        <input type="text" name="localidad" class="form-control" minlength="5" maxlength="40" required pattern="[A-Za-z]+" placeholder="Localidad...">
+                        <input type="text" name="localidad" class="form-control" minlength="2" maxlength="40" required pattern="[a-zA-Z1-9À-ÖØ-öø-ÿ]+\.?(( |\-)[a-zA-Z1-9À-ÖØ-öø-ÿ]+\.?)*" placeholder="Localidad...">
                 </div>
 
                 <div class="form-group">
@@ -78,12 +87,12 @@
             <!--------->
 
 
-            <div class="modal-footer">
-               
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="cerrarModalNuevoCliente()">Close</button>
-            </div>
+            
         </form>
-         <button class="btn btn-success" id="boton_cliente">Guardar Cambios</button>
+        <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="cerrarModalNuevoCliente()">Close</button>
+                <button class="btn btn-success" id="boton_cliente">Guardar Cambios</button>
+        </div>
         
     </div>
   </div>
@@ -108,7 +117,7 @@ $(document).ready(function() {
             errorP.append($span.addClass('parpadea text').text("Todos los campos son obligatorios"));
            $("#errores").append(errorP);
         }
-        if(nombre.match(/[A-Za-z0-9]{5,40}/)) {
+        if(nombre.match(/[a-zA-ZÀ-ÖØ-öø-ÿ]+\.?(( |\-)[a-zA-ZÀ-ÖØ-öø-ÿ]+\.?)*/)) {
                 //$("#boton_cliente").submit();
             }else{
                 $("#errores").css("display","block");

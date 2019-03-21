@@ -49,6 +49,7 @@
   text-transform:uppercase;
 }
 */
+
 .parpadea {
   
   animation-name: parpadeo;

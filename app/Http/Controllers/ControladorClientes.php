@@ -8,6 +8,7 @@ use App\Cliente;
 use App\ventas;
 use App\Http\Requests\ClienteNuevoRequest;
 use App\Http\Requests\ClienteEditarRequest;
+use Illuminate\Contracts\Support\Jsonable;
 
 class ControladorClientes extends Controller
 {

@@ -4,12 +4,20 @@
 	{{ Breadcrumbs::render('clientes') }}
 	<div class="row">
 		<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-			<h3>Listado de Clientes <button class="btn btn-success" data-toggle="modal" data-target="#myModal"><i class="fas fa-plus-square"></i>   Nuevo</button></h3>
+			<h3>Listado de Clientes <button class="btn btn-success" style="margin-left: 8%;" data-toggle="modal" data-target="#myModal"><i class="fas fa-plus-square"></i>   Nuevo</button></h3>
 			@include('../modal')
 		</div>
 	</div>
 	<br>
-
+	@if ($errors->any())
+					<div class="alert alert-danger">
+							<ul>
+									@foreach ($errors->all() as $error)
+											<li>{{ $error }}</li>
+									@endforeach
+							</ul>
+					</div>
+			@endif
 	<form method="get" action="/" accept-charset="UTF-8">
 		<div class="col-6 mb-5 " style="display: flex; width: 30%;">
 
@@ -18,6 +26,7 @@
 			<button type="submit" class="btn btn-primary ml-1">Search</button>
 		
 		</div>
+		
 	</form>
  	
  	<div class="row">
@@ -28,7 +37,7 @@
 			      <th scope="col">Nombre</th>
 			      <th scope="col">Telefono</th>
 			      <th scope="col">Localidad</th>
-			      <th scope="col">NIF/CIF</th>
+			      <th scope="col">DNI/NIF</th>
 			      <th scope="col">Opciones</th>
 			    </tr>
 			  </thead>
